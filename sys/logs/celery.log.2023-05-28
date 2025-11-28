@@ -1,0 +1,5 @@
+[2023-05-29 07:00:00,094] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:105] Dynamic Sitemap Generator Task initiated
+[2023-05-29 07:00:03,341] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:107] Complete -- Dynamic SiteMap Generator Task
+[2023-05-29 07:10:00,051] INFO [idrisBackend.celery.ResetIsNewArrivalTask:110] ResetIsNewArrivaltask initiated
+[2023-05-29 19:00:00,053] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+[2023-05-29 19:03:04,403] INFO [idrisBackend.celery.SyncObjectStorageItemImages:101] Complete -- Sync Object Storage Item Images

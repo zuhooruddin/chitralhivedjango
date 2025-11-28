@@ -1,0 +1,152 @@
+[2023-09-04 04:40:43,042] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:40:43,113] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:49:11,090] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:49:11,091] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:49:11,150] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:49:11,151] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:50:12,216] ERROR [inara.views.getCategoryDetail:639] Exception in getCategoryDetail: Category matching query does not exist. 
+[2023-09-04 04:50:18,254] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:50:18,320] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:52:32,038] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:52:32,101] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:52:48,477] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:52:48,538] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:54:07,388] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:54:07,449] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:54:43,426] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 04:54:43,486] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:15,546] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:15,610] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:24,190] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:24,252] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:39,543] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:39,604] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:57,424] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:01:57,491] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:02:40,606] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:02:40,676] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:02:49,570] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:02:52,730] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:02:56,242] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:03:03,144] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:06:47,263] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:06:48,182] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:06:48,243] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:06:55,940] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:06:56,005] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:07:02,406] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:07:02,466] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:07:23,122] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:07:23,195] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:17:33,080] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:17:39,387] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:17:42,569] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:17:44,859] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:17:51,018] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:17:56,983] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:18:01,603] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:18:05,383] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:18:08,478] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:18:14,376] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:19:27,335] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:19:37,466] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:19:51,507] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:19:51,570] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:20:34,160] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:20:34,222] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:21:23,487] ERROR [inara.views.getItemDetail:997] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-04 05:21:23,758] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 05:21:29,940] ERROR [inara.views.getItemDetail:997] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-04 05:21:36,635] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 05:21:42,915] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:21:42,982] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:22:43,510] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:22:43,574] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:23:09,044] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:23:32,040] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:31:29,533] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:47:31,314] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:47:43,235] INFO [inara.views.apiSignOut:220] {'userId': 5, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzODA5NDUxLCJpYXQiOjE2OTM4MDI1NTQsImp0aSI6IjljYTZlOTYyNTRhYjQ3ZmRiMDAxMmEzZjYyNDk4MGFjIiwiaWQiOjV9.CIDnWRSZMuCH1iLFXZxVpfcqrC70JNIoRDfyM24lniw'} 
+[2023-09-04 05:47:43,660] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:50:51,078] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: boat
+[2023-09-04 05:52:57,791] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:52:57,852] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:07,406] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:07,465] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:09,990] INFO [inara.views.apiSignOut:220] {'userId': 6, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzODA5NTUzLCJpYXQiOjE2OTM4MDY1NTMsImp0aSI6IjViYmI3MWJiNjkwYTQ1YzJiMzM4NmU1MjFlZWI5MmYxIiwiaWQiOjZ9.PUHQW5cBK2YOuWl_UxmWZYKrZlN9z-jnXCxYTN8-1ek'} 
+[2023-09-04 05:53:11,255] INFO [inara.views.apiSignOut:220] {'userId': 6, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkzODA5NTUzLCJpYXQiOjE2OTM4MDY1NTMsImp0aSI6IjViYmI3MWJiNjkwYTQ1YzJiMzM4NmU1MjFlZWI5MmYxIiwiaWQiOjZ9.PUHQW5cBK2YOuWl_UxmWZYKrZlN9z-jnXCxYTN8-1ek'} 
+[2023-09-04 05:53:11,836] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:11,900] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:12,473] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 05:53:12,533] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:20:03,523] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:20:03,588] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:20:10,481] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:20:10,540] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:22:41,792] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:22:41,855] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:22:59,480] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:22:59,542] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:06,558] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:06,622] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:22,342] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:22,402] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:30,830] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:30,890] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:48,306] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:23:48,365] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:24:24,438] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:24:24,498] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:24:58,401] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:24:58,461] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:25:06,368] ERROR [inara.views.getItemDetail:997] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-04 06:25:06,564] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:25:12,286] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:25:18,734] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:25:30,243] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:25:44,539] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:26:23,719] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 06:26:31,310] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:26:31,370] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:26:49,967] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:26:50,032] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:27:04,417] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:27:04,477] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:27:13,790] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:27:13,851] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:27:18,169] INFO [inara.views.updateWishlist:2251] Request: {'userid': 6, 'itemid': 1}
+[2023-09-04 06:47:49,025] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:47:49,088] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:51:14,339] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 06:51:14,399] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:01:53,013] INFO [inara.views.addOrder:1700] Request: {'valueDict': {'name': 'inara123', 'email': 'izzashah401@gmail.com', 'phone': '03135863878', 'phone2': '03135863878', 'voucher': '', 'address': 'abc, pakistan', 'city': 'abc'}, 'userid': 6, 'cartList': [{'id': 1, 'mrp': 220, 'salePrice': 330, 'price': 330, 'sku': 'tecno122', 'slug': 'tecno', 'image': 'http://100.64.6.105:8091/media/item_image/banner-6.png', 'name': 'Tecno | Bundle: mmmm', 'qty': 3, 'bundle': True}, {'id': 2, 'mrp': 87000, 'salePrice': 75000, 'price': 75000, 'sku': '7723687562347856', 'slug': 'dawlance-fridge', 'image': 'http://100.64.6.105:8091/media/item_image/fridge-out.jpeg', 'name': 'Dawlance Fridge | Bundle: mmmm', 'qty': 3, 'bundle': True}], 'totalPrice': 226212}
+[2023-09-04 07:02:01,229] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:02:01,294] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:02:25,266] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:02:25,334] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:13:35,599] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:13:35,658] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:14:08,888] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:14:08,950] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:14:41,064] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:14:41,133] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:18:35,363] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:18:35,428] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:19:05,174] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:19:05,235] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:25:34,083] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:25:34,148] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:25:43,589] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:25:43,649] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:42:09,895] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:42:09,956] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:43:08,012] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 07:43:08,075] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-09-04 12:03:04,440] INFO [inara.views.deleteCustomerShipping:2298] Request: {'id': 1, 'shipping': 1}
+[2023-09-04 13:09:16,409] INFO [inara.views.updateWishlist:2251] Request: {'userid': 1, 'itemid': 2}
+[2023-09-04 13:09:18,292] INFO [inara.views.updateWishlist:2251] Request: {'userid': 1, 'itemid': 3}
+[2023-09-04 13:09:19,999] INFO [inara.views.updateWishlist:2251] Request: {'userid': 1, 'itemid': 4}
+[2023-09-04 13:10:06,961] ERROR [inara.views.getItemDetail:997] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-04 13:10:07,189] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: dawlance fridge
+[2023-09-04 13:10:18,507] INFO [inara.views.updateWishlist:2251] Request: {'userid': 1, 'itemid': 2}
+[2023-09-04 13:10:19,464] INFO [inara.views.updateWishlist:2251] Request: {'userid': 1, 'itemid': 2}

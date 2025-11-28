@@ -1,0 +1,34 @@
+[2023-09-14 05:46:35,133] ERROR [inara.views.getGeneralSetting:3925] Exception in getsliderimage: column site_setting.currency does not exist
+LINE 1: ...ting"."site_splash", "site_setting"."splashtime", "site_sett...
+                                                             ^
+ 
+[2023-09-14 05:46:35,134] ERROR [inara.views.getGeneralSetting:3925] Exception in getsliderimage: column site_setting.currency does not exist
+LINE 1: ...ting"."site_splash", "site_setting"."splashtime", "site_sett...
+                                                             ^
+ 
+[2023-09-14 05:46:35,868] ERROR [inara.views.getGeneralSetting:3925] Exception in getsliderimage: column site_setting.currency does not exist
+LINE 1: ...ting"."site_splash", "site_setting"."splashtime", "site_sett...
+                                                             ^
+ 
+[2023-09-14 05:46:40,533] ERROR [inara.views.getGeneralSetting:3925] Exception in getsliderimage: column site_setting.currency does not exist
+LINE 1: ...ting"."site_splash", "site_setting"."splashtime", "site_sett...
+                                                             ^
+ 
+[2023-09-14 06:12:52,776] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjczODg2LCJpYXQiOjE2OTQ2Njc4NDMsImp0aSI6IjRmZTJlNjMzYTkwNDQ1MmRhYjA0ZTNkYWMyODAwOWM1IiwiaWQiOjF9.ILW9kVMBsnOWlMfizrgpo_Nch-3v1nHANBd28AWsJ5g'} 
+[2023-09-14 06:12:53,385] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjczODg2LCJpYXQiOjE2OTQ2Njc4NDMsImp0aSI6IjRmZTJlNjMzYTkwNDQ1MmRhYjA0ZTNkYWMyODAwOWM1IiwiaWQiOjF9.ILW9kVMBsnOWlMfizrgpo_Nch-3v1nHANBd28AWsJ5g'} 
+[2023-09-14 06:43:39,123] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 06:45:16,082] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 06:45:35,387] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 06:45:41,311] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 06:45:47,807] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 06:45:53,893] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New
+[2023-09-14 07:56:40,408] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjgwMDQzLCJpYXQiOjE2OTQ2NzQwNzIsImp0aSI6IjVlNDk5ZmJmOTlkZjQwNjk4MzllNmE2YzNmZDA4YjkyIiwiaWQiOjF9.aktt9yR-5quu5WhGx4lw4xR1MQlBd02oCmUTOJMZOgE'} 
+[2023-09-14 08:32:20,987] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjgyMTA3LCJpYXQiOjE2OTQ2NzkxMDcsImp0aSI6IjVkYzhkMDkxYjc3OTRjMDY5OGJmMzkzNWQ3ZDQzYzYwIiwiaWQiOjF9.BiNSP7z-k3MNM7c7aCJ3ibmSGjwls97yk-0eSyjNzmc'} 
+[2023-09-14 11:02:05,826] INFO [inara.views.deleteCountry:4414] Request 4 
+[2023-09-14 11:36:15,023] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjkwNzYwLCJpYXQiOjE2OTQ2ODQyMzgsImp0aSI6IjFhMTVmZWM0MjdmMjQyNmVhOWY3ZjBiMDE2MjRkOTgxIiwiaWQiOjF9.W6xwvpDEuGXu8xUsDEMBtIUsYa7ElGiTYlbjIF7ajFY'} 
+[2023-09-14 13:00:10,577] ERROR [inara.views.get_queryset:4469] Exception in getAllCity: 'QuerySet' object has no attribute 'country' 
+[2023-09-14 13:01:58,150] ERROR [inara.views.get_queryset:4471] Exception in getAllCity: 'QuerySet' object has no attribute 'country' 
+[2023-09-14 13:06:08,512] ERROR [inara.views.get_queryset:4471] Exception in getAllCity: 'QuerySet' object has no attribute 'country' 
+[2023-09-14 13:22:25,285] INFO [inara.views.deleteCity:4359] Request 3 
+[2023-09-14 13:58:48,090] INFO [inara.views.deleteCountry:4404] Request 1 
+[2023-09-14 13:58:48,092] ERROR [inara.views.deleteCountry:4419] Exception in deleteCity: module 'inara.core.error_codes' has no attribute 'COUNTRY_EXST_IN_USR_SHIP_ERR_MSG' 

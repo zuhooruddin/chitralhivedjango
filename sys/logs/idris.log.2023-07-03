@@ -1,0 +1,1 @@
+[2023-07-03 08:27:35,740] INFO [inara.views.apiSignOut:211] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4MzY2ODI0LCJpYXQiOjE2ODgzNjA4MjgsImp0aSI6IjVlMGYxY2ExNzYxMTQzYTZhNzkwYzMzMDFiZTMxYTA4IiwiaWQiOjF9.Ib6jw6ZV27W1DccZRaPA8QpwFiGgIo-9GEjTSAFlCf8'} 

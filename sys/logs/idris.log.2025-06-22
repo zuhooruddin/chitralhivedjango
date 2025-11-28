@@ -1,0 +1,25 @@
+[2025-06-22 16:00:48,295] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:48,632] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:48,653] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:48,676] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:48,700] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:48,722] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:49,706] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-06-22 16:00:49,736] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:50,397] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:00:55,804] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:01:21,913] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:01:49,318] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:15,929] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:16,158] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:16,184] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:16,217] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:16,253] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:16,292] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:17,289] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-06-22 16:02:17,324] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:17,947] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:19,937] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:23,692] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:26,629] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-06-22 16:02:45,645] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 

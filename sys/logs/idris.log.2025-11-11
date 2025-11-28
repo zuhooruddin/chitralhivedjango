@@ -1,0 +1,15 @@
+[2025-11-12 02:13:34,443] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 02:43:52,624] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 05:29:06,013] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 06:02:34,937] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 10:36:43,592] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 12:28:03,470] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 14:51:37,396] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-12 17:04:35,654] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-11-12 21:28:13,324] INFO [inara.views.get_all_website_paginated_item:2483] Product Query: test
+[2025-11-12 21:28:13,338] ERROR [inara.views.get_all_website_paginated_item:2543] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...name"::text) LIKE UPPER('%test%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2025-11-12 21:50:26,048] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 

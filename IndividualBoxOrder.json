@@ -1,0 +1,156 @@
+[
+    {
+        "model": "inara.individualboxorder",
+        "pk": 1,
+        "fields": {
+            "sequenceNo": 1,
+            "category": 11,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "childrens-books",
+            "name": "CHILDRENS BOOKS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 2,
+        "fields": {
+            "sequenceNo": 2,
+            "category": 68,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "colour-pencil",
+            "name": "COLOUR PENCIL"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 3,
+        "fields": {
+            "sequenceNo": 3,
+            "category": 62,
+            "image": "category_icon/banner1.png",
+            "category_slug": "ball-point-gel-pen-roller-pen",
+            "name": "BALL POINT + GEL PEN + ROLLER PEN"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 4,
+        "fields": {
+            "sequenceNo": 4,
+            "category": 10,
+            "image": "category_icon/banner2.png",
+            "category_slug": "birthday-items",
+            "name": "BIRTHDAY ITEMS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 5,
+        "fields": {
+            "sequenceNo": 5,
+            "category": 70,
+            "image": "category_icon/banner3.png",
+            "category_slug": "colouring-activity-books",
+            "name": "COLOURING - ACTIVITY BOOKS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 6,
+        "fields": {
+            "sequenceNo": 6,
+            "category": 61,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "art-and-craft",
+            "name": "ART AND CRAFT"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 7,
+        "fields": {
+            "sequenceNo": 7,
+            "category": 50,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "calculator",
+            "name": "CALCULATOR"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 8,
+        "fields": {
+            "sequenceNo": 8,
+            "category": 76,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "files-and-folders",
+            "name": "FILES AND FOLDERS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 9,
+        "fields": {
+            "sequenceNo": 9,
+            "category": 17,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "general-books",
+            "name": "GENERAL BOOKS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 10,
+        "fields": {
+            "sequenceNo": 10,
+            "category": 23,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "islamic-books",
+            "name": "ISLAMIC BOOKS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 11,
+        "fields": {
+            "sequenceNo": 11,
+            "category": 5,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "toys1",
+            "name": "TOYS"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 12,
+        "fields": {
+            "sequenceNo": 12,
+            "category": 54,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "costume",
+            "name": "COSTUME"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 13,
+        "fields": {
+            "sequenceNo": 13,
+            "category": 12,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "css-pms-fpsc",
+            "name": "CSS PMS FPSC"
+        }
+    },
+    {
+        "model": "inara.individualboxorder",
+        "pk": 14,
+        "fields": {
+            "sequenceNo": 14,
+            "category": 63,
+            "image": "category_icon/default-category-icon.jpg",
+            "category_slug": "board-games",
+            "name": "BOARD GAMES"
+        }
+    }
+]

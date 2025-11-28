@@ -1,0 +1,19 @@
+[2025-11-13 05:27:33,123] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 07:13:02,594] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 08:18:33,952] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 09:50:28,232] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 09:55:16,683] INFO [inara.views.get_all_website_paginated_item:2483] Product Query: test
+[2025-11-13 09:55:16,705] ERROR [inara.views.get_all_website_paginated_item:2543] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...name"::text) LIKE UPPER('%test%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2025-11-13 12:32:26,805] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 12:47:20,390] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 13:37:32,787] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 16:25:13,445] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 18:39:24,832] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 18:39:36,721] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 19:44:21,354] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 19:44:22,538] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-13 22:54:54,360] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 

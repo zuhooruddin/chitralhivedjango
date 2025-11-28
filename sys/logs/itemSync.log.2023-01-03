@@ -1,0 +1,1 @@
+[2023-01-31 11:22:58,754] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.item.syncItems:225] Exception in Item Sync: Category matching query does not exist. 

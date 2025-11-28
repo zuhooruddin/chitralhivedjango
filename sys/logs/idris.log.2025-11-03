@@ -1,0 +1,21 @@
+[2025-11-04 04:45:48,177] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 07:15:52,301] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 08:49:34,899] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 08:50:43,548] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-11-04 08:51:01,737] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-11-04 11:52:38,245] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 13:38:20,685] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 14:27:29,815] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 14:28:35,274] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 14:28:36,404] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 14:28:40,157] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 15:01:08,721] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 15:31:13,799] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 16:03:37,700] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 16:03:38,688] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 16:10:25,047] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 16:10:32,198] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 16:10:34,102] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 18:37:46,905] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-11-04 19:14:07,762] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-11-04 19:14:13,644] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 

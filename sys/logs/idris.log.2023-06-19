@@ -1,0 +1,39 @@
+[2023-06-19 09:43:53,897] INFO [inara.views.apiSignOut:204] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg3MTU4NjczLCJpYXQiOjE2ODcxNTU2NzMsImp0aSI6IjlmOWIwZjk4YzU4MDQwYzhhNWU5MTNiNjkxYjc4NGU5IiwiaWQiOjF9.PrNw8HVIGk9nhyRkMUaRLUrQMKAk185ObwV0xkJpwhM'} 
+[2023-06-19 10:52:48,097] INFO [inara.views.checkCategoryChange:795] Request: {'id': 1, 'name': 'Book', 'slug': 'book', 'description': 'Book', 'icon': 'http://100.64.6.105:8092/media/category_icon/books.jpg', 'showAtHome': 0, 'metaUrl': None, 'metaTitle': None, 'metaDescription': None, 'isSchool': False, 'catName': None, 'priority': None, 'status': 1, 'parentId': None}
+[2023-06-19 10:56:00,041] INFO [inara.views.deleteLocalCategory:754] Request: 2
+[2023-06-19 10:57:10,050] INFO [inara.views.deleteLocalCategory:754] Request: 1
+[2023-06-19 10:57:43,348] INFO [inara.views.deleteLocalCategory:754] Request: 2
+[2023-06-19 10:57:43,349] ERROR [inara.views.deleteLocalCategory:774] Exception in deleteCategory: Cannot resolve keyword 'appliesOnline' into field. Choices are: catName, description, icon, id, isSchool, localcategory, metaDescription, metaTitle, metaUrl, name, parentId, parentId_id, priority, showAtHome, slug, status 
+[2023-06-19 11:02:41,410] INFO [inara.views.deleteLocalCategory:754] Request: 1
+[2023-06-19 11:02:41,411] ERROR [inara.views.deleteLocalCategory:772] Exception in deleteCategory: Cannot query "LocalCategory object (1)": Must be "Category" instance. 
+[2023-06-19 11:03:34,246] INFO [inara.views.deleteLocalCategory:754] Request: 1
+[2023-06-19 11:03:34,248] ERROR [inara.views.deleteLocalCategory:774] Exception in deleteCategory: Cannot query "LocalCategory object (1)": Must be "Category" instance. 
+[2023-06-19 11:08:51,873] INFO [inara.views.deleteLocalCategory:754] Request: 1
+[2023-06-19 11:28:29,706] INFO [inara.views.deleteLocalCategory:755] Request: 1
+[2023-06-19 11:42:59,625] INFO [inara.views.deleteLocalCategory:755] Request: 1
+[2023-06-19 11:44:42,957] INFO [inara.views.deleteLocalCategory:755] Request: 1
+[2023-06-19 11:45:26,201] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:45:26,203] ERROR [inara.views.deleteLocalCategory:775] Exception in deleteCategory: Cannot query "LocalCategory object (3)": Must be "Category" instance. 
+[2023-06-19 11:46:13,404] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:46:13,406] ERROR [inara.views.deleteLocalCategory:775] Exception in deleteCategory: Cannot query "LocalCategory object (3)": Must be "Category" instance. 
+[2023-06-19 11:48:39,513] INFO [inara.views.deleteLocalCategory:755] Request: 1
+[2023-06-19 11:48:39,516] ERROR [inara.views.deleteLocalCategory:776] Exception in deleteCategory: Cannot query "LocalCategory object (1)": Must be "Category" instance. 
+[2023-06-19 11:50:01,316] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:50:01,319] ERROR [inara.views.deleteLocalCategory:773] Exception in deleteCategory: Cannot query "LocalCategory object (3)": Must be "Category" instance. 
+[2023-06-19 11:51:30,865] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:52:07,596] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:53:03,188] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:54:51,335] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:56:53,820] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 11:56:58,007] INFO [inara.views.deleteLocalCategory:755] Request: 2
+[2023-06-19 12:00:03,859] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:02:45,660] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:06:21,365] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:12:38,867] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:14:33,821] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:16:08,944] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:20:00,663] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:21:30,971] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:23:18,775] INFO [inara.views.deleteLocalCategory:755] Request: 3
+[2023-06-19 12:25:33,422] INFO [inara.views.deleteLocalCategory:755] Request: 4
+[2023-06-19 12:30:23,724] INFO [inara.views.deleteLocalCategory:755] Request: 4

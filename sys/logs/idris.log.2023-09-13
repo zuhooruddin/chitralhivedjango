@@ -1,0 +1,165 @@
+[2023-09-13 05:26:32,178] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New Discounted Price
+[2023-09-13 05:35:18,761] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New Discounted Price
+[2023-09-13 05:35:27,306] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New Discounted Price
+[2023-09-13 05:35:50,311] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:35:50,733] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New Discounted Price
+[2023-09-13 05:35:53,514] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 05:35:56,184] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:00,429] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:08,659] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:09,221] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 05:36:11,477] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:13,163] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:14,266] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:14,563] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:14,884] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:17,388] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:18,699] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:18,905] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:19,120] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:19,300] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:19,469] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:19,636] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:19,835] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:20,261] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:22,424] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 05:36:27,059] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 05:52:57,025] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:53:04,324] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:53:11,458] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:53:44,950] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:55:25,489] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:56:04,928] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 05:57:10,325] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: New discounted price
+[2023-09-13 06:26:49,424] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:27:04,769] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:27:09,671] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:27:15,422] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:27:17,069] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:35:14,262] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:35:16,238] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:06,170] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:18,980] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:19,291] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:21,076] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:22,396] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:23,201] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:23,415] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:23,588] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:23,753] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:23,943] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,087] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,251] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,408] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,577] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,739] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:24,897] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:25,225] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:25,406] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:26,889] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:27,743] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:29,606] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:29,839] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: dawlance fridge
+[2023-09-13 06:38:30,786] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:31,061] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:35,421] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:39,023] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:39,326] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:40,490] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:41,752] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:42,017] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: dawlance fridge
+[2023-09-13 06:38:43,409] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:43,688] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:48,900] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:38:51,820] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:53,388] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:56,366] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:38:57,142] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: inara testing 2
+[2023-09-13 06:38:59,904] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:39:01,217] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:39:06,657] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:39:07,232] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:39:45,333] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NTg4MzMxLCJpYXQiOjE2OTQ1ODIyNTYsImp0aSI6ImQ1MmNkODVjMzhmNjQ3ZDg4YmY5OWI1ZjY3N2ZhYWU0IiwiaWQiOjF9.rJYiNH67F0uz_SPYaBcRDF4D3z81YJxaiFVmtNNDE0E'} 
+[2023-09-13 06:39:51,418] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:39:51,710] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:40:14,546] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:40:15,982] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:40:33,794] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:40:40,163] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:41:18,625] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:55:18,745] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 06:55:32,763] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:58:04,626] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:58:38,529] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:58:38,540] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:59:37,527] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 06:59:37,539] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:00:03,675] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:00:03,693] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:00:10,597] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:01:54,175] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:02:04,817] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:02:23,172] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:02:31,587] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:02:31,964] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:02:53,685] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:03:48,427] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:03:50,963] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:03:57,790] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:03:57,936] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:04:33,783] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:04:41,438] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:04:54,462] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:05:25,375] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:05:32,635] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:05:34,800] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:05:43,897] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:05:44,002] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:05:44,299] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: dawlance fridge
+[2023-09-13 07:05:46,468] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: dawlance fridge
+[2023-09-13 07:09:50,643] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:09:55,815] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:10:18,029] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:10:18,148] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:10:39,417] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:10:43,259] ERROR [inara.views.getItemDetail:998] Exception in getSearchItem: Category matching query does not exist. 
+[2023-09-13 07:11:13,747] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:14:42,134] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:14:44,367] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: new discounted price
+[2023-09-13 07:43:02,780] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'G12', 'city': 'islamabad'}, 'userid': 222, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'sku': 'dis222', 'slug': 'new-discounted-price', 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2314.5, 'deliveryFee': None}
+[2023-09-13 07:43:02,849] ERROR [inara.views.addOrder:1763] Exception in addOrder: Cannot assign "222": "UserShippingDetail.user" must be a "User" instance. 
+[2023-09-13 07:44:28,986] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'G12', 'city': 'islamabad'}, 'userid': 222, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'sku': 'dis222', 'slug': 'new-discounted-price', 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2314.5, 'deliveryFee': None}
+[2023-09-13 07:44:29,009] ERROR [inara.views.addOrder:1763] Exception in addOrder: Cannot assign "222": "UserShippingDetail.user" must be a "User" instance. 
+[2023-09-13 07:45:53,862] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'zuhoor', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'g12', 'city': 'Islamabad'}, 'userid': 8, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'sku': 'dis222', 'slug': 'new-discounted-price', 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2314.5, 'deliveryFee': 222}
+[2023-09-13 07:50:14,208] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'zuhoor', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'g12', 'city': 'Islamabad'}, 'userid': 8, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'sku': 'dis222', 'slug': 'new-discounted-price', 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 1896, 'deliveryFee': 222}
+[2023-09-13 07:51:43,458] INFO [inara.views.apiSignOut:221] {'userId': 8, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NTk0MDk5LCJpYXQiOjE2OTQ1OTEwOTksImp0aSI6IjNiOTQxNjZmYTIyMDQ2MmVhYjA1ODE5YjE4MTkyYmI3IiwiaWQiOjh9.4dKJiO1G15aBpoRr-3WyzNBNFct-33jepWRmh6x7vCE'} 
+[2023-09-13 07:51:44,707] ERROR [inara.views.apiSignOut:229] Exception in blackListAccessTokken: duplicate key value violates unique constraint "token_blacklist_blacklistedtoken_token_id_key"
+DETAIL:  Key (token_id)=(101) already exists.
+ 
+[2023-09-13 07:51:44,708] ERROR [inara.views.apiSignOut:229] Exception in blackListAccessTokken: duplicate key value violates unique constraint "token_blacklist_blacklistedtoken_token_id_key"
+DETAIL:  Key (token_id)=(101) already exists.
+ 
+[2023-09-13 07:53:04,444] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'wq', 'city': 'islamabad'}, 'userid': 222, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'sku': 'dis222', 'slug': 'new-discounted-price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2314.5, 'deliveryFee': None}
+[2023-09-13 07:53:04,482] ERROR [inara.views.addOrder:1763] Exception in addOrder: Cannot assign "222": "UserShippingDetail.user" must be a "User" instance. 
+[2023-09-13 07:58:10,084] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'G12', 'city': 'islamabad'}, 'userid': 222, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'sku': 'dis222', 'slug': 'new-discounted-price', 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2314.5, 'deliveryFee': None}
+[2023-09-13 08:12:01,197] ERROR [inara.views.showAllNavCategories:474] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2023-09-13 08:12:43,680] ERROR [inara.views.showAllNavCategories:474] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2023-09-13 09:34:40,780] INFO [inara.views.get_all_website_paginated_item:2478] Product Query: Sony
+[2023-09-13 10:05:57,065] INFO [inara.views.apiSignOut:221] {'userId': 8, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAyNDU3LCJpYXQiOjE2OTQ1OTk0NTcsImp0aSI6IjAxYmQ4MjBmM2MzOTQ4YmViYWYxOGQ0ZTI2OWQ0ZWFmIiwiaWQiOjh9.R20_q2jUvNkEW34sYP3fGQGu-5HdmMfl5JOkHeKR3jM'} 
+[2023-09-13 10:56:56,079] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:56:58,856] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:56:59,783] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:56:59,960] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:00,154] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:01,686] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:02,152] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:04,245] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:04,495] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:04,761] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:04,982] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 10:57:05,189] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NjAzMTE1LCJpYXQiOjE2OTQ2MDAxMTUsImp0aSI6ImJjOGZlNTE5YWQ3ZjQ3MTg4M2QyNDFhMWJiZmQwOTM1IiwiaWQiOjF9.mZ_u4TZFqqlEA3viG30FNp3QnmImznFjh54JOuiIEo8'} 
+[2023-09-13 12:19:00,983] ERROR [inara.views.showAllNavCategories:474] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2023-09-13 12:30:58,042] ERROR [inara.views.getGeneralSetting:3922] Exception in getsliderimage: column site_setting.splashtime does not exist
+LINE 1: ...site_banner_image", "site_setting"."site_splash", "site_sett...
+                                                             ^
+ 

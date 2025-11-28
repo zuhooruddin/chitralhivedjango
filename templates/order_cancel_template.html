@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Order Cancelled</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333333;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #333333;
+            margin: 0 0 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tfoot td {
+            text-align: right;
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h3>Dear {{ detail.custName }},</h3>
+    <h4>Your order No {{detail.orderNo}} has been cancelled! </h4>
+    <h5>Contact us for any queries <a href="mailto:idrisbookbank@gmail.com">here</a></h5>
+    <table>
+        <tr>
+            <td style="text-align: center; background-color: #f2f2f2; padding: 20px;">
+                <img src="https://s3-inara.eu-central-1.linodeobjects.com/idris/logo/idris-logo.png" alt="Idris Book Bank" style="max-width: 200px;">
+            </td>
+        </tr>
+    </table>
+    <footer style="background-color: #f6f6f6; padding: 20px; margin-top: 20px;">
+        <div style="max-width: 600px; margin: 0 auto; font-size: 14px; color: #666;">
+          <div style="text-align: center;">
+            <a href="{{host}}" style="color: #666; text-decoration: none;">Continue Shopping</a>|
+            <a href="{{host}}privacy-policy" style="color: #666; text-decoration: none;"> Privacy Policy</a>|
+            <a href="{{host}}about-us" style="color: #666; text-decoration: none;">About Us</a>
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <span style="color: #666;">Idris Book Bank Bank Road Saddar, Rawalpindi, Pakistan</span> |
+            <a href="tel:+1234567890" style="color: #666; text-decoration: none;"> 0311 5567305</a>
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="#" style="color: #666; text-decoration: none;">Join Us</a>
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="https://www.facebook.com/idrisbbofficial/" style="color: #666; text-decoration: none;">
+              <img src="https://cdn.freebiesupply.com/images/large/2x/facebook-logo-circle-transparent.png" alt="Facebook" style="max-width: 30px;">
+            </a>
+            <a href="https://idris-book-bank.business.site/" style="color: #666; text-decoration: none;">
+              <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="Twitter" style="max-width: 30px; margin-left: 10px;">
+            </a>
+            <a href="https://www.instagram.com/idrisbbofficial/" style="color: #666; text-decoration: none;">
+              <img src="https://toppng.com/uploads/preview/instagram-logo-11545512111t0928udues.png" alt="Instagram" style="max-width: 30px; margin-left: 10px;">
+            </a>
+          </div>
+        </div>
+      </footer>
+      
+</body>
+</html>

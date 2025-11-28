@@ -1,0 +1,10 @@
+[2023-09-15 05:39:35,259] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NzU5MzIwLCJpYXQiOjE2OTQ3NTMyNjAsImp0aSI6Ijc4NzM4YTdlMzBmZDQ1ZDg4YWZhNWU2YzdjNTQyOGQ2IiwiaWQiOjF9.OgGAmrjiM7uOliDyM6LVb-vdP_mR1JzEnZvvK32i750'} 
+[2023-09-15 06:49:23,441] INFO [inara.views.apiSignOut:221] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NzYyNjA2LCJpYXQiOjE2OTQ3NTk2MDYsImp0aSI6ImU2OTQ2OWIwMjMwMDQ4ZmJiNWVkMmFiMDAwYTlmN2FjIiwiaWQiOjF9.ZbtcRqjYPSpaEyjO-ZuS97wmHjP8eP7tpnXENY23_8A'} 
+[2023-09-15 06:54:50,134] INFO [inara.views.addOrder:1703] Request: {'valueDict': {'name': 'zuhoor', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'Street 53 New York Usa ', 'city': 'New York'}, 'userid': 8, 'cartList': [{'mrp': 12000, 'salePrice': 13000, 'price': 13000, 'qty': 1, 'name': 'boat', 'sku': '234', 'slug': 'boat', 'image': 'http://100.64.6.105:8091/media/item_image/roberto-h-qToVxSYXPYU-unsplash.jpg', 'id': 4}], 'totalPrice': 13250, 'deliveryFee': 250}
+[2023-09-15 07:18:34,270] INFO [inara.views.deleteCustomerShipping:2306] Request: {'id': 8, 'shipping': 19}
+[2023-09-15 07:20:56,214] INFO [inara.views.deleteCustomerShipping:2306] Request: {'id': 8, 'shipping': 22}
+[2023-09-15 07:48:34,832] INFO [inara.views.deleteCustomerShipping:2306] Request: {'id': 8, 'shipping': 26}
+[2023-09-15 07:53:10,307] INFO [inara.views.deleteCustomerShipping:2306] Request: {'id': 8, 'shipping': 23}
+[2023-09-15 09:47:16,137] INFO [inara.views.updateWishlist:2259] Request: {'userid': 8, 'itemid': 2}
+[2023-09-15 09:47:17,973] INFO [inara.views.updateWishlist:2259] Request: {'userid': 8, 'itemid': 1}
+[2023-09-15 12:14:28,638] INFO [inara.views.apiSignOut:221] {'userId': 8, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0NzgyMzExLCJpYXQiOjE2OTQ3NzExNDUsImp0aSI6IjdlMTVjYzI1YWNjMzQ5OWFiYWZiNGFkMjM4NjllODQ3IiwiaWQiOjh9.3BTaqhZ8I62alLE1Tu1sqb6TDpHobECbsHqCAEFhCpg'} 

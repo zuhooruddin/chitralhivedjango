@@ -1,0 +1,15 @@
+module.exports = {
+  apps: [
+    {
+      name: 'django-app',
+      script: 'gunicorn',
+      args: 'myproject.wsgi:application --bind 0.0.0.0:8000 --workers 3',
+      interpreter: 'python3',
+      cwd: '/var/www/my_django_project      env: {
+        DJANGO_SETTINGS_MODULE: 'myproject.settings',
+        PYTHONUNBUFFERED: '1'
+      }
+    }
+  ]
+}
+

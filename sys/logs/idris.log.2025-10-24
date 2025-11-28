@@ -1,0 +1,121 @@
+[2025-10-25 00:57:30,426] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 01:10:30,279] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 02:07:16,212] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 03:38:07,631] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 06:22:01,705] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 08:49:55,351] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 08:49:56,481] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 08:56:43,679] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 08:56:43,705] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 10:07:33,251] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 13:04:05,286] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:08:02,531] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:08:02,568] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:08:52,602] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:09:47,017] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:09:47,040] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:10:12,107] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:10:12,137] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:10:32,899] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:12:37,154] INFO [inara.views.deleteCategory:750] Request: 1
+[2025-10-25 17:18:22,614] INFO [inara.views.deleteCategory:750] Request: 2
+[2025-10-25 17:19:52,945] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:20:11,765] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:25:15,289] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:25:15,317] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:25:20,392] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:26:28,429] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:26:28,451] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:27:00,307] INFO [inara.views.registerUser:2399] Request: {'username': 'zuhooruddin055@gmail.com', 'email': 'zuhooruddin055@gmail.com', 'password': 'xuhoor77', 'fullName': 'Zuhoor uddin', 'address': 'fth floor skin plaza bahria town civic center phase 4', 'phone': '03239119309'}
+[2025-10-25 17:27:14,478] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:27:14,500] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:43:43,659] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-10-25 17:43:59,094] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 17:43:59,116] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 17:44:41,879] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 18:14:13,501] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 18:14:24,833] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 18:14:24,861] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 18:17:12,558] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 18:20:34,520] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 18:29:43,978] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:04:16,349] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:04:41,348] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:21:25,582] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:30:55,714] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:35:13,069] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2025-10-25 19:41:26,839] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:45:09,371] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 19:45:09,407] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:46:28,892] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:46:35,273] ERROR [inara.views.getCategoryDetail:645] Exception in getCategoryDetail: Category matching query does not exist. 
+[2025-10-25 19:48:01,745] INFO [inara.views.get_all_website_paginated_item:2483] Product Query: chitrali
+[2025-10-25 19:48:01,785] ERROR [inara.views.get_all_website_paginated_item:2543] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ..."::text) LIKE UPPER('%chitrali%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2025-10-25 19:48:09,422] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:52:10,210] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 19:59:20,545] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-10-25 20:04:00,124] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:04:00,457] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:04:42,148] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:07:34,788] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:08:42,632] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-10-25 20:10:51,734] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:10:51,760] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:23:13,578] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:23:13,601] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:27:03,630] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:27:04,105] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:33:16,702] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:33:16,723] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:36:31,122] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:36:31,179] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:42:14,126] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:42:50,418] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:42:50,454] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 20:59:08,368] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 20:59:08,397] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:05:53,333] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:05:54,907] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:07:05,007] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:07:53,273] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:07:53,304] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:09:01,196] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:09:01,223] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:09:20,353] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:09:20,377] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:14:30,396] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:14:30,424] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:14:47,462] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:14:47,492] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:14:57,225] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:19:16,989] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:26:27,339] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:26:27,373] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:26:38,358] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:26:38,382] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:29:19,877] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:29:19,901] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:32:21,894] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:32:21,952] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:34:51,237] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:35:51,152] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:36:54,297] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:36:57,639] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:37:51,677] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:38:04,949] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:38:05,011] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:38:05,060] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 21:39:16,013] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:39:45,980] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:40:22,757] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:41:07,019] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:41:45,119] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:45:44,369] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:47:15,599] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:57:23,490] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-10-25 21:57:43,874] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-10-25 22:07:25,306] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 

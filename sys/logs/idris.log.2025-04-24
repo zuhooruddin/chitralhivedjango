@@ -1,0 +1,17 @@
+[2023-10-02 05:30:02,460] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 05:33:23,547] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 05:34:41,957] INFO [inara.views.addOrder:1708] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'i14', 'city': 'Islamabad'}, 'userid': 250, 'cartList': [{'mrp': 3232, 'salePrice': 3232, 'price': 3232, 'qty': 1, 'name': 'Zuhoor Uddin', 'sku': '222', 'slug': 'zuhoor-uddin', 'image': 'http://100.64.6.105:8091/media/item_image/about.jpg', 'id': 5}], 'totalPrice': 3382, 'deliveryFee': None}
+[2023-10-02 05:39:57,994] INFO [inara.views.addOrder:1708] Request: {'valueDict': {'name': 'Zuhoor Uddin', 'email': 'zuhooruddin055@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'pakistan', 'city': 'Islamabad'}, 'userid': 150, 'cartList': [{'mrp': 2000, 'salePrice': 2092.5, 'price': 2092.5, 'qty': 1, 'name': 'New Discounted Price', 'sku': 'dis222', 'slug': 'new-discounted-price', 'image': 'http://100.64.6.105:8091/media/item_image/Black_Friday_Save_Coupon_PNG_Clipart_Image.png', 'id': 8}], 'totalPrice': 2242.5, 'deliveryFee': None}
+[2023-10-02 06:06:55,909] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:00:42,995] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:02:23,720] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:48:34,728] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:48:53,505] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:49:13,240] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:49:18,750] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:51:35,601] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:51:44,465] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:52:05,412] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:53:05,053] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:53:09,414] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 
+[2023-10-02 07:53:12,717] ERROR [inara.views.calculateWeight:4804] Exception in getShippingChargesAgainstCity: CourierConfiguration matching query does not exist. 

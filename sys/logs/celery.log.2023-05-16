@@ -1,0 +1,2 @@
+[2023-05-17 07:00:00,055] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:105] Dynamic Sitemap Generator Task initiated
+[2023-05-17 07:00:03,061] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:107] Complete -- Dynamic SiteMap Generator Task

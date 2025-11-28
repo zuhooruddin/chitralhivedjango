@@ -1,0 +1,2 @@
+[2023-05-11 07:00:00,098] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+[2023-05-11 07:03:14,721] INFO [idrisBackend.celery.SyncObjectStorageItemImages:101] Complete -- Sync Object Storage Item Images

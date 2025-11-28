@@ -1,0 +1,20 @@
+[2023-06-12 07:00:00,093] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+2023-06-12 07:26:47,068 INFO: idrisBackend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+[2023-06-12 07:26:47,068] INFO [idrisBackend.tasks.<module>:38] Logging enabled Tasks
+2023-06-12 07:44:40,101 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:10:57,518 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:12:03,450 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:12:31,209 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:19:25,187 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:19:29,635 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:20:11,099 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:20:19,068 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 08:20:29,384 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:16:21,813 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:29:39,960 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:33:41,454 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:35:52,284 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:38:51,721 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:40:34,643 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:41:19,914 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks
+2023-06-12 09:45:22,470 INFO: ecommerce_backend.tasks( tasks.<module>():38 )- Logging enabled Tasks

@@ -1,0 +1,8 @@
+[2023-01-02 11:05:45,537] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:16] Category Sync logger: <Logger inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category (DEBUG)> 
+[2023-01-02 11:05:45,537] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:17] Category Sync logger Name: inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category 
+[2023-01-02 11:05:46,055] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:16] Category Sync logger: <Logger inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category (DEBUG)> 
+[2023-01-02 11:05:46,058] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:17] Category Sync logger Name: inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category 
+[2023-01-02 11:05:58,812] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:16] Category Sync logger: <Logger inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category (DEBUG)> 
+[2023-01-02 11:05:58,813] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:17] Category Sync logger Name: inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category 
+[2023-01-02 11:06:01,463] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:16] Category Sync logger: <Logger inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category (DEBUG)> 
+[2023-01-02 11:06:01,463] ERROR [inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category.<module>:17] Category Sync logger Name: inara.core.middlewares.externalPOS.Gofrugal_RPOS7.category 

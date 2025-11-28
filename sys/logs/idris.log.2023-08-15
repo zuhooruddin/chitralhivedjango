@@ -1,0 +1,8 @@
+[2023-08-15 07:56:57,863] INFO [inara.views.addOrder:1700] Request: {'valueDict': {'name': 'zubair', 'email': 'zubair@gmail.com', 'phone': '03239119309', 'phone2': '03239119309', 'voucher': '', 'address': 'ds', 'city': 'Islamabad'}, 'userid': 1, 'cartList': [{'mrp': 222, 'salePrice': 2323, 'sku': '2536532323232', 'slug': 'ds', 'price': 2323, 'qty': 1, 'name': 'Stationerya', 'image': 'http://100.64.6.105:8091/media/item_image/dummy_ZnSUxfO.jpg', 'id': 100}], 'totalPrice': 2883}
+[2023-08-15 09:32:46,096] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-15 09:32:46,160] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-15 09:33:52,205] INFO [inara.views.apiSignOut:220] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkyMDkzODg3LCJpYXQiOjE2OTIwODYwMzIsImp0aSI6ImExYzE0ZDY5OGE5MDQ3Y2JhYzEyYjllZTJlYjUxM2ZiIiwiaWQiOjF9.SdBgeoWnfcfD4hlCl4x5Q-W7mrygXpQ_P7GFXps-k3U'} 
+[2023-08-15 09:33:53,686] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-15 09:33:53,750] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-15 09:41:04,993] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-15 09:41:05,059] ERROR [inara.views.getItemSearchCategory:2121] Exception in getItemSearchCategory: Category matching query does not exist. 

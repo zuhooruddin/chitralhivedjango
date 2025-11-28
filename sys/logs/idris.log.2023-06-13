@@ -1,0 +1,6 @@
+[2023-06-13 04:24:20,279] ERROR [inara.views.getItemSearchCategory:1973] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-06-13 04:24:20,345] ERROR [inara.views.getItemSearchCategory:1973] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-06-13 06:29:59,471] ERROR [inara.views.getItemSearchCategory:1975] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-06-13 06:29:59,533] ERROR [inara.views.getItemSearchCategory:1975] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-06-13 11:30:47,204] ERROR [inara.views.getItemSearchCategory:1975] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-06-13 11:30:47,310] ERROR [inara.views.getItemSearchCategory:1975] Exception in getItemSearchCategory: Category matching query does not exist. 

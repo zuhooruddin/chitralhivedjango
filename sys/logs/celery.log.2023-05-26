@@ -1,0 +1,5 @@
+[2023-05-27 07:00:00,092] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+[2023-05-27 07:03:39,701] INFO [idrisBackend.celery.SyncObjectStorageItemImages:101] Complete -- Sync Object Storage Item Images
+[2023-05-27 07:10:00,066] INFO [idrisBackend.celery.ResetIsNewArrivalTask:110] ResetIsNewArrivaltask initiated
+[2023-05-27 19:00:00,003] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+[2023-05-27 19:03:25,345] INFO [idrisBackend.celery.SyncObjectStorageItemImages:101] Complete -- Sync Object Storage Item Images

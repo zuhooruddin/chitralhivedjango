@@ -1,0 +1,48 @@
+[2025-10-25 17:19:19 +0000] [17294] [INFO] Starting gunicorn 20.1.0
+[2025-10-25 17:19:19 +0000] [17294] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:19:19 +0000] [17294] [ERROR] Retrying in 1 second.
+[2025-10-25 17:19:20 +0000] [17294] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:19:20 +0000] [17294] [ERROR] Retrying in 1 second.
+[2025-10-25 17:19:21 +0000] [17294] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:19:21 +0000] [17294] [ERROR] Retrying in 1 second.
+[2025-10-25 17:19:22 +0000] [17294] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:19:22 +0000] [17294] [ERROR] Retrying in 1 second.
+[2025-10-25 17:19:23 +0000] [17294] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:19:23 +0000] [17294] [ERROR] Retrying in 1 second.
+[2025-10-25 17:19:24 +0000] [17294] [ERROR] Can't connect to ('127.0.0.1', 8092)
+[2025-10-25 17:21:53 +0000] [17475] [INFO] Starting gunicorn 20.1.0
+[2025-10-25 17:21:53 +0000] [17475] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:21:53 +0000] [17475] [ERROR] Retrying in 1 second.
+[2025-10-25 17:21:54 +0000] [17475] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:21:54 +0000] [17475] [ERROR] Retrying in 1 second.
+[2025-10-25 17:21:55 +0000] [17475] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:21:55 +0000] [17475] [ERROR] Retrying in 1 second.
+[2025-10-25 17:21:56 +0000] [17475] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:21:56 +0000] [17475] [ERROR] Retrying in 1 second.
+[2025-10-25 17:21:57 +0000] [17475] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:21:57 +0000] [17475] [ERROR] Retrying in 1 second.
+[2025-10-25 17:21:58 +0000] [17475] [ERROR] Can't connect to ('127.0.0.1', 8092)
+[2025-10-25 17:22:12 +0000] [17477] [INFO] Starting gunicorn 20.1.0
+[2025-10-25 17:22:12 +0000] [17477] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:12 +0000] [17477] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:13 +0000] [17477] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:13 +0000] [17477] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:14 +0000] [17477] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:14 +0000] [17477] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:15 +0000] [17477] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:15 +0000] [17477] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:16 +0000] [17477] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:16 +0000] [17477] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:17 +0000] [17477] [ERROR] Can't connect to ('127.0.0.1', 8092)
+[2025-10-25 17:22:30 +0000] [17478] [INFO] Starting gunicorn 20.1.0
+[2025-10-25 17:22:30 +0000] [17478] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:30 +0000] [17478] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:31 +0000] [17478] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:31 +0000] [17478] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:32 +0000] [17478] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:32 +0000] [17478] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:33 +0000] [17478] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:33 +0000] [17478] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:34 +0000] [17478] [ERROR] Connection in use: ('127.0.0.1', 8092)
+[2025-10-25 17:22:34 +0000] [17478] [ERROR] Retrying in 1 second.
+[2025-10-25 17:22:35 +0000] [17478] [ERROR] Can't connect to ('127.0.0.1', 8092)

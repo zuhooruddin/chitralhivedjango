@@ -1,0 +1,8 @@
+[2023-06-21 07:25:55,042] INFO [inara.views.deleteCategory:714] Request: 2
+[2023-06-21 07:26:14,590] INFO [inara.views.deleteCategory:714] Request: 3
+[2023-06-21 07:26:14,611] ERROR [inara.views.deleteCategory:734] Exception in deleteCategory: ("Cannot delete some instances of model 'Category' because they are referenced through protected foreign keys: 'Category.parentId'.", {<Category: Category object (4)>}) 
+[2023-06-21 07:26:28,391] INFO [inara.views.deleteCategory:714] Request: 3
+[2023-06-21 07:26:28,419] ERROR [inara.views.deleteCategory:734] Exception in deleteCategory: ("Cannot delete some instances of model 'Category' because they are referenced through protected foreign keys: 'Category.parentId'.", {<Category: Category object (4)>}) 
+[2023-06-21 07:26:50,945] INFO [inara.views.deleteCategory:714] Request: 4
+[2023-06-21 07:27:07,417] INFO [inara.views.deleteCategory:714] Request: 3
+[2023-06-21 11:52:49,167] INFO [inara.views.apiSignOut:209] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg3MzQ5MDU1LCJpYXQiOjE2ODczNDIxNDEsImp0aSI6ImFiZWFmYjMxNDhjOTQyMzA5ZGE1OWY5NjU4MDFiMTFkIiwiaWQiOjF9.4YQ_UCBg4VBbdy0bDBeG_PfxdSlomFKgqHTlEOS44iY'} 

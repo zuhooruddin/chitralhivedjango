@@ -1,0 +1,11 @@
+[2023-09-22 10:30:21,756] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:30:45,853] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:10,271] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:13,598] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:14,188] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:14,397] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:14,637] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:14,861] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 10:31:16,217] ERROR [inara.views.calculateWeight:4803] Exception in getShippingChargesAgainstCity: name 'math' is not defined 
+[2023-09-22 12:17:20,902] INFO [inara.views.apiSignOut:226] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1Mzg3NjU4LCJpYXQiOjE2OTUzODE1ODcsImp0aSI6ImZmZjI1OTQ0OTAyOTRjOTg4YTgyNzhjM2VmZTQ5YmI5IiwiaWQiOjF9.S1_wVw49WefWgdCwuLl3rCcP3eX4Ib2vTGmOKN4AAaY'} 
+[2023-09-22 12:17:21,591] INFO [inara.views.apiSignOut:226] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1Mzg3NjU4LCJpYXQiOjE2OTUzODE1ODcsImp0aSI6ImZmZjI1OTQ0OTAyOTRjOTg4YTgyNzhjM2VmZTQ5YmI5IiwiaWQiOjF9.S1_wVw49WefWgdCwuLl3rCcP3eX4Ib2vTGmOKN4AAaY'} 

@@ -1,0 +1,479 @@
+[2025-04-25 10:53:37,536] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:45,956] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:45,977] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:45,998] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,025] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,040] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,061] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,086] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,098] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,107] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,113] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,576] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:00:46,864] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:00:46,871] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:46,883] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:48,472] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:00:53,912] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:01:01,382] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:01:20,360] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:02:20,718] ERROR [inara.views.getAllItems:848] Exception in getAllItems: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:02:30,177] ERROR [inara.views.getAllItems:848] Exception in getAllItems: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:02:34,285] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:02:40,207] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:02:51,122] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,412] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,418] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,424] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,431] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,437] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:09,732] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:03:09,739] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:10,868] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:16,364] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:03:18,175] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,203] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,231] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,254] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,264] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,277] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:32:58,712] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:32:58,742] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:33:04,138] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:33:11,661] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:33:18,243] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:31,816] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:31,822] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:31,827] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:31,832] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:31,838] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:32,127] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:36:32,136] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:33,827] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:39,087] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:36:49,317] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,439] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,460] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,482] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,494] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,504] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:42:42,817] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 11:42:42,830] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:55:41,983] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 11:55:48,230] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:39,919] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:39,939] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:39,967] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:39,986] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:40,028] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:06:40,524] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:06:40,538] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:06,036] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:21,455] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:21,496] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:21,519] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:21,554] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:21,565] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:22,054] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:28:22,062] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:27,702] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:27,708] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:27,714] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:27,720] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:27,726] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:28,007] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:28:28,014] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:33,165] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:28:54,230] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:29:21,060] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:29:32,039] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:29:42,996] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:30:28,950] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:31:24,877] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,071] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,094] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,107] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,119] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,130] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:35:11,626] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:35:11,641] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:15,345] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,596] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,604] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,611] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,617] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,623] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:18,959] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:36:18,966] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:19,981] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:36:27,824] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:15,954] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:15,960] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:15,965] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:15,973] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:15,978] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:16,258] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:37:16,265] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:20,438] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:47,958] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:47,964] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:47,970] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:47,977] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:47,982] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:48,274] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:37:48,282] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:52,204] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:57,216] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:37:57,545] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,468] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,475] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,480] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,486] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,492] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:05,831] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:40:05,838] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,367] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,375] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,382] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,388] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,395] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:06,684] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:40:06,692] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:07,178] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:17,470] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:33,471] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:48,183] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:51,903] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:51,908] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:51,917] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:51,922] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:51,932] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,236] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:40:52,243] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,517] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,524] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,530] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,537] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,543] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:52,832] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:40:52,842] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:53,986] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:55,232] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:40:59,228] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:01,635] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,257] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,263] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,271] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,278] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,285] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,571] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:41:04,579] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:04,615] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:05,809] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:06,944] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:06,950] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:06,956] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:06,962] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:06,968] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:07,275] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:41:07,282] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:08,862] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:12,783] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:12,790] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:12,797] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:12,804] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:12,809] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:13,092] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 12:41:13,101] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:15,051] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:26,058] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:27,984] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:38,302] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:41:59,311] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:42:21,217] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "chitral"
+ 
+[2025-04-25 12:45:20,720] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 12:45:27,197] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 12:45:30,259] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 12:45:41,742] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 12:45:53,679] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:06:58,183] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,482] ERROR [inara.views.getNavCategories:418] Exception in getNavCategories: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,493] ERROR [inara.views.getBrandBundels:2363] Exception in getBrandBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,500] ERROR [inara.views.getProductBundels:2375] Exception in getProductBundels: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,507] ERROR [inara.views.BoxOrder:2982] Exception in BoxOrder: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,520] ERROR [inara.views.getAllSectionSequence:2143] Exception in getAllSectionSequence: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:39:32,821] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 13:39:32,828] ERROR [inara.views.getLocalSlider:3945] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:41:01,195] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 13:41:08,645] ERROR [inara.views.getGeneralSetting:3933] Exception in getsliderimage: PostgreSQL 11 or later is required (found 10.23). 
+[2025-04-25 14:14:49,892] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:14:49,909] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:14:49,917] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:15:25,037] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:15:25,054] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:15:25,060] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:18:37,105] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:18:37,122] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:18:37,129] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:25:21,083] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:25:21,099] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:25:21,107] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:49:33,152] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:49:33,168] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:49:33,175] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:51:34,197] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:51:34,212] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:51:34,219] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:09,703] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:52:09,718] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:09,725] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:18,747] ERROR [inara.views.getCategoryDetail:645] Exception in getCategoryDetail: Category matching query does not exist. 
+[2025-04-25 14:52:21,470] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:52:21,486] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:21,495] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:27,970] ERROR [inara.views.getCategoryDetail:645] Exception in getCategoryDetail: Category matching query does not exist. 
+[2025-04-25 14:52:31,069] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:52:31,089] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:52:31,099] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:54:17,800] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:54:17,816] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:54:17,825] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:58:02,271] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:58:02,286] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:58:02,305] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:58:30,437] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 14:58:30,453] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 14:58:30,460] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:01:22,529] ERROR [inara.views.getCategoryDetail:645] Exception in getCategoryDetail: Category matching query does not exist. 
+[2025-04-25 15:01:25,950] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:01:25,964] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:01:25,972] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:01:30,938] ERROR [inara.views.getCategoryDetail:645] Exception in getCategoryDetail: Category matching query does not exist. 
+[2025-04-25 15:01:33,489] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:01:33,504] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:01:33,511] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:05:31,869] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:05:31,885] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:05:31,892] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:11:02,839] ERROR [inara.views.showAllNavCategories:479] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2025-04-25 15:11:20,450] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:11:20,465] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:11:20,473] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:21:10,888] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:21:10,903] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:21:10,910] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:24:38,843] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:24:38,858] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:24:38,865] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:31:58,400] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:31:58,417] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:31:58,424] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:51:05,351] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 15:51:05,366] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 15:51:05,374] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 16:34:42,031] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 16:34:42,051] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 16:34:42,059] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 16:34:44,304] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 16:34:44,320] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 16:34:44,327] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:35:41,112] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 17:35:41,130] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:35:41,138] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:37:50,170] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 17:37:50,185] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:37:50,192] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:39:59,198] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 17:39:59,214] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 17:39:59,221] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 18:14:09,569] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 18:14:09,587] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 18:14:09,595] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 18:15:01,176] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 18:15:01,192] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 18:15:01,198] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 19:40:59,789] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 19:40:59,805] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 19:40:59,814] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 20:17:38,219] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 20:17:38,236] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 20:17:38,244] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 21:07:06,113] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 21:07:06,129] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 21:07:06,137] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 22:09:16,751] ERROR [inara.views.getSlidersFromCloud:3324] getSlidersFromCloud : An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: Unknown 
+[2025-04-25 22:09:16,766] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2025-04-25 22:09:16,774] ERROR [inara.views.getItemSearchCategory:2134] Exception in getItemSearchCategory: Category matching query does not exist. 

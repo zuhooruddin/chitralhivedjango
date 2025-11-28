@@ -1,0 +1,25 @@
+[2023-08-16 05:17:33,987] INFO [inara.views.deleteCategory:744] Request: 6
+[2023-08-16 05:17:42,349] INFO [inara.views.deleteCategory:744] Request: 8
+[2023-08-16 05:17:46,498] INFO [inara.views.deleteCategory:744] Request: 9
+[2023-08-16 05:18:51,452] INFO [inara.views.deleteCategory:744] Request: 20
+[2023-08-16 06:04:34,184] INFO [inara.views.deleteCategory:744] Request: 21
+[2023-08-16 06:05:04,709] INFO [inara.views.deleteCategory:744] Request: 22
+[2023-08-16 06:11:48,130] ERROR [inara.views.getCategoryDetail:639] Exception in getCategoryDetail: Category matching query does not exist. 
+[2023-08-16 06:28:07,307] INFO [inara.views.apiSignOut:220] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkyMTY4NTUxLCJpYXQiOjE2OTIxNjI0MDQsImp0aSI6IjdiODM5Y2IxMmIyNDQ5ZWRhNzFmY2MxODQ2YzVmM2M3IiwiaWQiOjF9.6DhuJkrb7DggLE67ffDkmRI1Vu9HOXXNvDPoQBqcLWM'} 
+[2023-08-16 07:46:33,406] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:02:37,749] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:13:44,925] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:13:57,720] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:17:34,067] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:21:03,014] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:21:21,333] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: pok
+[2023-08-16 08:31:28,124] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: oranc
+[2023-08-16 08:58:26,756] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: oranc
+[2023-08-16 09:07:44,850] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: oranc
+[2023-08-16 09:18:14,248] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: oranc
+[2023-08-16 09:24:59,407] ERROR [inara.views.showAllNavCategories:473] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 
+[2023-08-16 09:26:18,821] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: hi
+[2023-08-16 09:26:21,752] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: hi
+[2023-08-16 09:26:26,363] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: hi
+[2023-08-16 09:26:29,472] INFO [inara.views.get_all_website_paginated_item:2470] Product Query: hi
+[2023-08-16 10:01:39,807] ERROR [inara.views.showAllNavCategories:473] Exception in getNavCategories: 'NoneType' object has no attribute 'replace' 

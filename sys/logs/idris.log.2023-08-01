@@ -1,0 +1,137 @@
+[2023-08-01 05:04:00,520] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:04:00,603] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:07:42,638] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:07:42,705] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:20:17,953] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:20:18,017] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:27:53,392] INFO [inara.views.wrapper:115] {'ErrorCode': 1, 'ErrorMsg': 'Please login to complete your request'} 
+[2023-08-01 05:28:22,712] INFO [inara.views.wrapper:115] {'ErrorCode': 1, 'ErrorMsg': 'Please login to complete your request'} 
+[2023-08-01 05:35:38,458] INFO [inara.views.wrapper:115] {'ErrorCode': 1, 'ErrorMsg': 'Please login to complete your request'} 
+[2023-08-01 05:54:29,303] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 05:54:29,362] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 06:34:10,421] INFO [inara.views.wrapper:129] userID = 2 reponse : {'ErrorCode': 1, 'ErrorMsg': 'You are not authorized to perform this action'} 
+[2023-08-01 06:34:32,288] INFO [inara.views.wrapper:129] userID = 2 reponse : {'ErrorCode': 1, 'ErrorMsg': 'You are not authorized to perform this action'} 
+[2023-08-01 06:35:07,678] INFO [inara.views.apiSignOut:216] {'userId': 2, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwODcyMjc2LCJpYXQiOjE2OTA4NjYyNTUsImp0aSI6ImVlZDE5MzI5MWI2NzQ4ZDU5ZWFlZjZhYzEyNjEzODAxIiwiaWQiOjJ9.mY9eOAWupq-jOE2uVCZTo-Uv9NhMjE-B-4lq1G6iRpQ'} 
+[2023-08-01 06:37:32,631] ERROR [inara.views.getItemDetail:1005] Exception in getSearchItem: Category matching query does not exist. 
+[2023-08-01 06:38:27,226] INFO [inara.views.get_all_website_paginated_item:2426] Product Query: class 8 math
+[2023-08-01 06:38:27,290] ERROR [inara.views.get_all_website_paginated_item:2455] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...y('class 8 math')) AND "item"."status" = 1) OR (((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 06:45:28,408] INFO [inara.views.deleteCategory:747] Request: 8
+[2023-08-01 06:45:39,003] INFO [inara.views.deleteCategory:747] Request: 10
+[2023-08-01 07:33:58,641] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:33:58,705] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:45:20,118] INFO [inara.views.apiSignOut:216] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwODc4MjI5LCJpYXQiOjE2OTA4NzE3NDUsImp0aSI6IjAxNGRhNjYwNGU4ODRiNTViZjQ0ODdiNGNkZTU5NTU3IiwiaWQiOjF9.fjD-54cgj3ZtsLwUHMfamE-_SeXUvpOSM8FrBCNACPg'} 
+[2023-08-01 07:45:54,531] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:45:54,595] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:48:29,680] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:48:29,743] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:50:22,235] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:50:22,299] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:54:28,257] INFO [inara.views.get_all_website_paginated_item:2426] Product Query: b
+[2023-08-01 07:54:28,285] ERROR [inara.views.get_all_website_paginated_item:2455] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...into_tsquery('b')) AND "item"."status" = 1) OR (((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 07:54:40,499] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:54:40,568] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:55:29,939] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 07:55:30,003] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:00:46,251] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:00:46,311] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:45:50,416] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:45:50,479] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:56:56,501] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 08:56:56,563] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 09:53:18,748] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 09:53:18,812] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 09:56:20,171] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 09:56:20,237] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 10:00:13,770] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 10:00:13,863] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 10:01:14,272] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 10:01:14,343] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:29:41,738] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:29:41,799] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:31:36,070] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:31:36,130] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:33:49,015] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 11:33:49,074] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:00:45,841] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:00:45,871] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:00:45,907] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:00:45,933] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:02:11,339] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:02:11,415] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:03:18,747] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:03:18,810] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 12:12:10,035] INFO [inara.views.get_all_website_paginated_item:2426] Product Query: book
+[2023-08-01 12:12:10,078] ERROR [inara.views.get_all_website_paginated_item:2455] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...o_tsquery('book')) AND "item"."status" = 1) OR (((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:13:23,858] INFO [inara.views.get_all_website_paginated_item:2426] Product Query: book
+[2023-08-01 12:13:23,943] ERROR [inara.views.get_all_website_paginated_item:2455] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...o_tsquery('book')) AND "item"."status" = 1) OR (((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:19:09,682] INFO [inara.views.get_all_website_paginated_item:2425] Product Query: book
+[2023-08-01 12:19:09,726] ERROR [inara.views.get_all_website_paginated_item:2455] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...o_tsquery('book')) AND "item"."status" = 1) OR (((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:22:07,695] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: book
+[2023-08-01 12:22:07,700] ERROR [inara.views.get_all_website_paginated_item:2483] Exception in get_all_website_paginated_item: name 'Value' is not defined 
+[2023-08-01 12:25:34,343] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: book
+[2023-08-01 12:25:35,593] ERROR [inara.views.get_all_website_paginated_item:2483] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...name"::text) LIKE UPPER('%book%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:26:36,705] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: book
+[2023-08-01 12:26:36,745] ERROR [inara.views.get_all_website_paginated_item:2483] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...name"::text) LIKE UPPER('%book%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:31:49,092] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: book
+[2023-08-01 12:31:49,124] ERROR [inara.views.get_all_website_paginated_item:2483] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...name"::text) LIKE UPPER('%book%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:32:25,468] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: samsung
+[2023-08-01 12:32:25,492] ERROR [inara.views.get_all_website_paginated_item:2483] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...e"::text) LIKE UPPER('%samsung%') THEN 1.0 ELSE ((SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 12:38:41,557] INFO [inara.views.get_all_website_paginated_item:2423] Product Query: samsung
+[2023-08-01 12:38:41,579] ERROR [inara.views.get_all_website_paginated_item:2484] Exception in get_all_website_paginated_item: function similarity(character varying, unknown) does not exist
+LINE 1: ...ame"::text) LIKE UPPER('%samsung%') THEN 1.0 ELSE SIMILARITY...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+ 
+[2023-08-01 13:29:52,013] INFO [inara.views.apiSignOut:216] {'userId': 1, 'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwODk1MzQ5LCJpYXQiOjE2OTA4ODkwMDQsImp0aSI6IjNkNDg4Mzk3OTdiYjRkZTliMzhiMzFlZDhlODRiNzYyIiwiaWQiOjF9.1bWobc3qGFin350mlRiai0wx1NHv2T271iVzlIoiCV0'} 
+[2023-08-01 13:47:46,019] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:47:46,085] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:49:53,710] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:49:53,770] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:55:55,443] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:55:55,506] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:58:21,090] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:58:21,153] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:59:12,618] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 13:59:12,682] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:00:54,366] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:00:54,427] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:06:51,587] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:06:51,652] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:11:00,950] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-08-01 14:11:01,022] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 

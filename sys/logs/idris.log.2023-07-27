@@ -1,0 +1,17 @@
+[2023-07-27 07:31:21,855] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 07:31:21,923] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 07:33:25,652] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 07:33:25,714] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 09:06:34,986] INFO [inara.views.registerUser:2339] Request: {'username': 'zuhooruddin055@gmail.com', 'email': 'zuhooruddin055@gmail.com', 'password': 'zuhoor55', 'fullName': 'zuhoor', 'address': 'i15', 'phone': '03239119309'}
+[2023-07-27 09:06:35,375] ERROR [inara.views.registerUser:2352] Exception in registerUser: duplicate key value violates unique constraint "auth_user_pkey"
+DETAIL:  Key (id)=(1) already exists.
+ 
+[2023-07-27 09:06:48,656] INFO [inara.views.registerUser:2339] Request: {'username': 'zuhooruddin@gmail.com', 'email': 'zuhooruddin@gmail.com', 'password': 'zuhoor55', 'fullName': 'zuhoor', 'address': 'i15', 'phone': '03239119309'}
+[2023-07-27 09:12:42,819] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 09:12:42,878] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 11:13:25,063] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 11:13:25,124] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 11:42:25,985] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 11:42:26,052] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 13:21:45,906] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 
+[2023-07-27 13:21:45,966] ERROR [inara.views.getItemSearchCategory:2088] Exception in getItemSearchCategory: Category matching query does not exist. 

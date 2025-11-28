@@ -1,0 +1,16 @@
+module.exports = {
+  apps: [
+    {
+      name: 'django-app',
+      script: 'gunicorn',
+      args: 'myproject.wsgi:application --bind 0.0.0.0:8000 --workers 3',
+      interpreter: 'python3',
+      cwd: '/var/www/sharp/sharplogician-final-django/var/www/sharp/sharplogician-final-django',
+      env: {
+        DJANGO_SETTINGS_MODULE: 'myproject.settings',
+        PYTHONUNBUFFERED: '1'
+      }
+    }
+  ]
+}
+

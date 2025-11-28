@@ -1,0 +1,2 @@
+[2023-08-11 09:35:34,880] INFO [inara.views.deleteCustomerShipping:2316] Request: {'id': 1, 'shipping': 5}
+[2023-08-11 09:35:37,685] INFO [inara.views.deleteCustomerShipping:2316] Request: {'id': 1, 'shipping': 5}

@@ -1,0 +1,6 @@
+[2023-05-25 04:34:50,059] INFO [idrisBackend.tasks.sync_categories_click:98] POS is unreachable.
+[2023-05-25 07:00:00,088] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:105] Dynamic Sitemap Generator Task initiated
+[2023-05-25 07:00:03,232] INFO [idrisBackend.celery.DynamicSiteMapGeneratorTask:107] Complete -- Dynamic SiteMap Generator Task
+[2023-05-25 07:10:00,091] INFO [idrisBackend.celery.ResetIsNewArrivalTask:110] ResetIsNewArrivaltask initiated
+[2023-05-25 19:00:00,093] INFO [idrisBackend.celery.SyncObjectStorageItemImages:99] Sync Object Storage Item Images
+[2023-05-25 19:02:59,079] INFO [idrisBackend.celery.SyncObjectStorageItemImages:101] Complete -- Sync Object Storage Item Images

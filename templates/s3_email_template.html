@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image Processing Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333333;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #333333;
+            margin: 0 0 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tfoot td {
+            text-align: right;
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td style="text-align: center; background-color: #f2f2f2; padding: 20px;">
+                <img src="https://s3-inara.eu-central-1.linodeobjects.com/idris/logo/idris-logo.png" alt="Idris Book Bank" style="max-width: 200px;">
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 20px;">
+                <h2>Dear Admin,</h2>
+                <h6>Please take relevant action on following images<h6>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Delete Images</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for image in deleteImages %}
+                        <tr>
+
+                            <td>{{image}}</td>
+
+                        </tr>
+                        {% endfor %}
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Total:</td>
+                                <td>{{deleteImages|length  }}</td>
+                            </tr>
+                        </tfoot>
+                    </tbody>
+                 
+                </table>
+                <h1>Exceptions in Images</h1>
+               
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Exception Image List</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for image in exceptionImages %}
+                        <tr>
+
+                            <td>{{image}}</td>
+                        </tr>
+                        
+                        {% endfor %}
+                    </tbody>
+                 
+                </table>
+                <br>
+                <h6>Contact Inara Team for further details.</h6>
+            </td>
+        </tr>
+    </table>
+    <footer style="background-color: #f6f6f6; padding: 20px; margin-top: 20px;">
+        <div style="max-width: 600px; margin: 0 auto; font-size: 14px; color: #666;">
+          <div style="text-align: center; margin-top: 10px;">
+            <span style="color: #666;">Idris Book Bank Bank Road Saddar, Rawalpindi, Pakistan</span> |
+            <a href="tel:+1234567890" style="color: #666; text-decoration: none;"> 0311 5567305</a>
+          </div>
+        </div>
+      </footer>
+      
+</body>
+</html>

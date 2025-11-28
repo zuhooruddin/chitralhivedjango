@@ -1,0 +1,12 @@
+[
+   
+    {"model": "socialaccount.socialapp", 
+    "pk": 1, 
+    "fields": 
+        {"provider": "google", "name": "idris", 
+        "client_id": "820933662905-6ipmnucvab7bm5a8lrtp0bc86odkvdj9.apps.googleusercontent.com", 
+        "secret": "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", 
+        "key": "  ", 
+        "sites": [1]}
+    }
+]
