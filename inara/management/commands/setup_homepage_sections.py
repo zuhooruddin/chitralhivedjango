@@ -496,14 +496,28 @@ class Command(BaseCommand):
             
             if product_count == 0:
                 # Try to link some products to this category
-                # Get products that might belong to this category
-                products = Item.objects.filter(
-                    status=Item.ACTIVE,
-                    appliesOnline=1
-                ).exclude(
-                    categoryitem__categoryId=category
-                )[:10]  # Link up to 10 products
+                # Get items that are already linked to other categories
+                linked_item_ids = CategoryItem.objects.filter(
+                    status=CategoryItem.ACTIVE
+                ).values_list('itemId', flat=True).distinct()
                 
+                # Get products that might belong to this category but aren't linked yet
+                # Or get any active products if none are linked
+                if linked_item_ids:
+                    products = Item.objects.filter(
+                        status=Item.ACTIVE,
+                        appliesOnline=1
+                    ).exclude(
+                        id__in=linked_item_ids
+                    )[:10]  # Link up to 10 products
+                else:
+                    # If no products are linked anywhere, get any active products
+                    products = Item.objects.filter(
+                        status=Item.ACTIVE,
+                        appliesOnline=1
+                    )[:10]
+                
+                linked_count = 0
                 for product in products:
                     try:
                         CategoryItem.objects.get_or_create(
@@ -514,12 +528,13 @@ class Command(BaseCommand):
                                 'status': CategoryItem.ACTIVE,
                             }
                         )
+                        linked_count += 1
                         products_linked += 1
-                    except Exception:
+                    except Exception as e:
                         continue
                 
-                if products_linked > 0:
-                    self.stdout.write(self.style.SUCCESS(f'  Linked {products_linked} products to {category.name}'))
+                if linked_count > 0:
+                    self.stdout.write(self.style.SUCCESS(f'  Linked {linked_count} products to {category.name}'))
             else:
                 self.stdout.write(f'  {category.name}: {product_count} products already linked')
         
