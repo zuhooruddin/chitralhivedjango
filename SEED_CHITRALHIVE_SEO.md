@@ -52,7 +52,7 @@ python manage.py seed_chitralhive_seo
    - Chitrali Wool Products (`/categories/chitrali-wool-products`) - 50 products
    - Chitrali Traditional Foods (`/categories/chitrali-traditional-foods`) - 40 products
 
-3. **Products** (Total: ~2000 products)
+3. **Products** (Total: ~2,860 products)
    - Each product has unique SEO-friendly URL
    - Format: `/products/{product-slug}-{weight}-{id}`
    - Example: `/products/chitrali-almonds-100g-100001`
