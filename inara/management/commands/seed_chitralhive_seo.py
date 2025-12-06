@@ -240,6 +240,7 @@ class Command(BaseCommand):
                 ],
                 'weights': ['10g', '25g', '50g', '100g', '250g', '500g'],
                 'price_range': (1000, 10000),
+                
             },
             'chitrali-herbs': {
                 'names': [
