@@ -33,10 +33,20 @@ python manage.py seed_chitralhive_seo
    - URL: `/categories/chitrali-products`
    - SEO Title: "Chitrali Products - Authentic Chitral Products Online | ChitralHive"
 
-2. **18 Main Categories**:
+2. **1
+
+
+
+
+
+
+ Main Categories**:
    - Dry Fruits (`/categories/chitrali-dry-fruits`) - 600 products
    - Salajit (`/categories/chitrali-salajit`) - 200 products
-   - Chitrali Herbs (`/categories/chitrali-herbs`) - 300 products
+   - Chitrali Herbs (`/categories/chitrali-herbs`
+   
+   
+    - 300 products
    - Chitrali Honey (`/categories/chitrali-honey`) - 150 products
    - Chitrali Nuts (`/categories/chitrali-nuts`) - 250 products
    - Chitrali Spices (`/categories/chitrali-spices`) - 200 products
