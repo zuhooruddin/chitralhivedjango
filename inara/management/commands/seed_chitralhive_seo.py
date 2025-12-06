@@ -37,27 +37,8 @@ class Command(BaseCommand):
         """Create ChitralHive categories and subcategories with SEO-friendly URLs"""
         categories = {}
         
-        # Main Chitrali Products category
-        main_cat, created = Category.objects.get_or_create(
-            slug='chitrali-products',
-            defaults={
-                'name': 'Chitrali Products',
-                'description': 'Discover authentic Chitrali products including premium dry fruits, pure salajit, traditional herbs, organic honey, and more. Shop the finest quality products directly from Chitral.',
-                'status': Category.ACTIVE,
-                'appliesOnline': 1,
-                'showAtHome': 1,
-                'priority': 1,
-                'posType': Category.INTERNAL,
-                'metaUrl': '/categories/chitrali-products',
-                'metaTitle': 'Chitrali Products - Authentic Chitral Products Online | ChitralHive',
-                'metaDescription': 'Shop authentic Chitrali products including dry fruits, salajit, herbs, honey, nuts, and spices. Premium quality, 100% natural products from Chitral mountains.',
-            }
-        )
-        if created:
-            self.stdout.write(self.style.SUCCESS(f'Created main category: {main_cat.name}'))
-        categories['main'] = main_cat
-        
-        # Subcategories with SEO
+        # Create main categories (parentId=None) that will show on home page
+        # Each category is a main category so it appears in navigation
         subcategories_data = [
             {
                 'name': 'Dry Fruits',
@@ -126,15 +107,17 @@ class Command(BaseCommand):
         ]
         
         for idx, subcat_data in enumerate(subcategories_data, start=1):
+            # Create as main category (parentId=None) so it shows on home page
             subcat, created = Category.objects.get_or_create(
                 slug=subcat_data['slug'],
                 defaults={
                     'name': subcat_data['name'],
                     'description': subcat_data['description'],
-                    'parentId': main_cat,
+                    'parentId': None,  # Main category - will show on home page
+                    'isBrand': False,  # Required for getNavCategories
                     'status': Category.ACTIVE,
                     'appliesOnline': 1,
-                    'showAtHome': 1,
+                    'showAtHome': 1,  # Show on home page
                     'priority': idx,
                     'posType': Category.INTERNAL,
                     'metaUrl': f'/categories/{subcat_data["slug"]}',
@@ -143,7 +126,16 @@ class Command(BaseCommand):
                 }
             )
             if created:
-                self.stdout.write(self.style.SUCCESS(f'Created subcategory: {subcat.name}'))
+                self.stdout.write(self.style.SUCCESS(f'Created main category: {subcat.name}'))
+            else:
+                # Update existing category to ensure it's set as main category
+                subcat.parentId = None
+                subcat.isBrand = False
+                subcat.showAtHome = 1
+                subcat.status = Category.ACTIVE
+                subcat.save()
+                self.stdout.write(self.style.SUCCESS(f'Updated category: {subcat.name}'))
+            
             categories[subcat_data['slug']] = {
                 'category': subcat,
                 'products_count': subcat_data['products_count']
