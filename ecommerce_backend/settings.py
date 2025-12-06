@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-f$rybd7or=4vavz%ayb+q3s734&!sd2gy-+ogo&)=ush6_uzj+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.64.6.105','localhost:3001','chitralhive.com','localhost','127.0.0.1','idrisbookbank-dev.inara.tech','idrisbookbank-dev-server.inara.tech']
+ALLOWED_HOSTS = ['100.64.6.105','localhost:3001','chitralhive.com','api.chitralhive.com','localhost','127.0.0.1','idrisbookbank-dev.inara.tech','idrisbookbank-dev-server.inara.tech']
 
 
 # Application definition
@@ -204,7 +204,8 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+
+# Get your email from existing cert or use a default
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
