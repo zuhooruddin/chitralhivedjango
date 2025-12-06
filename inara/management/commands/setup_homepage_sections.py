@@ -2,6 +2,7 @@
 Django management command to set up home page sections with ChitralHive categories
 Run: python manage.py setup_homepage_sections
 """
+import re
 from django.core.management.base import BaseCommand
 from inara.models import Category, Individual_BoxOrder, Configuration, SectionSequence
 
@@ -21,6 +22,9 @@ class Command(BaseCommand):
         
         # Step 1: Clear old placeholder data
         self.clear_old_data(clear_all=options['clear'])
+        
+        # Step 1.5: Clean up placeholder categories (set showAtHome=0)
+        self.cleanup_placeholder_categories()
         
         # Step 2: Get ChitralHive categories
         categories = self.get_chitralhive_categories()
@@ -54,11 +58,65 @@ class Command(BaseCommand):
             SectionSequence.objects.all().delete()
             self.stdout.write(self.style.SUCCESS('All data cleared'))
         else:
-            self.stdout.write('Keeping existing data (use --clear to remove all)')
+            # Remove Individual_BoxOrder entries that reference placeholder categories
+            self.stdout.write('Removing placeholder category entries...')
+            
+            # Find placeholder categories (Category1, Category2, Category 1, etc.)
+            placeholder_pattern = re.compile(r'^Category\s*\d+$', re.IGNORECASE)
+            placeholder_categories = Category.objects.filter(
+                name__iregex=r'^Category\s*\d+$'
+            )
+            
+            if placeholder_categories.exists():
+                placeholder_ids = list(placeholder_categories.values_list('id', flat=True))
+                
+                # Remove Individual_BoxOrder entries referencing placeholder categories
+                deleted_boxes = Individual_BoxOrder.objects.filter(
+                    category_id__in=placeholder_ids
+                ).delete()
+                
+                # Remove SectionSequence entries referencing placeholder categories
+                deleted_sections = SectionSequence.objects.filter(
+                    category__in=placeholder_ids
+                ).delete()
+                
+                self.stdout.write(self.style.SUCCESS(
+                    f'Removed {deleted_boxes[0]} Individual_BoxOrder entries and '
+                    f'{deleted_sections[0]} SectionSequence entries for placeholder categories'
+                ))
+            else:
+                self.stdout.write('No placeholder categories found')
+            
+            # Also remove entries with placeholder names directly in Individual_BoxOrder
+            deleted_direct = Individual_BoxOrder.objects.filter(
+                category_name__iregex=r'^Category\s*\d+$'
+            ).delete()
+            
+            if deleted_direct[0] > 0:
+                self.stdout.write(self.style.SUCCESS(
+                    f'Removed {deleted_direct[0]} Individual_BoxOrder entries with placeholder names'
+                ))
+
+    def cleanup_placeholder_categories(self):
+        """Disable placeholder categories so they don't appear on home page"""
+        placeholder_categories = Category.objects.filter(
+            name__iregex=r'^Category\s*\d+$'
+        )
+        
+        if placeholder_categories.exists():
+            count = placeholder_categories.update(
+                showAtHome=0,  # Hide from home page
+                status=Category.INACTIVE  # Set as inactive
+            )
+            self.stdout.write(self.style.SUCCESS(
+                f'Disabled {count} placeholder categories (Category1, Category2, etc.)'
+            ))
+        else:
+            self.stdout.write('No placeholder categories to clean up')
 
     def get_chitralhive_categories(self):
         """Get ChitralHive categories that should appear on home page (SEO-optimized)"""
-        # Get all eligible categories
+        # Get all eligible categories, excluding placeholder categories
         all_categories = Category.objects.filter(
             parentId=None,
             isBrand=False,
@@ -68,6 +126,8 @@ class Command(BaseCommand):
             slug__isnull=True
         ).exclude(
             slug=''
+        ).exclude(
+            name__iregex=r'^Category\s*\d+$'  # Exclude Category1, Category2, etc.
         )
         
         # Separate categories with and without SEO fields
@@ -117,6 +177,12 @@ class Command(BaseCommand):
             for section_idx in [1, 2]:
                 if section_idx <= len(categories):
                     category = categories[section_idx - 1]
+                    
+                    # Skip placeholder categories
+                    if re.match(r'^Category\s*\d+$', category.name, re.IGNORECASE):
+                        self.stdout.write(self.style.WARNING(f'Skipping placeholder category: {category.name}'))
+                        continue
+                    
                     icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'
                     
                     # Use SEO-friendly slug (metaUrl if available, otherwise slug)
@@ -145,6 +211,10 @@ class Command(BaseCommand):
                     )[:5]  # Max 5 subcategories per section
                     
                     for child_idx, child_cat in enumerate(child_categories):
+                        # Skip placeholder subcategories
+                        if re.match(r'^Category\s*\d+$', child_cat.name, re.IGNORECASE):
+                            continue
+                        
                         child_icon = child_cat.icon.name if child_cat.icon else 'category_icon/default-category-icon.jpg'
                         
                         # Use SEO-friendly slug for subcategories
@@ -186,6 +256,11 @@ class Command(BaseCommand):
                 break
                 
             category = categories[idx]
+            
+            # Skip placeholder categories
+            if re.match(r'^Category\s*\d+$', category.name, re.IGNORECASE):
+                self.stdout.write(self.style.WARNING(f'Skipping placeholder category: {category.name}'))
+                continue
             
             # Get category icon or use default
             icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'

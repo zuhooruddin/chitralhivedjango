@@ -61,11 +61,13 @@ python manage.py setup_homepage_sections --clear
 
 ## What Gets Created
 
-### Individual_BoxOrder Entries
+### Individual_BoxOrder Entries (SEO-Optimized)
 
 1. **Section entries** (type='section'):
    - sequenceNo=1: First main category section
    - sequenceNo=2: Second main category section
+   - Uses `metaUrl` if available, otherwise `slug`
+   - Uses `metaTitle` if available, otherwise `name`
 
 2. **Box entries** (type='box'):
    - sequenceNo=1-2: Section 1 boxes
@@ -73,20 +75,45 @@ python manage.py setup_homepage_sections --clear
    - sequenceNo=9-11: Section 3 boxes (if configured)
    - sequenceNo=12-13: Section 4 boxes (if configured)
    - sequenceNo=14: Section 5 box (if configured)
+   - Uses `metaUrl` if available, otherwise `slug`
+   - Uses `metaTitle` if available, otherwise `name`
 
 3. **Subcategory entries** (type='section_subcategory'):
    - Created for child categories of section categories
    - Linked via `parent` field to section category ID
+   - Uses `metaUrl` if available, otherwise `slug`
+   - Uses `metaTitle` if available, otherwise `name`
 
-### SectionSequence Entries
+### SectionSequence Entries (SEO-Optimized)
 
-- Created for first 3 categories
+- Created for first 3 categories (prioritizing SEO-optimized)
+- Uses `metaUrl` for category_slug if available
+- Uses `metaTitle` for name if available
 - Includes child categories (up to 7) in child1-child7 fields
+- Child categories also use SEO fields (metaUrl, metaTitle)
 
 ### Configuration
 
 - `box`: Number of boxes configured
 - `section`: Number of sections configured
+
+## SEO Best Practices
+
+1. **Ensure categories have SEO fields populated**:
+   - Run `seed_chitralhive_seo` command first to populate metaUrl, metaTitle, metaDescription
+   - Categories with SEO fields are prioritized automatically
+
+2. **Verify SEO fields**:
+   ```python
+   # Check category SEO status
+   Category.objects.filter(metaUrl__isnull=False).count()
+   Category.objects.filter(metaTitle__isnull=False).count()
+   ```
+
+3. **URL Structure**:
+   - The command uses `metaUrl` when available (most SEO-friendly)
+   - Falls back to `slug` if metaUrl is not set
+   - All URLs are SEO-friendly and unique
 
 ## Customization
 
@@ -95,6 +122,7 @@ To customize which categories appear:
 1. Edit `get_chitralhive_categories()` method to filter categories differently
 2. Adjust `box_sequence` array to change box layout
 3. Modify `create_section_sequences()` to change section configuration
+4. Change SEO field priority in `get_chitralhive_categories()` sorting logic
 
 ## Frontend Integration
 
