@@ -33,15 +33,24 @@ python manage.py seed_chitralhive_seo
    - URL: `/categories/chitrali-products`
    - SEO Title: "Chitrali Products - Authentic Chitral Products Online | ChitralHive"
 
-2. **8 Subcategories**:
-   - Dry Fruits (`/categories/chitrali-dry-fruits`)
-   - Salajit (`/categories/chitrali-salajit`)
-   - Chitrali Herbs (`/categories/chitrali-herbs`)
-   - Chitrali Honey (`/categories/chitrali-honey`)
-   - Chitrali Nuts (`/categories/chitrali-nuts`)
-   - Chitrali Spices (`/categories/chitrali-spices`)
-   - Chitrali Apricots (`/categories/chitrali-apricots`)
-   - Chitrali Grains (`/categories/chitrali-grains`)
+2. **18 Main Categories**:
+   - Dry Fruits (`/categories/chitrali-dry-fruits`) - 600 products
+   - Salajit (`/categories/chitrali-salajit`) - 200 products
+   - Chitrali Herbs (`/categories/chitrali-herbs`) - 300 products
+   - Chitrali Honey (`/categories/chitrali-honey`) - 150 products
+   - Chitrali Nuts (`/categories/chitrali-nuts`) - 250 products
+   - Chitrali Spices (`/categories/chitrali-spices`) - 200 products
+   - Chitrali Apricots (`/categories/chitrali-apricots`) - 150 products
+   - Chitrali Grains (`/categories/chitrali-grains`) - 150 products
+   - Chitrali Oils (`/categories/chitrali-oils`) - 100 products
+   - Chitrali Tea (`/categories/chitrali-tea`) - 80 products
+   - Chitrali Jams & Preserves (`/categories/chitrali-jams-preserves`) - 60 products
+   - Chitrali Seeds (`/categories/chitrali-seeds`) - 120 products
+   - Chitrali Pickles (`/categories/chitrali-pickles`) - 70 products
+   - Chitrali Rice & Pulses (`/categories/chitrali-rice-pulses`) - 100 products
+   - Chitrali Medicinal Plants (`/categories/chitrali-medicinal-plants`) - 90 products
+   - Chitrali Wool Products (`/categories/chitrali-wool-products`) - 50 products
+   - Chitrali Traditional Foods (`/categories/chitrali-traditional-foods`) - 40 products
 
 3. **Products** (Total: ~2000 products)
    - Each product has unique SEO-friendly URL

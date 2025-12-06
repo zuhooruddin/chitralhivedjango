@@ -104,6 +104,78 @@ class Command(BaseCommand):
                 'metaDescription': 'Buy organic Chitrali grains online. Whole wheat, barley, oats, quinoa, and more. Rich in fiber and nutrients. Perfect for healthy cooking.',
                 'products_count': 150,
             },
+            {
+                'name': 'Chitrali Oils',
+                'slug': 'chitrali-oils',
+                'description': 'Pure Chitrali cold-pressed oils including walnut oil, apricot kernel oil, almond oil, and more. Natural, unrefined oils rich in healthy fats and nutrients.',
+                'metaTitle': 'Chitrali Oils - Pure Cold-Pressed Oils Online | ChitralHive',
+                'metaDescription': 'Buy pure Chitrali oils online. Cold-pressed walnut oil, apricot kernel oil, almond oil. Natural, unrefined, rich in healthy fats. Free shipping.',
+                'products_count': 100,
+            },
+            {
+                'name': 'Chitrali Tea',
+                'slug': 'chitrali-tea',
+                'description': 'Premium Chitrali tea blends including green tea, herbal tea, and traditional Chitrali tea. Natural, organic tea leaves from mountain regions.',
+                'metaTitle': 'Chitrali Tea - Premium Tea Blends Online | ChitralHive',
+                'metaDescription': 'Shop premium Chitrali tea online. Green tea, herbal tea, traditional blends. Natural, organic tea leaves. Rich in antioxidants. Free shipping.',
+                'products_count': 80,
+            },
+            {
+                'name': 'Chitrali Jams & Preserves',
+                'slug': 'chitrali-jams-preserves',
+                'description': 'Natural Chitrali jams and preserves made from fresh fruits. Apricot jam, mulberry jam, apple preserve, and more. No artificial preservatives.',
+                'metaTitle': 'Chitrali Jams & Preserves - Natural Fruit Preserves Online | ChitralHive',
+                'metaDescription': 'Buy natural Chitrali jams and preserves online. Apricot jam, mulberry jam, apple preserve. Made from fresh fruits, no artificial preservatives.',
+                'products_count': 60,
+            },
+            {
+                'name': 'Chitrali Seeds',
+                'slug': 'chitrali-seeds',
+                'description': 'Premium Chitrali seeds including pumpkin seeds, sunflower seeds, chia seeds, flax seeds, and more. Rich in protein, fiber, and healthy fats.',
+                'metaTitle': 'Chitrali Seeds - Premium Seeds Online | ChitralHive',
+                'metaDescription': 'Shop premium Chitrali seeds online. Pumpkin seeds, sunflower seeds, chia seeds, flax seeds. Rich in protein and healthy fats. Natural quality.',
+                'products_count': 120,
+            },
+            {
+                'name': 'Chitrali Pickles',
+                'slug': 'chitrali-pickles',
+                'description': 'Traditional Chitrali pickles made with authentic recipes. Mango pickle, lemon pickle, mixed vegetable pickle, and more. Preserved naturally.',
+                'metaTitle': 'Chitrali Pickles - Traditional Pickles Online | ChitralHive',
+                'metaDescription': 'Buy traditional Chitrali pickles online. Mango pickle, lemon pickle, mixed vegetable pickle. Authentic recipes, naturally preserved. Free shipping.',
+                'products_count': 70,
+            },
+            {
+                'name': 'Chitrali Rice & Pulses',
+                'slug': 'chitrali-rice-pulses',
+                'description': 'Organic Chitrali rice and pulses. Basmati rice, brown rice, lentils, chickpeas, kidney beans, and more. Naturally grown, rich in protein and fiber.',
+                'metaTitle': 'Chitrali Rice & Pulses - Organic Rice and Lentils Online | ChitralHive',
+                'metaDescription': 'Shop organic Chitrali rice and pulses online. Basmati rice, brown rice, lentils, chickpeas. Rich in protein and fiber. Natural, organic quality.',
+                'products_count': 100,
+            },
+            {
+                'name': 'Chitrali Medicinal Plants',
+                'slug': 'chitrali-medicinal-plants',
+                'description': 'Traditional Chitrali medicinal plants and herbs. Used in traditional medicine for centuries. Organic, hand-picked, naturally preserved.',
+                'metaTitle': 'Chitrali Medicinal Plants - Traditional Herbs Online | ChitralHive',
+                'metaDescription': 'Buy traditional Chitrali medicinal plants online. Organic, hand-picked herbs used in traditional medicine. Naturally preserved. Free shipping.',
+                'products_count': 90,
+            },
+            {
+                'name': 'Chitrali Wool Products',
+                'slug': 'chitrali-wool-products',
+                'description': 'Authentic Chitrali wool products including shawls, blankets, caps, and traditional woolen items. Handwoven, natural wool from Chitral sheep.',
+                'metaTitle': 'Chitrali Wool Products - Handwoven Wool Items Online | ChitralHive',
+                'metaDescription': 'Shop authentic Chitrali wool products online. Shawls, blankets, caps, traditional items. Handwoven, natural wool. Traditional craftsmanship.',
+                'products_count': 50,
+            },
+            {
+                'name': 'Chitrali Traditional Foods',
+                'slug': 'chitrali-traditional-foods',
+                'description': 'Authentic Chitrali traditional foods and ready-to-eat items. Prepared using traditional recipes and methods. Natural ingredients, no preservatives.',
+                'metaTitle': 'Chitrali Traditional Foods - Authentic Ready-to-Eat Items | ChitralHive',
+                'metaDescription': 'Buy authentic Chitrali traditional foods online. Ready-to-eat items prepared with traditional recipes. Natural ingredients, no preservatives.',
+                'products_count': 40,
+            },
         ]
         
         for idx, subcat_data in enumerate(subcategories_data, start=1):
@@ -221,6 +293,87 @@ class Command(BaseCommand):
                 ],
                 'weights': ['500g', '1kg', '2kg', '5kg', '10kg'],
                 'price_range': (300, 3000),
+            },
+            'chitrali-oils': {
+                'names': [
+                    'Chitrali Walnut Oil', 'Chitrali Apricot Kernel Oil', 'Chitrali Almond Oil',
+                    'Chitrali Olive Oil', 'Chitrali Sesame Oil', 'Chitrali Sunflower Oil',
+                    'Chitrali Mustard Oil', 'Chitrali Coconut Oil', 'Chitrali Flaxseed Oil',
+                ],
+                'weights': ['250ml', '500ml', '1L', '2L', '5L'],
+                'price_range': (800, 6000),
+            },
+            'chitrali-tea': {
+                'names': [
+                    'Chitrali Green Tea', 'Chitrali Herbal Tea', 'Chitrali Black Tea',
+                    'Chitrali Mint Tea', 'Chitrali Chamomile Tea', 'Chitrali Jasmine Tea',
+                    'Chitrali Traditional Tea', 'Chitrali Mountain Tea', 'Chitrali Organic Tea',
+                ],
+                'weights': ['50g', '100g', '250g', '500g', '1kg'],
+                'price_range': (400, 3000),
+            },
+            'chitrali-jams-preserves': {
+                'names': [
+                    'Chitrali Apricot Jam', 'Chitrali Mulberry Jam', 'Chitrali Apple Preserve',
+                    'Chitrali Peach Jam', 'Chitrali Strawberry Jam', 'Chitrali Mixed Fruit Jam',
+                    'Chitrali Grape Preserve', 'Chitrali Fig Jam',
+                ],
+                'weights': ['250g', '500g', '1kg', '2kg'],
+                'price_range': (500, 2500),
+            },
+            'chitrali-seeds': {
+                'names': [
+                    'Chitrali Pumpkin Seeds', 'Chitrali Sunflower Seeds', 'Chitrali Chia Seeds',
+                    'Chitrali Flax Seeds', 'Chitrali Sesame Seeds', 'Chitrali Poppy Seeds',
+                    'Chitrali Fennel Seeds', 'Chitrali Cumin Seeds', 'Chitrali Mustard Seeds',
+                ],
+                'weights': ['100g', '250g', '500g', '1kg', '2kg'],
+                'price_range': (300, 2500),
+            },
+            'chitrali-pickles': {
+                'names': [
+                    'Chitrali Mango Pickle', 'Chitrali Lemon Pickle', 'Chitrali Mixed Vegetable Pickle',
+                    'Chitrali Chili Pickle', 'Chitrali Garlic Pickle', 'Chitrali Carrot Pickle',
+                    'Chitrali Turnip Pickle', 'Chitrali Cauliflower Pickle',
+                ],
+                'weights': ['250g', '500g', '1kg', '2kg'],
+                'price_range': (400, 2000),
+            },
+            'chitrali-rice-pulses': {
+                'names': [
+                    'Chitrali Basmati Rice', 'Chitrali Brown Rice', 'Chitrali Red Rice',
+                    'Chitrali Lentils', 'Chitrali Chickpeas', 'Chitrali Kidney Beans',
+                    'Chitrali Black Beans', 'Chitrali Mung Beans', 'Chitrali Split Peas',
+                ],
+                'weights': ['500g', '1kg', '2kg', '5kg', '10kg'],
+                'price_range': (300, 3000),
+            },
+            'chitrali-medicinal-plants': {
+                'names': [
+                    'Chitrali Neem Leaves', 'Chitrali Aloe Vera', 'Chitrali Turmeric Root',
+                    'Chitrali Ginger Root', 'Chitrali Garlic Bulbs', 'Chitrali Fenugreek Seeds',
+                    'Chitrali Cumin Seeds', 'Chitrali Fennel Seeds', 'Chitrali Coriander Seeds',
+                ],
+                'weights': ['50g', '100g', '250g', '500g', '1kg'],
+                'price_range': (200, 2000),
+            },
+            'chitrali-wool-products': {
+                'names': [
+                    'Chitrali Wool Shawl', 'Chitrali Wool Blanket', 'Chitrali Wool Cap',
+                    'Chitrali Wool Scarf', 'Chitrali Wool Socks', 'Chitrali Wool Gloves',
+                    'Chitrali Wool Sweater', 'Chitrali Wool Shawl Traditional',
+                ],
+                'weights': ['1 piece', 'Set of 2', 'Set of 3'],
+                'price_range': (1500, 8000),
+            },
+            'chitrali-traditional-foods': {
+                'names': [
+                    'Chitrali Chapshuro', 'Chitrali Shish Kebab', 'Chitrali Mantu',
+                    'Chitrali Qorma', 'Chitrali Pulao', 'Chitrali Bread',
+                    'Chitrali Traditional Soup', 'Chitrali Rice Dish',
+                ],
+                'weights': ['250g', '500g', '1kg', '2kg'],
+                'price_range': (600, 4000),
             },
         }
         
@@ -465,6 +618,42 @@ class Command(BaseCommand):
             'chitrali-grains': f"Organic {product_name} grown in Chitral's fertile soil. "
                               f"These whole grains are naturally grown, rich in fiber and essential nutrients. "
                               f"Perfect for healthy cooking and traditional Chitrali recipes. Available in {weight} pack.",
+            
+            'chitrali-oils': f"Pure {product_name} cold-pressed from Chitral's finest sources. "
+                            f"Natural, unrefined oil rich in healthy fats and nutrients. "
+                            f"Perfect for cooking and traditional use. Available in {weight} bottle.",
+            
+            'chitrali-tea': f"Premium {product_name} from Chitral's mountain regions. "
+                           f"Natural, organic tea leaves rich in antioxidants. "
+                           f"Traditional brewing methods preserved. Available in {weight} pack.",
+            
+            'chitrali-jams-preserves': f"Natural {product_name} made from fresh Chitrali fruits. "
+                                       f"No artificial preservatives, pure fruit goodness. "
+                                       f"Perfect for breakfast and desserts. Available in {weight} jar.",
+            
+            'chitrali-seeds': f"Premium {product_name} from Chitral. "
+                             f"Rich in protein, fiber, and healthy fats. "
+                             f"Natural, no chemicals. Perfect for snacking and cooking. Available in {weight} pack.",
+            
+            'chitrali-pickles': f"Traditional {product_name} made with authentic Chitrali recipes. "
+                               f"Naturally preserved, full of flavor. "
+                               f"Perfect accompaniment to meals. Available in {weight} jar.",
+            
+            'chitrali-rice-pulses': f"Organic {product_name} from Chitral's farms. "
+                                   f"Naturally grown, rich in protein and fiber. "
+                                   f"Perfect for healthy cooking. Available in {weight} pack.",
+            
+            'chitrali-medicinal-plants': f"Traditional {product_name} from Chitral. "
+                                         f"Used in traditional medicine for centuries. "
+                                         f"Organic, hand-picked, naturally preserved. Available in {weight} pack.",
+            
+            'chitrali-wool-products': f"Authentic {product_name} handwoven in Chitral. "
+                                      f"Natural wool from Chitral sheep, traditional craftsmanship. "
+                                      f"Warm and durable. Available as {weight}.",
+            
+            'chitrali-traditional-foods': f"Authentic {product_name} prepared with traditional Chitrali recipes. "
+                                         f"Natural ingredients, no preservatives. "
+                                         f"Ready-to-eat traditional delicacy. Available in {weight} pack.",
         }
         
         return descriptions.get(category_slug, f"Premium {product_name} from Chitral. Authentic quality, natural ingredients. Available in {weight} pack.")
