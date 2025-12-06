@@ -204,8 +204,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-
-# Get your email from existing cert or use a default
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
