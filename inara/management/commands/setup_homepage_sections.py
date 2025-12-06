@@ -16,6 +16,11 @@ class Command(BaseCommand):
             action='store_true',
             help='Clear all existing Individual_BoxOrder and SectionSequence data before setting up',
         )
+        parser.add_argument(
+            '--delete-placeholders',
+            action='store_true',
+            help='Delete placeholder categories (Category1-14) completely instead of just disabling them',
+        )
 
     def handle(self, *args, **options):
         self.stdout.write(self.style.SUCCESS('Setting up home page sections...'))
@@ -23,8 +28,8 @@ class Command(BaseCommand):
         # Step 1: Clear old placeholder data
         self.clear_old_data(clear_all=options['clear'])
         
-        # Step 1.5: Clean up placeholder categories (set showAtHome=0)
-        self.cleanup_placeholder_categories()
+        # Step 1.5: Clean up placeholder categories (set showAtHome=0 or delete)
+        self.cleanup_placeholder_categories(delete=options.get('delete_placeholders', False))
         
         # Step 2: Get ChitralHive categories
         categories = self.get_chitralhive_categories()
@@ -39,13 +44,21 @@ class Command(BaseCommand):
         # Step 4: Set up Configuration
         self.setup_configuration(len(categories))
         
-        # Step 5: Create Section Sequences (optional)
+        # Step 5: Create subcategories for main categories
+        subcategories_created = self.create_subcategories(categories)
+        
+        # Step 6: Create Section Sequences (optional)
         sections_created = self.create_section_sequences(categories)
+        
+        # Step 7: Verify products are linked to categories
+        products_linked = self.verify_products_linked(categories)
         
         self.stdout.write(self.style.SUCCESS(
             f'\n✅ Successfully set up:\n'
             f'   - Individual Box Orders: {boxes_created}\n'
+            f'   - Subcategories created: {subcategories_created}\n'
             f'   - Section Sequences: {sections_created}\n'
+            f'   - Products linked: {products_linked}\n'
             f'   - Configuration updated\n'
             f'Home page sections are now configured!'
         ))
@@ -97,20 +110,40 @@ class Command(BaseCommand):
                     f'Removed {deleted_direct[0]} Individual_BoxOrder entries with placeholder names'
                 ))
 
-    def cleanup_placeholder_categories(self):
-        """Disable placeholder categories so they don't appear on home page"""
+    def cleanup_placeholder_categories(self, delete=False):
+        """Disable and remove placeholder categories so they don't appear on home page"""
+        # Find all placeholder categories (Category1, Category2, Category 1, Category9, Category10, etc.)
         placeholder_categories = Category.objects.filter(
             name__iregex=r'^Category\s*\d+$'
         )
         
         if placeholder_categories.exists():
-            count = placeholder_categories.update(
-                showAtHome=0,  # Hide from home page
-                status=Category.INACTIVE  # Set as inactive
-            )
-            self.stdout.write(self.style.SUCCESS(
-                f'Disabled {count} placeholder categories (Category1, Category2, etc.)'
-            ))
+            placeholder_ids = list(placeholder_categories.values_list('id', flat=True))
+            
+            # First, remove all Individual_BoxOrder entries
+            deleted_boxes = Individual_BoxOrder.objects.filter(category_id__in=placeholder_ids).delete()
+            deleted_boxes2 = Individual_BoxOrder.objects.filter(category_name__iregex=r'^Category\s*\d+$').delete()
+            
+            # Remove SectionSequence entries
+            deleted_sections = SectionSequence.objects.filter(category__in=placeholder_ids).delete()
+            
+            if delete:
+                # Delete placeholder categories completely
+                count = placeholder_categories.count()
+                placeholder_categories.delete()
+                self.stdout.write(self.style.SUCCESS(
+                    f'Deleted {count} placeholder categories (Category1-14, etc.) and removed all references'
+                ))
+            else:
+                # Disable them (safer - keeps data but hides them)
+                count = placeholder_categories.update(
+                    showAtHome=0,  # Hide from home page
+                    status=Category.INACTIVE,  # Set as inactive
+                    priority=9999  # Set low priority so they don't appear
+                )
+                self.stdout.write(self.style.SUCCESS(
+                    f'Disabled {count} placeholder categories (Category1-14, etc.) and removed all references'
+                ))
         else:
             self.stdout.write('No placeholder categories to clean up')
 
@@ -146,7 +179,8 @@ class Command(BaseCommand):
         
         # Combine: SEO categories first, then others
         categories_list = categories_with_seo + categories_without_seo
-        categories_list = categories_list[:8]  # Get first 8 categories
+        # Get more categories to fill all sections (up to 18 categories)
+        categories_list = categories_list[:18]  # Get first 18 categories for all sections
         
         # Log SEO status
         self.stdout.write('Categories selected (SEO-optimized):')
@@ -240,6 +274,9 @@ class Command(BaseCommand):
         # Create box entries (type='box')
         # Section 1: Boxes 1-2
         # Section 2: Boxes 3-8
+        # Section 3: Boxes 9-11
+        # Section 4: Boxes 12-13
+        # Section 5: Box 14
         box_sequence = [
             (1, 1),   # Section 1, Box 1
             (2, 1),   # Section 1, Box 2
@@ -249,6 +286,12 @@ class Command(BaseCommand):
             (6, 2),   # Section 2, Box 4
             (7, 2),   # Section 2, Box 5
             (8, 2),   # Section 2, Box 6
+            (9, 3),   # Section 3, Box 1
+            (10, 3),  # Section 3, Box 2
+            (11, 3),  # Section 3, Box 3
+            (12, 4),  # Section 4, Box 1
+            (13, 4),  # Section 4, Box 2
+            (14, 5),  # Section 5, Box 1
         ]
         
         for idx, (sequence_no, section_no) in enumerate(box_sequence):
@@ -301,8 +344,8 @@ class Command(BaseCommand):
         )
         
         # Set number of sections (calculate based on boxes)
-        # Section 1: 2 boxes, Section 2: 6 boxes, Section 3: 3 boxes, etc.
-        num_sections = 3  # Adjust based on your layout
+        # Section 1: 2 boxes, Section 2: 6 boxes, Section 3: 3 boxes, Section 4: 2 boxes, Section 5: 1 box
+        num_sections = 5  # 5 sections total
         
         Configuration.objects.update_or_create(
             name='section',
@@ -363,4 +406,122 @@ class Command(BaseCommand):
             sections_created += 1
         
         return sections_created
+
+    def create_subcategories(self, categories):
+        """Create subcategories for main categories if they don't exist"""
+        from django.utils.text import slugify
+        subcategories_created = 0
+        
+        # Subcategory templates for each main category
+        subcategory_templates = {
+            'chitrali-dry-fruits': ['Almonds', 'Walnuts', 'Apricots', 'Dates', 'Raisins', 'Figs'],
+            'chitrali-salajit': ['Raw Salajit', 'Purified Salajit', 'Salajit Powder', 'Salajit Capsules'],
+            'chitrali-herbs': ['Mint', 'Thyme', 'Basil', 'Sage', 'Oregano', 'Rosemary'],
+            'chitrali-honey': ['Wild Honey', 'Organic Honey', 'Sidr Honey', 'Acacia Honey'],
+            'chitrali-nuts': ['Walnuts', 'Almonds', 'Pine Nuts', 'Hazelnuts', 'Pistachios'],
+            'chitrali-spices': ['Cumin', 'Coriander', 'Turmeric', 'Red Chili', 'Cardamom', 'Black Pepper'],
+            'chitrali-apricots': ['Dried Apricots', 'Apricot Halves', 'Apricot Whole', 'Apricot Preserve'],
+            'chitrali-grains': ['Wheat', 'Barley', 'Oats', 'Millet', 'Quinoa'],
+            'chitrali-oils': ['Walnut Oil', 'Apricot Kernel Oil', 'Almond Oil', 'Olive Oil'],
+            'chitrali-tea': ['Green Tea', 'Herbal Tea', 'Black Tea', 'Mint Tea'],
+            'chitrali-jams-preserves': ['Apricot Jam', 'Mulberry Jam', 'Apple Preserve', 'Peach Jam'],
+            'chitrali-seeds': ['Pumpkin Seeds', 'Sunflower Seeds', 'Chia Seeds', 'Flax Seeds'],
+            'chitrali-pickles': ['Mango Pickle', 'Lemon Pickle', 'Mixed Vegetable Pickle', 'Chili Pickle'],
+            'chitrali-rice-pulses': ['Basmati Rice', 'Brown Rice', 'Lentils', 'Chickpeas'],
+            'chitrali-medicinal-plants': ['Neem', 'Aloe Vera', 'Turmeric Root', 'Ginger Root'],
+            'chitrali-wool-products': ['Shawls', 'Blankets', 'Caps', 'Scarves'],
+            'chitrali-traditional-foods': ['Chapshuro', 'Shish Kebab', 'Mantu', 'Qorma'],
+        }
+        
+        for category in categories[:10]:  # Create subcategories for first 10 categories
+            # Skip placeholder categories
+            if re.match(r'^Category\s*\d+$', category.name, re.IGNORECASE):
+                continue
+            
+            # Get subcategory names for this category
+            subcat_names = subcategory_templates.get(category.slug, [])
+            
+            # Check if category already has subcategories
+            existing_subcats = Category.objects.filter(
+                parentId=category.id,
+                status=Category.ACTIVE
+            ).count()
+            
+            if existing_subcats >= 2:
+                # Already has subcategories, skip
+                continue
+            
+            # Create 2-3 subcategories
+            for idx, subcat_name in enumerate(subcat_names[:3]):
+                subcat_slug = slugify(f"{category.slug}-{subcat_name}")
+                
+                # Check if subcategory already exists
+                if Category.objects.filter(slug=subcat_slug).exists():
+                    continue
+                
+                try:
+                    subcat = Category.objects.create(
+                        name=f"{category.name} - {subcat_name}",
+                        slug=subcat_slug,
+                        parentId=category,
+                        isBrand=False,
+                        status=Category.ACTIVE,
+                        appliesOnline=1,
+                        showAtHome=0,  # Don't show subcategories on home page
+                        priority=idx + 1,
+                        posType=Category.INTERNAL,
+                        metaUrl=f"/categories/{subcat_slug}",
+                        metaTitle=f"{subcat_name} - {category.name} | ChitralHive",
+                        metaDescription=f"Premium {subcat_name} from {category.name}. Authentic Chitrali quality, natural ingredients.",
+                    )
+                    subcategories_created += 1
+                    self.stdout.write(self.style.SUCCESS(f'  Created subcategory: {subcat.name}'))
+                except Exception as e:
+                    self.stdout.write(self.style.ERROR(f'  Error creating subcategory {subcat_name}: {str(e)}'))
+        
+        return subcategories_created
+
+    def verify_products_linked(self, categories):
+        """Verify products are linked to categories via CategoryItem"""
+        from inara.models import Item, CategoryItem
+        
+        products_linked = 0
+        
+        for category in categories:
+            # Count products in this category
+            product_count = CategoryItem.objects.filter(
+                categoryId=category,
+                status=CategoryItem.ACTIVE
+            ).count()
+            
+            if product_count == 0:
+                # Try to link some products to this category
+                # Get products that might belong to this category
+                products = Item.objects.filter(
+                    status=Item.ACTIVE,
+                    appliesOnline=1
+                ).exclude(
+                    categoryitem__categoryId=category
+                )[:10]  # Link up to 10 products
+                
+                for product in products:
+                    try:
+                        CategoryItem.objects.get_or_create(
+                            categoryId=category,
+                            itemId=product,
+                            defaults={
+                                'level': 2,
+                                'status': CategoryItem.ACTIVE,
+                            }
+                        )
+                        products_linked += 1
+                    except Exception:
+                        continue
+                
+                if products_linked > 0:
+                    self.stdout.write(self.style.SUCCESS(f'  Linked {products_linked} products to {category.name}'))
+            else:
+                self.stdout.write(f'  {category.name}: {product_count} products already linked')
+        
+        return products_linked
 
