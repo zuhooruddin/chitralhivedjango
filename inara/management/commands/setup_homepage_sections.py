@@ -219,15 +219,26 @@ class Command(BaseCommand):
                     
                     icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'
                     
-                    # Use SEO-friendly slug (metaUrl if available, otherwise slug)
-                    seo_slug = category.metaUrl if category.metaUrl else category.slug
+                    # Store just the slug (not full path) - frontend will add /category/ prefix
+                    # Extract slug from metaUrl if it exists, otherwise use category.slug
+                    if category.metaUrl:
+                        # Extract slug from metaUrl (e.g., /categories/chitrali-products -> chitrali-products)
+                        meta_url = category.metaUrl.strip('/')
+                        if meta_url.startswith('categories/'):
+                            category_slug = meta_url.replace('categories/', '')
+                        elif meta_url.startswith('category/'):
+                            category_slug = meta_url.replace('category/', '')
+                        else:
+                            category_slug = category.slug
+                    else:
+                        category_slug = category.slug
                     
                     section_order, created = Individual_BoxOrder.objects.update_or_create(
                         sequenceNo=section_idx,
                         type='section',
                         defaults={
                             'category_id': category,
-                            'category_slug': seo_slug,  # SEO-optimized URL
+                            'category_slug': category_slug,  # Just the slug, not full path
                             'category_name': category.metaTitle if category.metaTitle else category.name,
                             'image': icon_path,
                             'parent': None,
@@ -251,8 +262,17 @@ class Command(BaseCommand):
                         
                         child_icon = child_cat.icon.name if child_cat.icon else 'category_icon/default-category-icon.jpg'
                         
-                        # Use SEO-friendly slug for subcategories
-                        child_seo_slug = child_cat.metaUrl if child_cat.metaUrl else child_cat.slug
+                        # Extract slug from metaUrl if it exists, otherwise use child_cat.slug
+                        if child_cat.metaUrl:
+                            meta_url = child_cat.metaUrl.strip('/')
+                            if meta_url.startswith('categories/'):
+                                child_category_slug = meta_url.replace('categories/', '')
+                            elif meta_url.startswith('category/'):
+                                child_category_slug = meta_url.replace('category/', '')
+                            else:
+                                child_category_slug = child_cat.slug
+                        else:
+                            child_category_slug = child_cat.slug
                         
                         # Use category_id and parent to uniquely identify subcategories
                         subcat_order, sub_created = Individual_BoxOrder.objects.update_or_create(
@@ -261,7 +281,7 @@ class Command(BaseCommand):
                             parent=category.id,
                             defaults={
                                 'sequenceNo': child_idx + 1,  # 1-based index per section
-                                'category_slug': child_seo_slug,  # SEO-optimized URL
+                                'category_slug': child_category_slug,  # Just the slug, not full path
                                 'category_name': child_cat.metaTitle if child_cat.metaTitle else child_cat.name,
                                 'image': child_icon,
                             }
@@ -308,8 +328,18 @@ class Command(BaseCommand):
             # Get category icon or use default
             icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'
             
-            # Use SEO-friendly slug (metaUrl if available, otherwise slug)
-            seo_slug = category.metaUrl if category.metaUrl else category.slug
+            # Extract slug from metaUrl if it exists, otherwise use category.slug
+            # Store just the slug (not full path) - frontend will add /category/ prefix
+            if category.metaUrl:
+                meta_url = category.metaUrl.strip('/')
+                if meta_url.startswith('categories/'):
+                    category_slug = meta_url.replace('categories/', '')
+                elif meta_url.startswith('category/'):
+                    category_slug = meta_url.replace('category/', '')
+                else:
+                    category_slug = category.slug
+            else:
+                category_slug = category.slug
             
             # Create or update Individual_BoxOrder with SEO-optimized fields
             box_order, created = Individual_BoxOrder.objects.update_or_create(
@@ -317,7 +347,7 @@ class Command(BaseCommand):
                 type='box',
                 defaults={
                     'category_id': category,
-                    'category_slug': seo_slug,  # SEO-optimized URL
+                    'category_slug': category_slug,  # Just the slug, not full path
                     'category_name': category.metaTitle if category.metaTitle else category.name,
                     'image': icon_path,
                     'parent': None,
@@ -369,15 +399,24 @@ class Command(BaseCommand):
                 status=Category.ACTIVE
             )[:7]  # Max 7 children
             
-            # Use SEO-friendly slug for section
-            seo_slug = category.metaUrl if category.metaUrl else category.slug
+            # Extract slug from metaUrl if it exists, otherwise use category.slug
+            if category.metaUrl:
+                meta_url = category.metaUrl.strip('/')
+                if meta_url.startswith('categories/'):
+                    category_slug = meta_url.replace('categories/', '')
+                elif meta_url.startswith('category/'):
+                    category_slug = meta_url.replace('category/', '')
+                else:
+                    category_slug = category.slug
+            else:
+                category_slug = category.slug
             
             # Create SectionSequence with SEO-optimized fields
             section_seq, created = SectionSequence.objects.update_or_create(
                 sequenceNo=idx,
                 defaults={
                     'category': category,
-                    'category_slug': seo_slug,  # SEO-optimized URL
+                    'category_slug': category_slug,  # Just the slug, not full path
                     'name': category.metaTitle if category.metaTitle else category.name,
                 }
             )
@@ -389,12 +428,21 @@ class Command(BaseCommand):
                 name_field = f'{field_name}_name'
                 slug_field = f'{field_name}_slug'
                 
-                # Use SEO-friendly slug for child
-                child_seo_slug = child_cat.metaUrl if child_cat.metaUrl else child_cat.slug
+                # Extract slug from metaUrl if it exists, otherwise use child_cat.slug
+                if child_cat.metaUrl:
+                    child_meta_url = child_cat.metaUrl.strip('/')
+                    if child_meta_url.startswith('categories/'):
+                        child_category_slug = child_meta_url.replace('categories/', '')
+                    elif child_meta_url.startswith('category/'):
+                        child_category_slug = child_meta_url.replace('category/', '')
+                    else:
+                        child_category_slug = child_cat.slug
+                else:
+                    child_category_slug = child_cat.slug
                 
                 setattr(section_seq, field_name, child_cat)
                 setattr(section_seq, name_field, child_cat.metaTitle if child_cat.metaTitle else child_cat.name)
-                setattr(section_seq, slug_field, child_seo_slug)  # SEO-optimized URL
+                setattr(section_seq, slug_field, child_category_slug)  # Just the slug, not full path
             
             section_seq.save()
             
@@ -470,7 +518,7 @@ class Command(BaseCommand):
                         showAtHome=0,  # Don't show subcategories on home page
                         priority=idx + 1,
                         posType=Category.INTERNAL,
-                        metaUrl=f"/categories/{subcat_slug}",
+                        metaUrl=f"/categories/{subcat_slug}",  # Full path for metaUrl
                         metaTitle=f"{subcat_name} - {category.name} | ChitralHive",
                         metaDescription=f"Premium {subcat_name} from {category.name}. Authentic Chitrali quality, natural ingredients.",
                     )
