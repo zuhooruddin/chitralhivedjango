@@ -117,6 +117,7 @@ def generate_pakistan_seo_keywords(product_name, category_name=None):
     Returns:
         Comma-separated SEO keywords string
     """
+    
     keywords = [
         f"{product_name} Pakistan",
         f"{product_name} online Pakistan",
