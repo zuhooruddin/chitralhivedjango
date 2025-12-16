@@ -100,3 +100,12 @@ class Command(BaseCommand):
             f'📊 Total processed: {total_count} products'
         ))
 
+
+
+
+
+
+
+
+
+

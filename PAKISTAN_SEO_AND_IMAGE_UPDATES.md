@@ -178,3 +178,12 @@ After running the commands, test:
 - Add support for multiple product images per product
 - Add structured data for better SEO
 
+
+
+
+
+
+
+
+
+
