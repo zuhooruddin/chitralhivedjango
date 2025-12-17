@@ -184,18 +184,23 @@ class CategorySerializerDepth(serializers.ModelSerializer):
         fields = ('id','extPosId','extPosParentId','parentId','name','slug','description','icon','appliesOnline','syncTs','metaUrl','metaTitle','metaDescription','isBrand','posType','status')
         depth = 1
 
+
 class ItemSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField('get_image_url')
-    image = serializers.SerializerMethodField()
+    # Remove SerializerMethodField to allow image uploads
+    # ImageField will automatically return the URL when reading
+    # and accept file uploads when writing
     class Meta:
         model = Item
         fields = '__all__'
         # depth = 2
-    def get_image_url(self, obj):
-        return obj.image.url
-    def get_image(self, obj):
-        image_name = os.path.basename(obj.image.url)
-        return obj.image.name
+    
+    def to_representation(self, instance):
+        # Get the default representation
+        representation = super().to_representation(instance)
+        # Ensure image returns the full URL when reading
+        if instance.image:
+            representation['image'] = instance.image.url
+        return representation
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
