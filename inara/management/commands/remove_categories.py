@@ -10,6 +10,7 @@ class Command(BaseCommand):
     help = 'Remove specified categories and all their products'
 
 
+
     def add_arguments(self, parser):
         parser.add_argument(
             '--dry-run',
