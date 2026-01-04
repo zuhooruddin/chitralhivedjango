@@ -12,6 +12,7 @@ Usage:
                                            python manage.py cleanup_unused_media --delete
 
 The script will:
+
     1. Query all ImageField values from Django models
     2. List all images in media directory
     3. Identify which images are not referenced in database
