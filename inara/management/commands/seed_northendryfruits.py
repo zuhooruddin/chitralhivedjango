@@ -403,15 +403,25 @@ class Command(BaseCommand):
         created = 0
         ext_pos_id = 300000
 
+        self.stdout.write(f"Processing {len(products)} products...")
+
         for idx, product in enumerate(products, start=1):
             name = product["name"]
             category = self.infer_category(name, categories)
             if not category:
+                self.stdout.write(self.style.WARNING(f"  [{idx}] Skipping {name}: No matching category"))
                 continue
 
-            image_path = self.download_image(product["image"], ext_pos_id, referer=product["source"])
+            image_url = product.get("image", "")
+            self.stdout.write(f"  [{idx}] {name}")
+            self.stdout.write(f"      Image URL: {image_url[:100]}...")
+            
+            image_path = self.download_image(image_url, ext_pos_id, referer=product["source"])
             if not image_path:
+                self.stdout.write(self.style.ERROR(f"      ❌ Failed to download image"))
                 continue
+            
+            self.stdout.write(self.style.SUCCESS(f"      ✓ Image saved: {image_path}"))
 
             slug = f"{slugify(name)}-{ext_pos_id}"
             sku = f"DRY-{ext_pos_id:06d}"
@@ -463,7 +473,17 @@ class Command(BaseCommand):
 
     def download_image(self, url, ext_pos_id, referer=None):
         if not url:
+            self.stdout.write(self.style.ERROR(f"      No image URL provided"))
             return None
+        
+        # Normalize URL - make sure it's absolute
+        if not url.startswith("http://") and not url.startswith("https://"):
+            if referer:
+                url = urljoin(referer, url)
+            else:
+                self.stdout.write(self.style.ERROR(f"      Invalid relative URL: {url}"))
+                return None
+        
         try:
             response = requests.get(
                 url,
@@ -477,39 +497,43 @@ class Command(BaseCommand):
                 allow_redirects=True,
                 stream=True,
             )
+            
             if response.status_code != 200:
+                self.stdout.write(self.style.ERROR(f"      HTTP {response.status_code} for {url[:80]}"))
                 return None
             
-            # Check Content-Type is actually an image
+            # Read first chunk to validate it's an image
+            content = b""
+            for chunk in response.iter_content(chunk_size=8192):
+                content += chunk
+                if len(content) >= 12:
+                    break
+            
+            # Check magic bytes
+            first_bytes = content[:12]
+            is_image = (
+                first_bytes.startswith(b'\xff\xd8\xff') or  # JPEG
+                first_bytes.startswith(b'\x89PNG\r\n\x1a\n') or  # PNG
+                (first_bytes.startswith(b'RIFF') and b'WEBP' in first_bytes[:12]) or  # WEBP
+                first_bytes.startswith(b'GIF87a') or first_bytes.startswith(b'GIF89a')  # GIF
+            )
+            
+            if not is_image:
+                content_type = response.headers.get("Content-Type", "").lower()
+                if not any(x in content_type for x in ["image/", "jpeg", "jpg", "png", "webp", "gif"]):
+                    self.stdout.write(self.style.ERROR(f"      Not an image (Content-Type: {content_type})"))
+                    return None
+            
+            # Determine extension
             content_type = response.headers.get("Content-Type", "").lower()
-            if not any(x in content_type for x in ["image/", "jpeg", "jpg", "png", "webp", "gif"]):
-                # If Content-Type is wrong, check first few bytes (magic numbers)
-                first_bytes = response.content[:12]
-                is_image = (
-                    first_bytes.startswith(b'\xff\xd8\xff') or  # JPEG
-                    first_bytes.startswith(b'\x89PNG\r\n\x1a\n') or  # PNG
-                    first_bytes.startswith(b'RIFF') and b'WEBP' in first_bytes[:12] or  # WEBP
-                    first_bytes.startswith(b'GIF87a') or first_bytes.startswith(b'GIF89a')  # GIF
-                )
-                if not is_image:
-                    return None
-            
-            # Validate file size (images should be at least 1KB and less than 10MB)
-            content_length = response.headers.get("Content-Length")
-            if content_length:
-                size = int(content_length)
-                if size < 1024 or size > 10 * 1024 * 1024:
-                    return None
-            
-            # Determine file extension
             ext = ".jpg"
-            if "png" in content_type or response.content[:12].startswith(b'\x89PNG'):
+            if "png" in content_type or first_bytes.startswith(b'\x89PNG'):
                 ext = ".png"
-            elif "webp" in content_type or (b'WEBP' in response.content[:12]):
+            elif "webp" in content_type or (b'WEBP' in first_bytes[:12]):
                 ext = ".webp"
-            elif "jpeg" in content_type or "jpg" in content_type or response.content[:3] == b'\xff\xd8\xff':
+            elif "jpeg" in content_type or "jpg" in content_type or first_bytes.startswith(b'\xff\xd8\xff'):
                 ext = ".jpg"
-            elif "gif" in content_type or response.content[:6] in (b'GIF87a', b'GIF89a'):
+            elif "gif" in content_type or first_bytes[:6] in (b'GIF87a', b'GIF89a'):
                 ext = ".gif"
             else:
                 parsed_ext = os.path.splitext(url.split("?")[0])[1].lower()
@@ -522,18 +546,21 @@ class Command(BaseCommand):
             os.makedirs(target_dir, exist_ok=True)
             file_path = os.path.join(target_dir, file_name)
             
-            # Write file and verify it's actually an image
+            # Write the file
             with open(file_path, "wb") as f:
+                f.write(content)  # Write first chunk
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
             
-            # Final validation: check file size after download
-            file_size = os.path.getsize(file_path)
-            if file_size < 1024:  # Less than 1KB is suspicious
-                os.remove(file_path)
+            # Verify file was written
+            if not os.path.exists(file_path) or os.path.getsize(file_path) < 1024:
+                self.stdout.write(self.style.ERROR(f"      File too small or not created"))
+                if os.path.exists(file_path):
+                    os.remove(file_path)
                 return None
             
             return os.path.join("item_image", file_name)
         except Exception as e:
+            self.stdout.write(self.style.ERROR(f"      Exception: {str(e)}"))
             return None
 
