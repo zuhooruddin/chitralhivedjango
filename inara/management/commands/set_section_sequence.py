@@ -40,7 +40,7 @@ class Command(BaseCommand):
         SectionSequence.objects.update_or_create(
             sequenceNo=sequence_no,
             defaults={
-                "category": category.id,
+                "category": category,
                 "category_slug": seo_slug,
                 "name": category.name,
             },
