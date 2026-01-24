@@ -4,6 +4,7 @@ set -euo pipefail
 # PostgreSQL connection settings
 DB_NAME="chitral_hive"
 DB_USER="chitral"
+
 DB_HOST="localhost"
 DB_PORT="5432"
 
