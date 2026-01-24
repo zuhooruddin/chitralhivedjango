@@ -45,10 +45,10 @@ class Command(BaseCommand):
 
     def load_target_categories(self):
         category_defs = [
-            ("dry-fruits", "Dry Fruits"),
-            ("almonds-dry-fruits", "Almonds - Dry Fruits"),
-            ("walnuts-dry-fruits", "Walnuts - Dry Fruits"),
-            ("apricots-dry-fruits", "Apricots - Dry Fruits"),
+            ("chitrali-dry-fruits", "Dry Fruits"),
+            ("chitrali-dry-fruits-almonds", "Dry Fruits - Almonds"),
+            ("chitrali-dry-fruits-walnuts", "Dry Fruits - Walnuts"),
+            ("chitrali-dry-fruits-apricots", "Dry Fruits - Apricots"),
             ("chitrali-honey", "Chitrali Honey"),
             ("chitrali-honey-wild-honey", "Chitrali Honey - Wild Honey"),
             ("chitrali-honey-organic-honey", "Chitrali Honey - Organic Honey"),
@@ -107,6 +107,7 @@ class Command(BaseCommand):
         created = 0
         ext_pos_id = 200000
 
+        ext_pos_id = self.get_next_ext_pos_id()
         for index, product in enumerate(products, start=1):
             category = categories.get(product["category"])
             if not category:
@@ -115,6 +116,9 @@ class Command(BaseCommand):
             slug_base = slugify(product["name"])
             slug = f"{slug_base}-{ext_pos_id}"
             sku = f"CHIT-SRC-{ext_pos_id:06d}"
+            if Item.objects.filter(sku=sku).exists():
+                ext_pos_id += 1
+                sku = f"CHIT-SRC-{ext_pos_id:06d}"
 
             is_new = 1 if index % 7 == 0 else 0
             is_featured = 1 if index % 13 == 0 else 0
@@ -326,14 +330,18 @@ class Command(BaseCommand):
                 return "chitrali-honey-wild-honey"
             return "chitrali-honey"
         if "almond" in title_lower:
-            return "almonds-dry-fruits"
+            return "chitrali-dry-fruits-almonds"
         if "walnut" in title_lower:
-            return "walnuts-dry-fruits"
+            return "chitrali-dry-fruits-walnuts"
         if "apricot" in title_lower:
-            return "apricots-dry-fruits"
-        if "apricot" in title_lower:
-            return "apricots-dry-fruits"
+            return "chitrali-dry-fruits-apricots"
         return default_category
+
+    def get_next_ext_pos_id(self):
+        latest = Item.objects.order_by("-extPosId").first()
+        if latest and latest.extPosId:
+            return latest.extPosId + 1
+        return 200000
 
     def safe_price(self, price, fallback):
         try:
