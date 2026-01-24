@@ -472,31 +472,68 @@ class Command(BaseCommand):
                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/121.0 Safari/537.36",
                     "Referer": referer or url,
+                    "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
                 },
                 allow_redirects=True,
+                stream=True,
             )
             if response.status_code != 200:
                 return None
+            
+            # Check Content-Type is actually an image
             content_type = response.headers.get("Content-Type", "").lower()
+            if not any(x in content_type for x in ["image/", "jpeg", "jpg", "png", "webp", "gif"]):
+                # If Content-Type is wrong, check first few bytes (magic numbers)
+                first_bytes = response.content[:12]
+                is_image = (
+                    first_bytes.startswith(b'\xff\xd8\xff') or  # JPEG
+                    first_bytes.startswith(b'\x89PNG\r\n\x1a\n') or  # PNG
+                    first_bytes.startswith(b'RIFF') and b'WEBP' in first_bytes[:12] or  # WEBP
+                    first_bytes.startswith(b'GIF87a') or first_bytes.startswith(b'GIF89a')  # GIF
+                )
+                if not is_image:
+                    return None
+            
+            # Validate file size (images should be at least 1KB and less than 10MB)
+            content_length = response.headers.get("Content-Length")
+            if content_length:
+                size = int(content_length)
+                if size < 1024 or size > 10 * 1024 * 1024:
+                    return None
+            
+            # Determine file extension
             ext = ".jpg"
-            if "png" in content_type:
+            if "png" in content_type or response.content[:12].startswith(b'\x89PNG'):
                 ext = ".png"
-            elif "webp" in content_type:
+            elif "webp" in content_type or (b'WEBP' in response.content[:12]):
                 ext = ".webp"
-            elif "jpeg" in content_type or "jpg" in content_type:
+            elif "jpeg" in content_type or "jpg" in content_type or response.content[:3] == b'\xff\xd8\xff':
                 ext = ".jpg"
+            elif "gif" in content_type or response.content[:6] in (b'GIF87a', b'GIF89a'):
+                ext = ".gif"
             else:
                 parsed_ext = os.path.splitext(url.split("?")[0])[1].lower()
-                if parsed_ext in (".png", ".webp", ".jpeg", ".jpg"):
+                if parsed_ext in (".png", ".webp", ".jpeg", ".jpg", ".gif"):
                     ext = parsed_ext if parsed_ext != ".jpeg" else ".jpg"
+            
             file_name = f"{ext_pos_id}{ext}"
             media_root = os.path.join(os.getcwd(), "media")
             target_dir = os.path.join(media_root, "item_image")
             os.makedirs(target_dir, exist_ok=True)
             file_path = os.path.join(target_dir, file_name)
+            
+            # Write file and verify it's actually an image
             with open(file_path, "wb") as f:
-                f.write(response.content)
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+            
+            # Final validation: check file size after download
+            file_size = os.path.getsize(file_path)
+            if file_size < 1024:  # Less than 1KB is suspicious
+                os.remove(file_path)
+                return None
+            
             return os.path.join("item_image", file_name)
-        except Exception:
+        except Exception as e:
             return None
 
