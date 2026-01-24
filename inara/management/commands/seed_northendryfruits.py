@@ -236,14 +236,51 @@ class Command(BaseCommand):
         return None
 
     def extract_primary_image(self, html, base_url):
+        # Filter out non-image URLs
+        def is_valid_image_url(url):
+            if not url:
+                return False
+            url_lower = url.lower()
+            # Reject common non-image URLs
+            bad_patterns = [
+                "googletagmanager", "google-analytics", "facebook", "twitter",
+                "instagram", "linkedin", "pinterest", "youtube", "script",
+                "javascript:", "data:text", "logo", "icon", "favicon",
+                "ads", "advertisement", "tracking", "analytics", "pixel",
+                ".js", ".css", ".json", "api/", "/api/", "cdn-cgi",
+            ]
+            if any(pattern in url_lower for pattern in bad_patterns):
+                return False
+            # Must look like an image URL
+            image_extensions = [".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg"]
+            if not any(ext in url_lower for ext in image_extensions):
+                # Allow if it's from a CDN or image hosting domain
+                image_domains = ["img", "image", "cdn", "static", "media", "assets", "photos", "pics"]
+                if not any(domain in url_lower for domain in image_domains):
+                    return False
+            return True
+        
+        # Try to find product images in common patterns
+        # Look for img tags with product-related classes/ids
+        img_patterns = [
+            r'<img[^>]+(?:class|id)=["\'][^"\']*(?:product|item|main|featured|gallery)[^"\']*["\'][^>]+src=["\']([^"\']+)["\']',
+            r'<img[^>]+src=["\']([^"\']+)["\'][^>]+(?:class|id)=["\'][^"\']*(?:product|item|main|featured|gallery)[^"\']*["\']',
+        ]
+        for pattern in img_patterns:
+            for match in re.findall(pattern, html, flags=re.IGNORECASE):
+                src = match.strip()
+                if is_valid_image_url(src):
+                    return urljoin(base_url, src)
+        
         # Prefer srcset if available
         for match in re.findall(r'srcset=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
             srcset = match.strip()
             if not srcset:
                 continue
             first = srcset.split(",")[0].strip().split(" ")[0]
-            if first:
+            if first and is_valid_image_url(first):
                 return urljoin(base_url, first)
+        
         # Common lazy-load attributes
         for attr in ("data-src", "data-original", "data-lazy", "data-srcset"):
             for match in re.findall(rf'{attr}=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
@@ -252,15 +289,17 @@ class Command(BaseCommand):
                     continue
                 if attr == "data-srcset":
                     first = src.split(",")[0].strip().split(" ")[0]
-                    if first:
+                    if first and is_valid_image_url(first):
                         return urljoin(base_url, first)
-                return urljoin(base_url, src)
-        # Fallback to plain src
-        for match in re.findall(r'src=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
+                elif is_valid_image_url(src):
+                    return urljoin(base_url, src)
+        
+        # Fallback to plain src in img tags
+        for match in re.findall(r'<img[^>]+src=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
             src = match.strip()
-            if not src or "logo" in src.lower() or "icon" in src.lower():
-                continue
-            return urljoin(base_url, src)
+            if is_valid_image_url(src):
+                return urljoin(base_url, src)
+        
         return None
 
     def extract_price(self, html):
@@ -279,6 +318,17 @@ class Command(BaseCommand):
         return None
 
     def extract_jsonld_products(self, html, base_url):
+        def is_valid_image_url(url):
+            if not url or not isinstance(url, str):
+                return False
+            url_lower = url.lower()
+            bad_patterns = [
+                "googletagmanager", "google-analytics", "facebook", "twitter",
+                "instagram", "script", "javascript:", "data:text", "logo",
+                "icon", "favicon", ".js", ".css", ".json", "api/", "/api/",
+            ]
+            return not any(pattern in url_lower for pattern in bad_patterns)
+        
         products = []
         for match in re.findall(r'<script[^>]+type=["\\\']application/ld\\+json["\\\'][^>]*>(.*?)</script>', html, flags=re.IGNORECASE | re.DOTALL):
             try:
@@ -296,11 +346,11 @@ class Command(BaseCommand):
                     title = (item.get("name") or "").strip()
                     image = ""
                     if isinstance(item.get("image"), list):
-                        image = item.get("image")[0]
+                        image = item.get("image")[0] if item.get("image") else ""
                     else:
                         image = item.get("image") or ""
                     url = item.get("url") or base_url
-                    if not title or not image:
+                    if not title or not image or not is_valid_image_url(image):
                         continue
                     products.append(
                         {
@@ -317,12 +367,12 @@ class Command(BaseCommand):
                 title = (data.get("name") or "").strip()
                 image = ""
                 if isinstance(data.get("image"), list):
-                    image = data.get("image")[0]
+                    image = data.get("image")[0] if data.get("image") else ""
                 else:
                     image = data.get("image") or ""
                 offers = data.get("offers") or {}
                 price = offers.get("price") if isinstance(offers, dict) else None
-                if title and image:
+                if title and image and is_valid_image_url(image):
                     products.append(
                         {
                             "name": title,
