@@ -31,7 +31,13 @@ class Command(BaseCommand):
         self.clear_products(categories)
 
         self.stdout.write(self.style.SUCCESS("Fetching products..."))
-        products = self.fetch_products("https://www.northendryfruits.com/shop")
+        source_urls = [
+            "https://www.northendryfruits.com/shop",
+            "https://store26725.store.link/",
+        ]
+        products = []
+        for url in source_urls:
+            products.extend(self.fetch_products(url))
 
         self.stdout.write(self.style.SUCCESS(f"Seeding {len(products)} products..."))
         created = self.seed_products(products, categories)
@@ -64,18 +70,22 @@ class Command(BaseCommand):
 
     def fetch_products(self, shop_url):
         products = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/121.0 Safari/537.36"
+        }
         # Try Shopify-style JSON endpoints first (fast, structured)
-        shopify_products = self.fetch_shopify_products(shop_url)
+        shopify_products = self.fetch_shopify_products(shop_url, headers)
         if shopify_products:
             return shopify_products
 
         # Try WooCommerce/WordPress Store API
-        wc_products = self.fetch_woocommerce_products(shop_url)
+        wc_products = self.fetch_woocommerce_products(shop_url, headers)
         if wc_products:
             return wc_products
 
         try:
-            resp = requests.get(shop_url, timeout=25)
+            resp = requests.get(shop_url, timeout=25, headers=headers)
             if resp.status_code != 200:
                 return products
             html = resp.text
@@ -87,26 +97,36 @@ class Command(BaseCommand):
         if jsonld_products:
             return jsonld_products
 
+        embedded_products = self.extract_embedded_products(html, shop_url)
+        if embedded_products:
+            return embedded_products
+
+        sitemap_products = self.fetch_products_from_sitemap(shop_url, headers=headers)
+        if sitemap_products:
+            return sitemap_products
+
         product_links = self.extract_product_links(html, shop_url)
         for link in product_links:
-            product = self.fetch_product_page(link, shop_url)
+            product = self.fetch_product_page(link, shop_url, headers=headers)
             if product:
                 products.append(product)
             time.sleep(0.3)
 
         return products
 
-    def fetch_woocommerce_products(self, base_url):
+    def fetch_woocommerce_products(self, base_url, headers):
         products = []
         endpoints = [
             "/wp-json/wc/store/products",
             "/wp-json/wc/store/products?per_page=100",
             "/wp-json/wc/store/products?page=1&per_page=100",
+            "/wp-json/wc/store/v1/products",
+            "/wp-json/wc/store/v1/products?per_page=100",
         ]
         for endpoint in endpoints:
             try:
                 url = urljoin(base_url, endpoint)
-                resp = requests.get(url, timeout=20)
+                resp = requests.get(url, timeout=20, headers=headers)
                 if resp.status_code != 200:
                     continue
                 data = resp.json()
@@ -132,12 +152,12 @@ class Command(BaseCommand):
                 continue
         return products
 
-    def fetch_shopify_products(self, base_url):
+    def fetch_shopify_products(self, base_url, headers):
         products = []
         for endpoint in ("/products.json?limit=250", "/collections/all/products.json?limit=250"):
             try:
                 url = urljoin(base_url, endpoint)
-                resp = requests.get(url, timeout=20)
+                resp = requests.get(url, timeout=20, headers=headers)
                 if resp.status_code != 200:
                     continue
                 data = resp.json()
@@ -171,9 +191,9 @@ class Command(BaseCommand):
             links.add(urljoin(base_url, href))
         return list(links)
 
-    def fetch_product_page(self, url, base_url):
+    def fetch_product_page(self, url, base_url, headers=None):
         try:
-            resp = requests.get(url, timeout=25)
+            resp = requests.get(url, timeout=25, headers=headers)
             if resp.status_code != 200:
                 return None
             html = resp.text
@@ -290,6 +310,65 @@ class Command(BaseCommand):
                     )
         return products
 
+    def extract_embedded_products(self, html, base_url):
+        products = []
+        script_matches = re.findall(
+            r"<script[^>]*>(.*?)</script>", html, flags=re.IGNORECASE | re.DOTALL
+        )
+        for script in script_matches:
+            if "product" not in script.lower() or "image" not in script.lower():
+                continue
+            for blob in re.findall(r"\{.*?\}", script, flags=re.DOTALL):
+                try:
+                    data = json.loads(blob)
+                except Exception:
+                    continue
+                name = (data.get("name") or "").strip()
+                image = ""
+                if isinstance(data.get("image"), list):
+                    image = data.get("image")[0]
+                else:
+                    image = data.get("image") or ""
+                if not name or not image:
+                    continue
+                products.append(
+                    {
+                        "name": name,
+                        "price": 600,
+                        "sale_price": 600,
+                        "image": urljoin(base_url, image),
+                        "source": base_url,
+                    }
+                )
+        return products
+
+    def fetch_products_from_sitemap(self, base_url, headers=None):
+        products = []
+        sitemap_urls = [
+            urljoin(base_url, "/sitemap.xml"),
+            urljoin(base_url, "/sitemap_index.xml"),
+            urljoin(base_url, "/product-sitemap.xml"),
+        ]
+        product_links = set()
+        for sitemap in sitemap_urls:
+            try:
+                resp = requests.get(sitemap, timeout=20, headers=headers)
+                if resp.status_code != 200:
+                    continue
+                xml = resp.text
+            except Exception:
+                continue
+            for match in re.findall(r"<loc>(.*?)</loc>", xml, flags=re.IGNORECASE):
+                url = match.strip()
+                if "/product" in url or "/products/" in url:
+                    product_links.add(url)
+        for link in list(product_links)[:80]:
+            product = self.fetch_product_page(link, base_url, headers=headers)
+            if product:
+                products.append(product)
+            time.sleep(0.2)
+        return products
+
     def extract_price_value(self, price, fallback):
         try:
             return int(float(str(price).replace(",", "")))
@@ -362,7 +441,14 @@ class Command(BaseCommand):
         if not url:
             return None
         try:
-            response = requests.get(url, timeout=30)
+            response = requests.get(
+                url,
+                timeout=30,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/121.0 Safari/537.36"
+                },
+            )
             if response.status_code != 200:
                 return None
             content_type = response.headers.get("Content-Type", "").lower()
