@@ -311,10 +311,25 @@ class Command(BaseCommand):
         return None
 
     def extract_meta_image(self, html, base_url):
+        def is_valid_image_url(url):
+            if not url:
+                return False
+            url_lower = url.lower()
+            bad_patterns = [
+                "googletagmanager", "google-analytics", "facebook", "twitter",
+                "instagram", "script", "javascript:", "data:text", "logo",
+                "icon", "favicon", ".js", ".css", ".json", "api/", "/api/",
+            ]
+            return not any(pattern in url_lower for pattern in bad_patterns)
+        
         for match in re.findall(r'property=["\\\']og:image["\\\']\\s+content=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
-            return urljoin(base_url, match.strip())
+            url = match.strip()
+            if is_valid_image_url(url):
+                return urljoin(base_url, url)
         for match in re.findall(r'name=["\\\']twitter:image["\\\']\\s+content=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
-            return urljoin(base_url, match.strip())
+            url = match.strip()
+            if is_valid_image_url(url):
+                return urljoin(base_url, url)
         return None
 
     def extract_jsonld_products(self, html, base_url):
@@ -385,11 +400,25 @@ class Command(BaseCommand):
         return products
 
     def extract_embedded_products(self, html, base_url):
+        def is_valid_image_url(url):
+            if not url or not isinstance(url, str):
+                return False
+            url_lower = url.lower()
+            bad_patterns = [
+                "googletagmanager", "google-analytics", "facebook", "twitter",
+                "instagram", "script", "javascript:", "data:text", "logo",
+                "icon", "favicon", ".js", ".css", ".json", "api/", "/api/",
+            ]
+            return not any(pattern in url_lower for pattern in bad_patterns)
+        
         products = []
         script_matches = re.findall(
             r"<script[^>]*>(.*?)</script>", html, flags=re.IGNORECASE | re.DOTALL
         )
         for script in script_matches:
+            # Skip analytics/GTM scripts
+            if any(x in script.lower() for x in ["googletagmanager", "gtag", "analytics", "tracking"]):
+                continue
             if "product" not in script.lower() or "image" not in script.lower():
                 continue
             for blob in re.findall(r"\{.*?\}", script, flags=re.DOTALL):
@@ -400,10 +429,10 @@ class Command(BaseCommand):
                 name = (data.get("name") or "").strip()
                 image = ""
                 if isinstance(data.get("image"), list):
-                    image = data.get("image")[0]
+                    image = data.get("image")[0] if data.get("image") else ""
                 else:
                     image = data.get("image") or ""
-                if not name or not image:
+                if not name or not image or not is_valid_image_url(image):
                     continue
                 products.append(
                     {
