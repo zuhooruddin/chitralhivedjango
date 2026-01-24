@@ -136,6 +136,8 @@ class Command(BaseCommand):
                     title = (product.get("name") or "").strip()
                     images = product.get("images") or []
                     image = images[0].get("src") if images else ""
+                    if image:
+                        image = urljoin(base_url, image)
                     price = product.get("prices", {}).get("price") or product.get("price")
                     if not title or not image:
                         continue
@@ -165,6 +167,8 @@ class Command(BaseCommand):
                     title = (product.get("title") or "").strip()
                     images = product.get("images") or []
                     image = images[0].get("src") if images else ""
+                    if image:
+                        image = urljoin(base_url, image)
                     variants = product.get("variants") or []
                     price = variants[0].get("price") if variants else None
                     if not title or not image:
@@ -232,6 +236,26 @@ class Command(BaseCommand):
         return None
 
     def extract_primary_image(self, html, base_url):
+        # Prefer srcset if available
+        for match in re.findall(r'srcset=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
+            srcset = match.strip()
+            if not srcset:
+                continue
+            first = srcset.split(",")[0].strip().split(" ")[0]
+            if first:
+                return urljoin(base_url, first)
+        # Common lazy-load attributes
+        for attr in ("data-src", "data-original", "data-lazy", "data-srcset"):
+            for match in re.findall(rf'{attr}=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
+                src = match.strip()
+                if not src:
+                    continue
+                if attr == "data-srcset":
+                    first = src.split(",")[0].strip().split(" ")[0]
+                    if first:
+                        return urljoin(base_url, first)
+                return urljoin(base_url, src)
+        # Fallback to plain src
         for match in re.findall(r'src=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
             src = match.strip()
             if not src or "logo" in src.lower() or "icon" in src.lower():
@@ -385,7 +409,7 @@ class Command(BaseCommand):
             if not category:
                 continue
 
-            image_path = self.download_image(product["image"], ext_pos_id)
+            image_path = self.download_image(product["image"], ext_pos_id, referer=product["source"])
             if not image_path:
                 continue
 
@@ -437,7 +461,7 @@ class Command(BaseCommand):
             return categories["apricots"]
         return categories["dry_fruits"]
 
-    def download_image(self, url, ext_pos_id):
+    def download_image(self, url, ext_pos_id, referer=None):
         if not url:
             return None
         try:
@@ -446,8 +470,10 @@ class Command(BaseCommand):
                 timeout=30,
                 headers={
                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                    "(KHTML, like Gecko) Chrome/121.0 Safari/537.36"
+                    "(KHTML, like Gecko) Chrome/121.0 Safari/537.36",
+                    "Referer": referer or url,
                 },
+                allow_redirects=True,
             )
             if response.status_code != 200:
                 return None
@@ -459,6 +485,10 @@ class Command(BaseCommand):
                 ext = ".webp"
             elif "jpeg" in content_type or "jpg" in content_type:
                 ext = ".jpg"
+            else:
+                parsed_ext = os.path.splitext(url.split("?")[0])[1].lower()
+                if parsed_ext in (".png", ".webp", ".jpeg", ".jpg"):
+                    ext = parsed_ext if parsed_ext != ".jpeg" else ".jpg"
             file_name = f"{ext_pos_id}{ext}"
             media_root = os.path.join(os.getcwd(), "media")
             target_dir = os.path.join(media_root, "item_image")
