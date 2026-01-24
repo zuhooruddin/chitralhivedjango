@@ -147,6 +147,14 @@ class Command(BaseCommand):
         else:
             self.stdout.write('No placeholder categories to clean up')
 
+    def normalize_category_slug(self, value):
+        if not value:
+            return value
+        normalized = value.strip().lstrip("/")
+        if normalized.startswith("categories/"):
+            normalized = normalized.replace("categories/", "", 1)
+        return normalized
+
     def get_chitralhive_categories(self):
         """Get ChitralHive categories that should appear on home page (SEO-optimized)"""
         # Get all eligible categories, excluding placeholder categories
@@ -220,7 +228,7 @@ class Command(BaseCommand):
                     icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'
                     
                     # Use SEO-friendly slug (metaUrl if available, otherwise slug)
-                    seo_slug = category.metaUrl if category.metaUrl else category.slug
+                    seo_slug = self.normalize_category_slug(category.metaUrl) if category.metaUrl else category.slug
                     
                     section_order, created = Individual_BoxOrder.objects.update_or_create(
                         sequenceNo=section_idx,
@@ -252,7 +260,7 @@ class Command(BaseCommand):
                         child_icon = child_cat.icon.name if child_cat.icon else 'category_icon/default-category-icon.jpg'
                         
                         # Use SEO-friendly slug for subcategories
-                        child_seo_slug = child_cat.metaUrl if child_cat.metaUrl else child_cat.slug
+                        child_seo_slug = self.normalize_category_slug(child_cat.metaUrl) if child_cat.metaUrl else child_cat.slug
                         
                         # Use category_id and parent to uniquely identify subcategories
                         subcat_order, sub_created = Individual_BoxOrder.objects.update_or_create(
@@ -309,7 +317,7 @@ class Command(BaseCommand):
             icon_path = category.icon.name if category.icon else 'category_icon/default-category-icon.jpg'
             
             # Use SEO-friendly slug (metaUrl if available, otherwise slug)
-            seo_slug = category.metaUrl if category.metaUrl else category.slug
+            seo_slug = self.normalize_category_slug(category.metaUrl) if category.metaUrl else category.slug
             
             # Create or update Individual_BoxOrder with SEO-optimized fields
             box_order, created = Individual_BoxOrder.objects.update_or_create(
@@ -390,7 +398,7 @@ class Command(BaseCommand):
                 slug_field = f'{field_name}_slug'
                 
                 # Use SEO-friendly slug for child
-                child_seo_slug = child_cat.metaUrl if child_cat.metaUrl else child_cat.slug
+                child_seo_slug = self.normalize_category_slug(child_cat.metaUrl) if child_cat.metaUrl else child_cat.slug
                 
                 setattr(section_seq, field_name, child_cat)
                 setattr(section_seq, name_field, child_cat.metaTitle if child_cat.metaTitle else child_cat.name)

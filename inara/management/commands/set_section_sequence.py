@@ -9,6 +9,14 @@ from inara.models import Category, Individual_BoxOrder, SectionSequence
 class Command(BaseCommand):
     help = "Assign a category to a homepage section sequence"
 
+    def normalize_category_slug(self, value):
+        if not value:
+            return value
+        normalized = value.strip().lstrip("/")
+        if normalized.startswith("categories/"):
+            normalized = normalized.replace("categories/", "", 1)
+        return normalized
+
     def add_arguments(self, parser):
         parser.add_argument("--sequence", type=int, required=True, help="Section sequence number")
         parser.add_argument("--slug", type=str, required=True, help="Category slug")
@@ -23,7 +31,7 @@ class Command(BaseCommand):
             return
 
         icon_path = category.icon.name if category.icon else "category_icon/default-category-icon.jpg"
-        seo_slug = category.metaUrl if category.metaUrl else category.slug
+        seo_slug = self.normalize_category_slug(category.metaUrl) if category.metaUrl else category.slug
 
         Individual_BoxOrder.objects.update_or_create(
             sequenceNo=sequence_no,
