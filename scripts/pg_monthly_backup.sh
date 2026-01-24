@@ -12,7 +12,8 @@ DB_PORT="5432"
 BACKUP_DIR="/var/backups/chitralhive"
 BACKUP_PREFIX="chitral_hive"
 RECIPIENT_EMAIL="zuhooruddin055@gmail.com"
-
+echo "localhost:5432:chitral_hive:chitral:YOUR_PASSWORD" >> ~/.pgpass
+chmod 600 ~/.pgpass
 # Ensure backup directory exists
 mkdir -p "$BACKUP_DIR"
 

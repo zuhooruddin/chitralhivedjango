@@ -22,37 +22,35 @@ class Command(BaseCommand):
     help = "Clear all products and seed products from listed Chitrali sites"
 
     def handle(self, *args, **options):
-        self.stdout.write(self.style.WARNING("Removing existing products from target categories..."))
-        categories = self.load_target_categories()
-        self.clear_products(categories)
+        self.stdout.write(self.style.WARNING("Removing existing products..."))
+        self.clear_products()
 
-        self.stdout.write(self.style.SUCCESS("Seeding products for Dry Fruits and Honey..."))
+        self.stdout.write(self.style.SUCCESS("Loading existing categories..."))
+        categories = self.load_categories()
+
+        self.stdout.write(self.style.SUCCESS("Seeding products..."))
         created = self.seed_products(categories)
 
         self.stdout.write(self.style.SUCCESS(f"Created {created} products."))
 
-    def clear_products(self, categories):
-        target_category_ids = [cat.id for cat in categories.values()]
-        item_ids = list(
-            CategoryItem.objects.filter(categoryId__in=target_category_ids).values_list("itemId", flat=True)
-        )
-        if not item_ids:
-            return
-        CategoryItem.objects.filter(itemId__in=item_ids).delete()
-        ItemGallery.objects.filter(itemId__in=item_ids).delete()
-        ItemTags.objects.filter(itemId__in=item_ids).delete()
-        Item.objects.filter(id__in=item_ids).delete()
+    def clear_products(self):
+        CategoryItem.objects.all().delete()
+        ItemGallery.objects.all().delete()
+        ItemTags.objects.all().delete()
+        Item.objects.all().delete()
 
-    def load_target_categories(self):
+    def load_categories(self):
         category_defs = [
-            ("chitrali-dry-fruits", "Dry Fruits"),
-            ("chitrali-dry-fruits-almonds", "Dry Fruits - Almonds"),
-            ("chitrali-dry-fruits-walnuts", "Dry Fruits - Walnuts"),
-            ("chitrali-dry-fruits-apricots", "Dry Fruits - Apricots"),
+            ("chitrali-oils", "Chitrali Oils"),
+            ("chitrali-spices", "Chitrali Spices"),
+            ("salajit", "Salajit"),
             ("chitrali-honey", "Chitrali Honey"),
-            ("chitrali-honey-wild-honey", "Chitrali Honey - Wild Honey"),
-            ("chitrali-honey-organic-honey", "Chitrali Honey - Organic Honey"),
-            ("chitrali-honey-sidr-honey", "Chitrali Honey - Sidr Honey"),
+            ("chitrali-nuts", "Chitrali Nuts"),
+            ("dry-fruits", "Dry Fruits"),
+            ("chitrali-traditional-foods", "Chitrali Traditional Foods"),
+            ("chitrali-pickles", "Chitrali Pickles"),
+            ("chitrali-wool-products", "Chitrali Wool Products"),
+            ("chitrali-apricots", "Chitrali Apricots"),
         ]
 
         categories = {}
@@ -74,40 +72,26 @@ class Command(BaseCommand):
     def seed_products(self, categories):
         random.seed(42)
         sites = [
-            {
-                "name": "northendryfruits",
-                "base": "https://www.northendryfruits.com/shop",
-                "max": 120,
-                "default_category": "dry-fruits",
-            },
-            {
-                "name": "chitralinaturals_honey",
-                "base": "https://chitralinaturals.com/product-category/honey/",
-                "max": 80,
-                "default_category": "chitrali-honey",
-            },
-            {
-                "name": "shubinak_honey",
-                "base": "https://www.shubinak.com/collections/honey",
-                "max": 80,
-                "default_category": "chitrali-honey",
-            },
+            {"name": "chitralorganic", "base": "https://chitralorganic.com/", "max": 50},
+            {"name": "chitralherbs", "base": "https://chitralherbs.com/", "max": 30},
+            {"name": "chitralhouse", "base": "https://chitralhouse.com/", "max": 30},
+            {"name": "chitralbazar", "base": "https://chitralbazar.com/", "max": 30},
+            {"name": "chitralwool", "base": "https://chitralwool.com/", "max": 30},
+            {"name": "chitralorganic_all", "base": "https://chitralorganic.com/collections/all", "max": 40},
+            {"name": "chitralshop", "base": "https://chitralshop.com/", "max": 40},
         ]
 
         products = []
         for site in sites:
-            products.extend(
-                self.fetch_products_from_site(
-                    site["base"],
-                    site["max"],
-                    default_category=site["default_category"],
-                )
-            )
+            products.extend(self.fetch_products_from_site(site["base"], site["max"]))
+
+        # Ensure at least 229 products if sources provide enough
+        target_count = 230
+        products = products[:target_count]
 
         created = 0
         ext_pos_id = 200000
 
-        ext_pos_id = self.get_next_ext_pos_id()
         for index, product in enumerate(products, start=1):
             category = categories.get(product["category"])
             if not category:
@@ -116,9 +100,6 @@ class Command(BaseCommand):
             slug_base = slugify(product["name"])
             slug = f"{slug_base}-{ext_pos_id}"
             sku = f"CHIT-SRC-{ext_pos_id:06d}"
-            if Item.objects.filter(sku=sku).exists():
-                ext_pos_id += 1
-                sku = f"CHIT-SRC-{ext_pos_id:06d}"
 
             is_new = 1 if index % 7 == 0 else 0
             is_featured = 1 if index % 13 == 0 else 0
@@ -165,16 +146,16 @@ class Command(BaseCommand):
 
         return created
 
-    def fetch_products_from_site(self, base_url, max_products, default_category):
+    def fetch_products_from_site(self, base_url, max_products):
         products = []
-        shopify_products = self.fetch_shopify_products(base_url, max_products, default_category)
+        shopify_products = self.fetch_shopify_products(base_url, max_products)
         if shopify_products:
             return shopify_products
 
-        html_products = self.fetch_html_products(base_url, max_products, default_category)
+        html_products = self.fetch_html_products(base_url, max_products)
         return html_products
 
-    def fetch_shopify_products(self, base_url, max_products, default_category):
+    def fetch_shopify_products(self, base_url, max_products):
         products = []
         for endpoint in ("/products.json?limit=250", "/collections/all/products.json?limit=250"):
             try:
@@ -198,7 +179,7 @@ class Command(BaseCommand):
                     products.append(
                         {
                             "name": title.strip(),
-                            "category": self.infer_category(title, default_category),
+                            "category": self.infer_category(title),
                             "price": self.safe_price(price, 600),
                             "sale_price": self.safe_price(price, 550),
                             "image": image,
@@ -211,7 +192,7 @@ class Command(BaseCommand):
                 continue
         return products
 
-    def fetch_html_products(self, base_url, max_products, default_category):
+    def fetch_html_products(self, base_url, max_products):
         products = []
         try:
             resp = requests.get(base_url, timeout=20)
@@ -227,14 +208,14 @@ class Command(BaseCommand):
         for link in product_links:
             if len(products) >= max_products:
                 break
-            product = self.fetch_product_page(link, base_url, default_category)
+            product = self.fetch_product_page(link, base_url)
             if product:
                 products.append(product)
             time.sleep(0.4)
 
         return products
 
-    def fetch_product_page(self, url, base_url, default_category):
+    def fetch_product_page(self, url, base_url):
         try:
             resp = requests.get(url, timeout=20)
             if resp.status_code != 200:
@@ -250,7 +231,7 @@ class Command(BaseCommand):
 
         return {
             "name": title,
-            "category": self.infer_category(title, default_category),
+            "category": self.infer_category(title),
             "price": 700,
             "sale_price": 650,
             "image": image,
@@ -317,31 +298,27 @@ class Command(BaseCommand):
             return candidates[0]
         return None
 
-    def infer_category(self, title, default_category):
+    def infer_category(self, title):
         title_lower = title.lower()
+        if "oil" in title_lower:
+            return "chitrali-oils"
         if "salajit" in title_lower or "shilajit" in title_lower:
-            return default_category
+            return "salajit"
         if "honey" in title_lower:
-            if "sidr" in title_lower:
-                return "chitrali-honey-sidr-honey"
-            if "organic" in title_lower:
-                return "chitrali-honey-organic-honey"
-            if "wild" in title_lower:
-                return "chitrali-honey-wild-honey"
             return "chitrali-honey"
-        if "almond" in title_lower:
-            return "chitrali-dry-fruits-almonds"
-        if "walnut" in title_lower:
-            return "chitrali-dry-fruits-walnuts"
+        if "walnut" in title_lower or "almond" in title_lower or "nut" in title_lower:
+            return "chitrali-nuts"
         if "apricot" in title_lower:
-            return "chitrali-dry-fruits-apricots"
-        return default_category
-
-    def get_next_ext_pos_id(self):
-        latest = Item.objects.order_by("-extPosId").first()
-        if latest and latest.extPosId:
-            return latest.extPosId + 1
-        return 200000
+            return "chitrali-apricots"
+        if "pickle" in title_lower:
+            return "chitrali-pickles"
+        if "wool" in title_lower or "shawl" in title_lower or "pakol" in title_lower:
+            return "chitrali-wool-products"
+        if "tea" in title_lower or "mix" in title_lower:
+            return "chitrali-traditional-foods"
+        if "spice" in title_lower or "cumin" in title_lower or "turmeric" in title_lower:
+            return "chitrali-spices"
+        return "dry-fruits"
 
     def safe_price(self, price, fallback):
         try:
