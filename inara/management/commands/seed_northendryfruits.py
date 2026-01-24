@@ -69,6 +69,11 @@ class Command(BaseCommand):
         if shopify_products:
             return shopify_products
 
+        # Try WooCommerce/WordPress Store API
+        wc_products = self.fetch_woocommerce_products(shop_url)
+        if wc_products:
+            return wc_products
+
         try:
             resp = requests.get(shop_url, timeout=25)
             if resp.status_code != 200:
@@ -89,6 +94,42 @@ class Command(BaseCommand):
                 products.append(product)
             time.sleep(0.3)
 
+        return products
+
+    def fetch_woocommerce_products(self, base_url):
+        products = []
+        endpoints = [
+            "/wp-json/wc/store/products",
+            "/wp-json/wc/store/products?per_page=100",
+            "/wp-json/wc/store/products?page=1&per_page=100",
+        ]
+        for endpoint in endpoints:
+            try:
+                url = urljoin(base_url, endpoint)
+                resp = requests.get(url, timeout=20)
+                if resp.status_code != 200:
+                    continue
+                data = resp.json()
+                if not isinstance(data, list):
+                    continue
+                for product in data:
+                    title = (product.get("name") or "").strip()
+                    images = product.get("images") or []
+                    image = images[0].get("src") if images else ""
+                    price = product.get("prices", {}).get("price") or product.get("price")
+                    if not title or not image:
+                        continue
+                    products.append(
+                        {
+                            "name": title,
+                            "price": self.extract_price_value(price, 600),
+                            "sale_price": self.extract_price_value(price, 600),
+                            "image": image,
+                            "source": base_url,
+                        }
+                    )
+            except Exception:
+                continue
         return products
 
     def fetch_shopify_products(self, base_url):
@@ -140,7 +181,7 @@ class Command(BaseCommand):
             return None
 
         title = self.extract_title(html)
-        image = self.extract_primary_image(html, base_url)
+        image = self.extract_primary_image(html, base_url) or self.extract_meta_image(html, base_url)
         if not title or not image:
             return None
 
@@ -184,6 +225,13 @@ class Command(BaseCommand):
                 return int(match.replace(",", ""))
             except Exception:
                 continue
+        return None
+
+    def extract_meta_image(self, html, base_url):
+        for match in re.findall(r'property=["\\\']og:image["\\\']\\s+content=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
+            return urljoin(base_url, match.strip())
+        for match in re.findall(r'name=["\\\']twitter:image["\\\']\\s+content=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
+            return urljoin(base_url, match.strip())
         return None
 
     def extract_jsonld_products(self, html, base_url):
