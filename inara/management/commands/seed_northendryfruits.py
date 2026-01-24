@@ -2,6 +2,7 @@
 Seed Dry Fruits categories from https://www.northendryfruits.com/shop
 Run: python manage.py seed_northendryfruits
 """
+import json
 import os
 import re
 import time
@@ -63,6 +64,11 @@ class Command(BaseCommand):
 
     def fetch_products(self, shop_url):
         products = []
+        # Try Shopify-style JSON endpoints first (fast, structured)
+        shopify_products = self.fetch_shopify_products(shop_url)
+        if shopify_products:
+            return shopify_products
+
         try:
             resp = requests.get(shop_url, timeout=25)
             if resp.status_code != 200:
@@ -70,6 +76,11 @@ class Command(BaseCommand):
             html = resp.text
         except Exception:
             return products
+
+        # Try JSON-LD product listings on the shop page
+        jsonld_products = self.extract_jsonld_products(html, shop_url)
+        if jsonld_products:
+            return jsonld_products
 
         product_links = self.extract_product_links(html, shop_url)
         for link in product_links:
@@ -80,11 +91,41 @@ class Command(BaseCommand):
 
         return products
 
+    def fetch_shopify_products(self, base_url):
+        products = []
+        for endpoint in ("/products.json?limit=250", "/collections/all/products.json?limit=250"):
+            try:
+                url = urljoin(base_url, endpoint)
+                resp = requests.get(url, timeout=20)
+                if resp.status_code != 200:
+                    continue
+                data = resp.json()
+                for product in data.get("products", []):
+                    title = (product.get("title") or "").strip()
+                    images = product.get("images") or []
+                    image = images[0].get("src") if images else ""
+                    variants = product.get("variants") or []
+                    price = variants[0].get("price") if variants else None
+                    if not title or not image:
+                        continue
+                    products.append(
+                        {
+                            "name": title,
+                            "price": self.extract_price_value(price, 600),
+                            "sale_price": self.extract_price_value(price, 600),
+                            "image": image,
+                            "source": base_url,
+                        }
+                    )
+            except Exception:
+                continue
+        return products
+
     def extract_product_links(self, html, base_url):
         links = set()
         for match in re.findall(r'href=["\\\']([^"\\\']+)["\\\']', html, flags=re.IGNORECASE):
             href = match.strip()
-            if "/product" not in href:
+            if "/product" not in href and "/products/" not in href:
                 continue
             links.add(urljoin(base_url, href))
         return list(links)
@@ -144,6 +185,68 @@ class Command(BaseCommand):
             except Exception:
                 continue
         return None
+
+    def extract_jsonld_products(self, html, base_url):
+        products = []
+        for match in re.findall(r'<script[^>]+type=["\\\']application/ld\\+json["\\\'][^>]*>(.*?)</script>', html, flags=re.IGNORECASE | re.DOTALL):
+            try:
+                data = json.loads(match.strip())
+            except Exception:
+                continue
+
+            # Some pages provide an ItemList
+            if isinstance(data, dict) and data.get("@type") == "ItemList":
+                for item in data.get("itemListElement", []):
+                    if isinstance(item, dict) and "item" in item:
+                        item = item["item"]
+                    if not isinstance(item, dict):
+                        continue
+                    title = (item.get("name") or "").strip()
+                    image = ""
+                    if isinstance(item.get("image"), list):
+                        image = item.get("image")[0]
+                    else:
+                        image = item.get("image") or ""
+                    url = item.get("url") or base_url
+                    if not title or not image:
+                        continue
+                    products.append(
+                        {
+                            "name": title,
+                            "price": 600,
+                            "sale_price": 600,
+                            "image": urljoin(base_url, image),
+                            "source": urljoin(base_url, url),
+                        }
+                    )
+
+            # Single Product schema
+            if isinstance(data, dict) and data.get("@type") == "Product":
+                title = (data.get("name") or "").strip()
+                image = ""
+                if isinstance(data.get("image"), list):
+                    image = data.get("image")[0]
+                else:
+                    image = data.get("image") or ""
+                offers = data.get("offers") or {}
+                price = offers.get("price") if isinstance(offers, dict) else None
+                if title and image:
+                    products.append(
+                        {
+                            "name": title,
+                            "price": self.extract_price_value(price, 600),
+                            "sale_price": self.extract_price_value(price, 600),
+                            "image": urljoin(base_url, image),
+                            "source": base_url,
+                        }
+                    )
+        return products
+
+    def extract_price_value(self, price, fallback):
+        try:
+            return int(float(str(price).replace(",", "")))
+        except Exception:
+            return fallback
 
     def seed_products(self, products, categories):
         created = 0
