@@ -78,8 +78,7 @@ def build_seo(product_name: str, category_name: Optional[str]) -> SeoPayload:
 
     meta_description = _truncate(
         f"Buy {product_name}{category_phrase} online from Chitral Hive. "
-        f"Authentic Chitrali quality, safe packaging, nationwide delivery. "
-        f"Keywords: {keywords}.",
+        f"Authentic Chitrali quality, safe packaging, nationwide delivery across Pakistan.",
         300,
     )
 
@@ -92,8 +91,7 @@ def build_seo(product_name: str, category_name: Optional[str]) -> SeoPayload:
         f"- Fast delivery across Pakistan\n\n"
         f"How to use:\n"
         f"- Enjoy daily as needed, or add to your recipes\n\n"
-        f"Order now from Chitral Hive and enjoy genuine taste from Chitral.\n"
-        f"SEO Keywords: {keywords}"
+        f"Order now from Chitral Hive and enjoy genuine taste from Chitral."
     )
     description = _truncate(description, 2000)
 
