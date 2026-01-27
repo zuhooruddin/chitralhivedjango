@@ -11,6 +11,7 @@ from urllib.parse import urljoin
 
 import requests
 from django.core.management.base import BaseCommand
+from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
 
@@ -272,17 +273,23 @@ class Command(BaseCommand):
 
     def seed_products(self, products, categories):
         created = 0
-        ext_pos_id = 400000
+        # Find the highest extPosId starting with 400000 to avoid conflicts
+        max_ext_pos = Item.objects.filter(extPosId__gte=400000).aggregate(
+            max_id=models.Max('extPosId')
+        )['max_id'] or 399999
+        ext_pos_id = max_ext_pos + 1
 
         self.stdout.write(f"Processing {len(products)} products...")
+        self.stdout.write(f"Starting extPosId from: {ext_pos_id}")
 
         for idx, product in enumerate(products, start=1):
             name = product["name"]
             self.stdout.write(f"  [{idx}] {name}")
             
-            # Check if product already exists
+            # Check if product already exists by name or slug
+            slug_base = slugify(name)
             if Item.objects.filter(name__iexact=name).exists():
-                self.stdout.write(self.style.WARNING(f"      ⚠ Already exists, skipping"))
+                self.stdout.write(self.style.WARNING(f"      ⚠ Already exists (by name), skipping"))
                 continue
 
             image_url = product.get("image", "")
@@ -295,8 +302,15 @@ class Command(BaseCommand):
             
             self.stdout.write(self.style.SUCCESS(f"      ✓ Image saved: {image_path}"))
 
-            slug = f"{slugify(name)}-{ext_pos_id}"
+            # Ensure unique slug and SKU
+            slug = f"{slug_base}-{ext_pos_id}"
             sku = f"HNY-{ext_pos_id:06d}"
+            
+            # Check if SKU or slug already exists and find next available
+            while Item.objects.filter(sku=sku).exists() or Item.objects.filter(slug=slug).exists():
+                ext_pos_id += 1
+                slug = f"{slug_base}-{ext_pos_id}"
+                sku = f"HNY-{ext_pos_id:06d}"
 
             # Determine which subcategory to use
             subcategory = self.infer_subcategory(name, categories)
@@ -305,51 +319,55 @@ class Command(BaseCommand):
             # Generate SEO-friendly description
             description = self.generate_seo_description(name, category_name)
 
-            item = Item.objects.create(
-                extPosId=ext_pos_id,
-                name=name,
-                slug=slug,
-                sku=sku,
-                image=image_path,
-                description=description,
-                mrp=product["price"],
-                salePrice=product["sale_price"],
-                discount=0,
-                stock=Decimal(200),
-                stockCheckQty=Decimal(10),
-                weight=Decimal("0.5"),
-                appliesOnline=1,
-                status=Item.ACTIVE,
-                isNewArrival=1 if idx % 5 == 0 else 0,
-                isFeatured=1 if idx % 8 == 0 else 0,
-                manufacturer="Chitral Hive",
-                metaTitle=f"{name} - Buy Online in Pakistan | Chitral Hive",
-                metaDescription=description[:150] if len(description) > 150 else description,
-                timestamp=timezone.now(),
-            )
-
-            # Link to main category
-            if categories["main"]:
-                CategoryItem.objects.create(
-                    categoryId=categories["main"],
-                    itemId=item,
-                    level=2,
-                    status=CategoryItem.ACTIVE,
+            try:
+                item = Item.objects.create(
+                    extPosId=ext_pos_id,
+                    name=name,
+                    slug=slug,
+                    sku=sku,
+                    image=image_path,
+                    description=description,
+                    mrp=product["price"],
+                    salePrice=product["sale_price"],
+                    discount=0,
+                    stock=Decimal(200),
+                    stockCheckQty=Decimal(10),
+                    weight=Decimal("0.5"),
+                    appliesOnline=1,
+                    status=Item.ACTIVE,
+                    isNewArrival=1 if idx % 5 == 0 else 0,
+                    isFeatured=1 if idx % 8 == 0 else 0,
+                    manufacturer="Chitral Hive",
+                    metaTitle=f"{name} - Buy Online in Pakistan | Chitral Hive",
+                    metaDescription=description[:150] if len(description) > 150 else description,
+                    timestamp=timezone.now(),
                 )
-                self.stdout.write(f"      ✓ Linked to: {categories['main'].name}")
 
-            # Link to subcategory if found
-            if subcategory:
-                CategoryItem.objects.create(
-                    categoryId=subcategory,
-                    itemId=item,
-                    level=2,
-                    status=CategoryItem.ACTIVE,
-                )
-                self.stdout.write(f"      ✓ Linked to: {subcategory.name}")
+                # Link to main category
+                if categories["main"]:
+                    CategoryItem.objects.create(
+                        categoryId=categories["main"],
+                        itemId=item,
+                        level=2,
+                        status=CategoryItem.ACTIVE,
+                    )
+                    self.stdout.write(f"      ✓ Linked to: {categories['main'].name}")
 
-            created += 1
-            ext_pos_id += 1
+                # Link to subcategory if found
+                if subcategory:
+                    CategoryItem.objects.create(
+                        categoryId=subcategory,
+                        itemId=item,
+                        level=2,
+                        status=CategoryItem.ACTIVE,
+                    )
+                    self.stdout.write(f"      ✓ Linked to: {subcategory.name}")
+
+                created += 1
+            except Exception as e:
+                self.stdout.write(self.style.ERROR(f"      ❌ Error creating product: {str(e)}"))
+            finally:
+                ext_pos_id += 1
 
         return created
 
