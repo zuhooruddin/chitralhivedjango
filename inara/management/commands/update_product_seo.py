@@ -32,6 +32,21 @@ def _truncate(value: str, max_len: int) -> str:
     return value[: max_len - 1].rstrip() + "…"
 
 
+def _remove_seo_keywords_blurbs(text: str) -> str:
+    """
+    Remove legacy 'SEO Keywords:' or 'Keywords:' blurbs that were previously appended.
+    """
+    if not text:
+        return text
+    # Remove any line that starts with SEO Keywords:
+    text = re.sub(r"(?im)^\s*seo\s*keywords\s*:\s*.*$", "", text)
+    # Remove inline 'Keywords: ...' fragments
+    text = re.sub(r"(?im)\bkeywords\s*:\s*[^.\n]+\.?", "", text)
+    # Cleanup extra blank lines/spaces
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    return text
+
+
 def _keyword_pack(category_name: Optional[str], product_name: str) -> str:
     name = (category_name or "").lower()
     if "salajit" in name or "shilajit" in name:
@@ -113,11 +128,17 @@ class Command(BaseCommand):
             action="store_true",
             help="Only update items missing description/meta fields",
         )
+        parser.add_argument(
+            "--cleanup-seo-keywords",
+            action="store_true",
+            help="Only remove legacy 'SEO Keywords' / 'Keywords' text from existing fields",
+        )
 
     def handle(self, *args, **options):
         dry_run: bool = options["dry_run"]
         limit: int = options["limit"]
         only_missing: bool = options["only_missing"]
+        cleanup_only: bool = options["cleanup_seo_keywords"]
 
         qs = (
             Item.objects.all()
@@ -153,12 +174,29 @@ class Command(BaseCommand):
                 if item.description and item.metaTitle and item.metaDescription:
                     continue
 
+            if cleanup_only:
+                new_desc = _remove_seo_keywords_blurbs(item.description or "")
+                new_meta_desc = _remove_seo_keywords_blurbs(item.metaDescription or "")
+                changed = (new_desc != (item.description or "")) or (
+                    new_meta_desc != (item.metaDescription or "")
+                )
+                if not changed:
+                    continue
+                if dry_run:
+                    self.stdout.write(f"[DRY-RUN] cleanup item {item.id} {item.name}")
+                else:
+                    item.description = new_desc
+                    item.metaDescription = new_meta_desc
+                    item.save(update_fields=["description", "metaDescription"])
+                updated += 1
+                continue
+
             seo = build_seo(item.name, category_name)
 
             changed = (
-                (item.description or "") != seo.description
+                _remove_seo_keywords_blurbs(item.description or "") != seo.description
                 or (item.metaTitle or "") != seo.meta_title
-                or (item.metaDescription or "") != seo.meta_description
+                or _remove_seo_keywords_blurbs(item.metaDescription or "") != seo.meta_description
             )
 
             if not changed:
