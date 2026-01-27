@@ -31,6 +31,7 @@ class Command(BaseCommand):
         source_urls = [
             "https://www.shubinak.com/collections/honey",
             "https://amaltaas.com.pk/shop/honey",
+            "https://shifa.zone/collections/honey",
         ]
         products = []
         for url in source_urls:
