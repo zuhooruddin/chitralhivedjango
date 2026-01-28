@@ -2128,9 +2128,12 @@ def getItemSearchCategory(request):
         categoryObject = Category.objects.get(slug=slug)    
         categoryItemList = list(CategoryItem.objects.filter(categoryId=categoryObject).values_list("itemId",flat=True))
         
-        # Return all active products (not just featured) with higher limit for homepage sections
-        # Order by featured first, then new arrivals, then stock
-        items = Item.objects.filter(id__in= categoryItemList,status=Item.ACTIVE).order_by("-isFeatured","-newArrivalTill","-stock")[:50]
+        # Return all active products for the category (no artificial limit)
+        # Order by featured first, then new arrivals, then stock quantity
+        items = Item.objects.filter(
+            id__in=categoryItemList,
+            status=Item.ACTIVE
+        ).order_by("-isFeatured", "-newArrivalTill", "-stock")
         serialized_data =ItemSerializer(items, many=True).data
     except Exception as e:
             logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
