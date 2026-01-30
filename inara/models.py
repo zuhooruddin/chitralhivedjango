@@ -185,10 +185,10 @@ class Category(models.Model):
     class Meta:
         db_table = "categories"
         indexes = [
-            models.Index(fields=['slug'], name='category_slug_idx'),
-            models.Index(fields=['status'], name='category_status_idx'),
-            models.Index(fields=['appliesOnline', 'status'], name='category_online_status_idx'),
-            models.Index(fields=['isBrand', 'status'], name='category_brand_status_idx'),
+            models.Index(fields=['slug'], name='cat_slug_idx'),
+            models.Index(fields=['status'], name='cat_status_idx'),
+            models.Index(fields=['appliesOnline', 'status'], name='cat_online_status_idx'),
+            models.Index(fields=['isBrand', 'status'], name='cat_brand_status_idx'),
         ]
     
     # def AddCategory1(categoryExtPosId, parentId, name, categoryDescription, appliesOnline, syncTs, lovSequence, catStatus,posStatus):
@@ -305,9 +305,9 @@ class Item(models.Model):
             models.Index(fields=['slug'], name='item_slug_idx'),
             models.Index(fields=['status'], name='item_status_idx'),
             models.Index(fields=['status', 'appliesOnline'], name='item_status_online_idx'),
-            models.Index(fields=['isFeatured', 'status'], name='item_featured_status_idx'),
-            models.Index(fields=['isNewArrival', 'newArrivalTill'], name='item_newarrival_idx'),
-            models.Index(fields=['status', 'isFeatured', 'newArrivalTill'], name='item_ordering_idx'),
+            models.Index(fields=['isFeatured', 'status'], name='item_feat_status_idx'),
+            models.Index(fields=['isNewArrival', 'newArrivalTill'], name='item_newarr_idx'),
+            models.Index(fields=['status', 'isFeatured', 'newArrivalTill'], name='item_order_idx'),
             models.Index(fields=['sku'], name='item_sku_idx'),
         ]
     
@@ -403,11 +403,11 @@ class CategoryItem(models.Model):
     class Meta:
         db_table = "category_item"
         indexes = [
-            models.Index(fields=['categoryId'], name='categoryitem_category_idx'),
-            models.Index(fields=['itemId'], name='categoryitem_item_idx'),
-            models.Index(fields=['categoryId', 'status'], name='categoryitem_category_status_idx'),
-            models.Index(fields=['itemId', 'status'], name='categoryitem_item_status_idx'),
-            models.Index(fields=['categoryId', 'itemId'], name='categoryitem_composite_idx'),
+            models.Index(fields=['categoryId'], name='catitem_cat_idx'),
+            models.Index(fields=['itemId'], name='catitem_item_idx'),
+            models.Index(fields=['categoryId', 'status'], name='catitem_cat_status_idx'),
+            models.Index(fields=['itemId', 'status'], name='catitem_item_status_idx'),
+            models.Index(fields=['categoryId', 'itemId'], name='catitem_composite_idx'),
         ]
 
 
