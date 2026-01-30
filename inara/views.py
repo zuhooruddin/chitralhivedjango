@@ -407,7 +407,7 @@ def getNavCategories(request):
     
     parentList = []
     try:
-            parentLevelCategories = Category.objects.filter(parentId=None, isBrand=False, status=Category.ACTIVE).values('id','name','icon','slug')
+        parentLevelCategories = Category.objects.filter(parentId=None, isBrand=False, status=Category.ACTIVE).values('id','name','icon','slug')
         for parent in parentLevelCategories:
             childs =[]
             parents = {"title":parent['name'],"slug":parent['slug'], "icon":parent['icon'],"id":parent['id'], "menuComponent":"MegaMenu1","href":"/category/"+parent['slug']}
