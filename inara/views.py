@@ -48,6 +48,8 @@ from decimal import Decimal
 import traceback
 from django.db.models import F, Case, When, Value, IntegerField
 import logging
+from django.core.cache import cache
+from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.db.models import Q
 from django.db.models import Sum
@@ -396,9 +398,16 @@ def getProductCategories(request):
 
 
 def getNavCategories(request):
+    cache_key = 'getNavCategories'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     parentList = []
     try:
-        parentLevelCategories = Category.objects.filter(parentId=None, isBrand=False, status=Category.ACTIVE).values('id','name','icon','slug')
+            parentLevelCategories = Category.objects.filter(parentId=None, isBrand=False, status=Category.ACTIVE).values('id','name','icon','slug')
         for parent in parentLevelCategories:
             childs =[]
             parents = {"title":parent['name'],"slug":parent['slug'], "icon":parent['icon'],"id":parent['id'], "menuComponent":"MegaMenu1","href":"/category/"+parent['slug']}
@@ -414,6 +423,9 @@ def getNavCategories(request):
                     
             parents['menuData'] = {"categories":childs}
             parentList.append(parents)
+        
+        # Cache the result for 10 minutes
+        cache.set(cache_key, parentList, settings.CACHE_TIMEOUT.get('nav_categories', 600))
     except Exception as e:
         logger.error("Exception in getNavCategories: %s " %(str(e)))
     return JsonResponse(parentList, safe=False)
@@ -623,11 +635,14 @@ class getSearchCategory(generics.ListCreateAPIView):
         slug = self.request.query_params['slug']
         try:
             categoryObject = Category.objects.get(slug=slug)
-            itemList = []
-            categoryItemObject = CategoryItem.objects.filter(categoryId=categoryObject.pk).values("itemId").distinct("itemId")
-            for i in categoryItemObject:
-                itemList.append(i['itemId'])
-            itemObject = Item.objects.filter(id__in=itemList,status=Item.ACTIVE,appliesOnline=1).order_by("-newArrivalTill","-isFeatured","-stock")
+            # Optimized: Use values_list directly instead of loop
+            itemList = list(CategoryItem.objects.filter(categoryId=categoryObject.pk).values_list("itemId", flat=True).distinct())
+            # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+            itemObject = Item.objects.filter(
+                id__in=itemList,
+                status=Item.ACTIVE,
+                appliesOnline=1
+            ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
         except Exception as e:
             logger.error("Exception in getSearchCategory: %s " %(str(e)))
         return itemObject
@@ -658,11 +673,14 @@ class PaginatedCategory(generics.ListCreateAPIView):
         slug = self.request.query_params['slug']
         try:
             categoryObject = Category.objects.get(slug=slug)
-            itemList = []
-            categoryItemObject = CategoryItem.objects.filter(categoryId=categoryObject.pk).values("itemId").distinct("itemId")
-            for i in categoryItemObject:
-                itemList.append(i['itemId'])
-            itemObject = Item.objects.filter(id__in=itemList,status=Item.ACTIVE,appliesOnline=1).order_by("-newArrivalTill","-isFeatured","-stock")
+            # Optimized: Use values_list directly instead of loop
+            itemList = list(CategoryItem.objects.filter(categoryId=categoryObject.pk).values_list("itemId", flat=True).distinct())
+            # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+            itemObject = Item.objects.filter(
+                id__in=itemList,
+                status=Item.ACTIVE,
+                appliesOnline=1
+            ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
         except Exception as e:
             logger.error("Exception in PaginatedCategory: %s " %(str(e)))
         return itemObject
@@ -677,29 +695,27 @@ def get_all_paginated_items(request):
     sort_option = request.GET.get('sort', '')  # Get the sort option
 
     try:
-        # categoryObject = Category.objects.get(slug=slug)
         categoryObject = Category.objects.get(slug=slug)
-
-    
-
-
-        itemList = []
-        categoryItemObject = CategoryItem.objects.filter(categoryId=categoryObject.pk, status=CategoryItem.ACTIVE).values("itemId").distinct("itemId")
         
+        # Optimized: Use values_list directly instead of loop
+        itemList = list(CategoryItem.objects.filter(
+            categoryId=categoryObject.pk, 
+            status=CategoryItem.ACTIVE
+        ).values_list("itemId", flat=True).distinct())
 
-        for i in categoryItemObject:
-            itemList.append(i['itemId'])
-
-        # itemObject = Item.objects.filter(id__in=itemList, status=Item.ACTIVE, appliesOnline=1)
-        itemObject = Item.objects.filter(id__in=itemList, status=Item.ACTIVE)
-
+        # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+        itemObject = Item.objects.filter(
+            id__in=itemList, 
+            status=Item.ACTIVE
+        ).select_related('manufacturer').prefetch_related('itemgallery_set')
         
-        
-        itemObject = itemObject.order_by("-newArrivalTill", "-isFeatured", "-stock")
+        # Apply sorting
         if sort_option == 'price_asc':
             itemObject = itemObject.order_by("salePrice")  
         elif sort_option == 'price_desc':
-            itemObject = itemObject.order_by("-salePrice") 
+            itemObject = itemObject.order_by("-salePrice")
+        else:
+            itemObject = itemObject.order_by("-newArrivalTill", "-isFeatured", "-stock")
 
         paginator = Paginator(itemObject, page_size)
         page_obj = paginator.get_page(page)
@@ -841,9 +857,18 @@ def syncItems():
     return JsonResponse(context)
 
 def getAllItems(request):
+    cache_key = 'getAllItems'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     itemObject = {}
     try:
         itemObject = list(Item.objects.filter(appliesOnline=1).values('id','sku','slug','extPosId','name','description','mrp','salePrice','stock','aliasCode','status','manufacturer', 'image').order_by('extPosId')[:100])
+        # Cache the result for 5 minutes
+        cache.set(cache_key, itemObject, settings.CACHE_TIMEOUT.get('products', 300))
     except Exception as e:
             logger.error("Exception in getAllItems: %s " %(str(e)))
     return JsonResponse(itemObject, safe=False)
@@ -2122,19 +2147,30 @@ def getOrderDetails(request):
 @permission_classes((AllowAny,))
 @csrf_exempt
 def getItemSearchCategory(request):
-    serialized_data = {}
     slug = request.data['id']
+    cache_key = f'getItemSearchCategory_{slug}'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
+    serialized_data = {}
     try:
         categoryObject = Category.objects.get(slug=slug)    
         categoryItemList = list(CategoryItem.objects.filter(categoryId=categoryObject).values_list("itemId",flat=True))
         
-        # Return all active products for the category (no artificial limit)
+        # Optimized query with select_related and prefetch_related to avoid N+1 queries
+        # Limit to 100 items for performance (can be paginated if needed)
         # Order by featured first, then new arrivals, then stock quantity
         items = Item.objects.filter(
             id__in=categoryItemList,
             status=Item.ACTIVE
-        ).order_by("-isFeatured", "-newArrivalTill", "-stock")
-        serialized_data =ItemSerializer(items, many=True).data
+        ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")[:100]
+        serialized_data = ItemSerializer(items, many=True).data
+        
+        # Cache the result for 5 minutes
+        cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
     except Exception as e:
             logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
     return JsonResponse(serialized_data, safe=False)

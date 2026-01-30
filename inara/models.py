@@ -184,6 +184,12 @@ class Category(models.Model):
 
     class Meta:
         db_table = "categories"
+        indexes = [
+            models.Index(fields=['slug'], name='category_slug_idx'),
+            models.Index(fields=['status'], name='category_status_idx'),
+            models.Index(fields=['appliesOnline', 'status'], name='category_online_status_idx'),
+            models.Index(fields=['isBrand', 'status'], name='category_brand_status_idx'),
+        ]
     
     # def AddCategory1(categoryExtPosId, parentId, name, categoryDescription, appliesOnline, syncTs, lovSequence, catStatus,posStatus):
     #     try:
@@ -295,6 +301,15 @@ class Item(models.Model):
 
     class Meta:
         db_table = "item"
+        indexes = [
+            models.Index(fields=['slug'], name='item_slug_idx'),
+            models.Index(fields=['status'], name='item_status_idx'),
+            models.Index(fields=['status', 'appliesOnline'], name='item_status_online_idx'),
+            models.Index(fields=['isFeatured', 'status'], name='item_featured_status_idx'),
+            models.Index(fields=['isNewArrival', 'newArrivalTill'], name='item_newarrival_idx'),
+            models.Index(fields=['status', 'isFeatured', 'newArrivalTill'], name='item_ordering_idx'),
+            models.Index(fields=['sku'], name='item_sku_idx'),
+        ]
     
     def AddItem(mapping):
         obj = Item()
@@ -387,6 +402,13 @@ class CategoryItem(models.Model):
 
     class Meta:
         db_table = "category_item"
+        indexes = [
+            models.Index(fields=['categoryId'], name='categoryitem_category_idx'),
+            models.Index(fields=['itemId'], name='categoryitem_item_idx'),
+            models.Index(fields=['categoryId', 'status'], name='categoryitem_category_status_idx'),
+            models.Index(fields=['itemId', 'status'], name='categoryitem_item_status_idx'),
+            models.Index(fields=['categoryId', 'itemId'], name='categoryitem_composite_idx'),
+        ]
 
 
 ############### Category & Item Sync Track Progress Model #################

@@ -325,6 +325,31 @@ task_serializer = 'json'
 result_serializer = 'json'
 timezone = 'Asia/Karachi'
 
+# Redis Cache Configuration
+# Use Redis for caching API responses to improve performance
+# Install redis: pip install django-redis
+# Install Redis server: sudo apt-get install redis-server (Linux) or brew install redis (Mac)
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1'),
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'chitralhive',
+        'TIMEOUT': 300,  # Default cache timeout: 5 minutes
+    }
+}
+
+# Cache settings for different types of data
+CACHE_TIMEOUT = {
+    'categories': 600,  # 10 minutes
+    'products': 300,    # 5 minutes
+    'nav_categories': 600,  # 10 minutes
+    'general_settings': 1800,  # 30 minutes
+    'sliders': 3600,  # 1 hour
+}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

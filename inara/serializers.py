@@ -186,12 +186,17 @@ class CategorySerializerDepth(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
-    # Remove SerializerMethodField to allow image uploads
-    # ImageField will automatically return the URL when reading
-    # and accept file uploads when writing
+    # Optimized serializer - only include fields needed for frontend display
+    # This reduces payload size and improves performance
     class Meta:
         model = Item
-        fields = '__all__'
+        fields = [
+            'id', 'extPosId', 'sku', 'slug', 'name', 'description', 
+            'mrp', 'salePrice', 'discount', 'stock', 'stockCheckQty',
+            'weight', 'image', 'status', 'appliesOnline', 'isNewArrival',
+            'isFeatured', 'newArrivalTill', 'manufacturer', 'aliasCode',
+            'metaTitle', 'metaDescription', 'timestamp'
+        ]
         # depth = 2
     
     def to_representation(self, instance):
