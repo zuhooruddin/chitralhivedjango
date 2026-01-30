@@ -327,19 +327,30 @@ timezone = 'Asia/Karachi'
 
 # Redis Cache Configuration
 # Use Redis for caching API responses to improve performance
-# Install redis: pip install django-redis
+# Install redis: pip install django-redis redis
 # Install Redis server: sudo apt-get install redis-server (Linux) or brew install redis (Mac)
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1'),
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        },
-        'KEY_PREFIX': 'chitralhive',
-        'TIMEOUT': 300,  # Default cache timeout: 5 minutes
+# If Redis is not available, Django will fall back to in-memory cache
+try:
+    import django_redis
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_redis.cache.RedisCache',
+            'LOCATION': os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1'),
+            'OPTIONS': {
+                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            },
+            'KEY_PREFIX': 'chitralhive',
+            'TIMEOUT': 300,  # Default cache timeout: 5 minutes
+        }
     }
-}
+except ImportError:
+    # Fallback to in-memory cache if django-redis is not installed
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
+        }
+    }
 
 # Cache settings for different types of data
 CACHE_TIMEOUT = {

@@ -2152,11 +2152,17 @@ def getItemSearchCategory(request):
         return JsonResponse([], safe=False)
     
     cache_key = f'getItemSearchCategory_{slug}'
+    use_cache = True
     
-    # Try to get from cache first
-    cached_data = cache.get(cache_key)
-    if cached_data is not None:
-        return JsonResponse(cached_data, safe=False)
+    # Try to get from cache first (only if cache is available)
+    try:
+        cached_data = cache.get(cache_key)
+        if cached_data is not None and len(cached_data) > 0:
+            return JsonResponse(cached_data, safe=False)
+    except Exception as cache_error:
+        # If cache fails, disable caching for this request
+        use_cache = False
+        logger.warning(f"Cache error in getItemSearchCategory: {str(cache_error)}")
     
     serialized_data = []
     try:
@@ -2164,8 +2170,8 @@ def getItemSearchCategory(request):
         categoryItemList = list(CategoryItem.objects.filter(categoryId=categoryObject).values_list("itemId",flat=True))
         
         if not categoryItemList:
-            # No items in this category, return empty array and cache it for shorter time
-            cache.set(cache_key, serialized_data, 60)  # Cache empty results for 1 minute only
+            # No items in this category, return empty array
+            logger.info(f"No items found in category '{slug}'")
             return JsonResponse(serialized_data, safe=False)
         
         # Optimized query with select_related and prefetch_related to avoid N+1 queries
@@ -2177,15 +2183,21 @@ def getItemSearchCategory(request):
         ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")[:100]
         serialized_data = ItemSerializer(items, many=True).data
         
-        # Only cache if we have results
-        if serialized_data:
-            # Cache the result for 5 minutes
-            cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
+        logger.info(f"Found {len(serialized_data)} products for category '{slug}'")
+        
+        # Only cache if we have results and cache is available
+        if serialized_data and use_cache:
+            try:
+                cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
+            except Exception as cache_error:
+                logger.warning(f"Failed to cache results: {str(cache_error)}")
     except Category.DoesNotExist:
         logger.error(f"Category with slug '{slug}' not found in getItemSearchCategory")
         serialized_data = []
     except Exception as e:
         logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
+        import traceback
+        logger.error(traceback.format_exc())
         serialized_data = []
     
     return JsonResponse(serialized_data, safe=False)
