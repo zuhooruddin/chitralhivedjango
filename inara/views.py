@@ -2147,7 +2147,10 @@ def getOrderDetails(request):
 @permission_classes((AllowAny,))
 @csrf_exempt
 def getItemSearchCategory(request):
-    slug = request.data['id']
+    slug = request.data.get('id', '')
+    if not slug:
+        return JsonResponse([], safe=False)
+    
     cache_key = f'getItemSearchCategory_{slug}'
     
     # Try to get from cache first
@@ -2155,10 +2158,15 @@ def getItemSearchCategory(request):
     if cached_data is not None:
         return JsonResponse(cached_data, safe=False)
     
-    serialized_data = {}
+    serialized_data = []
     try:
         categoryObject = Category.objects.get(slug=slug)    
         categoryItemList = list(CategoryItem.objects.filter(categoryId=categoryObject).values_list("itemId",flat=True))
+        
+        if not categoryItemList:
+            # No items in this category, return empty array and cache it for shorter time
+            cache.set(cache_key, serialized_data, 60)  # Cache empty results for 1 minute only
+            return JsonResponse(serialized_data, safe=False)
         
         # Optimized query with select_related and prefetch_related to avoid N+1 queries
         # Limit to 100 items for performance (can be paginated if needed)
@@ -2169,10 +2177,17 @@ def getItemSearchCategory(request):
         ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")[:100]
         serialized_data = ItemSerializer(items, many=True).data
         
-        # Cache the result for 5 minutes
-        cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
+        # Only cache if we have results
+        if serialized_data:
+            # Cache the result for 5 minutes
+            cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
+    except Category.DoesNotExist:
+        logger.error(f"Category with slug '{slug}' not found in getItemSearchCategory")
+        serialized_data = []
     except Exception as e:
-            logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
+        logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
+        serialized_data = []
+    
     return JsonResponse(serialized_data, safe=False)
 
 
