@@ -2147,8 +2147,14 @@ def getOrderDetails(request):
 @permission_classes((AllowAny,))
 @csrf_exempt
 def getItemSearchCategory(request):
-    slug = request.data.get('id', '')
+    # Support both GET and POST requests
+    if request.method == 'GET':
+        slug = request.GET.get('id', '')
+    else:
+        slug = request.data.get('id', '') or request.POST.get('id', '')
+    
     if not slug:
+        logger.warning("getItemSearchCategory called without 'id' parameter")
         return JsonResponse([], safe=False)
     
     cache_key = f'getItemSearchCategory_{slug}'
@@ -2210,6 +2216,12 @@ def getItemSearchCategory(request):
         
         if len(serialized_data) == 0 and item_count > 0:
             logger.error(f"Serialization issue: Found {item_count} items but serialized 0 products for category '{slug}'")
+        elif len(serialized_data) == 0:
+            # Log detailed diagnostic info when no products are returned
+            total_items_in_category = Item.objects.filter(id__in=categoryItemList).count()
+            active_not_online = Item.objects.filter(id__in=categoryItemList, status=Item.ACTIVE).exclude(appliesOnline=1).count()
+            inactive_items = Item.objects.filter(id__in=categoryItemList).exclude(status=Item.ACTIVE).count()
+            logger.warning(f"Category '{slug}' diagnostic: Total items={total_items_in_category}, Active but not online={active_not_online}, Inactive={inactive_items}")
         
         # Only cache if we have results and cache is available
         if serialized_data and use_cache:
