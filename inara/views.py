@@ -696,7 +696,7 @@ def get_all_paginated_items(request):
 
     try:
         categoryObject = Category.objects.get(slug=slug)
-        
+
         # Optimized: Use values_list directly instead of loop
         itemList = list(CategoryItem.objects.filter(
             categoryId=categoryObject.pk, 
@@ -713,7 +713,7 @@ def get_all_paginated_items(request):
         if sort_option == 'price_asc':
             itemObject = itemObject.order_by("salePrice")  
         elif sort_option == 'price_desc':
-            itemObject = itemObject.order_by("-salePrice")
+            itemObject = itemObject.order_by("-salePrice") 
         else:
             itemObject = itemObject.order_by("-newArrivalTill", "-isFeatured", "-stock")
 
@@ -2152,38 +2152,64 @@ def getItemSearchCategory(request):
         return JsonResponse([], safe=False)
     
     cache_key = f'getItemSearchCategory_{slug}'
-    use_cache = True
+    use_cache = False  # Temporarily disable cache to debug
     
-    # Try to get from cache first (only if cache is available)
-    try:
-        cached_data = cache.get(cache_key)
-        if cached_data is not None and len(cached_data) > 0:
-            return JsonResponse(cached_data, safe=False)
-    except Exception as cache_error:
-        # If cache fails, disable caching for this request
-        use_cache = False
-        logger.warning(f"Cache error in getItemSearchCategory: {str(cache_error)}")
+    # Try to get from cache first (only if cache is available and enabled)
+    # Temporarily disabled for debugging
+    # try:
+    #     cached_data = cache.get(cache_key)
+    #     if cached_data is not None and len(cached_data) > 0:
+    #         return JsonResponse(cached_data, safe=False)
+    # except Exception as cache_error:
+    #     # If cache fails, disable caching for this request
+    #     use_cache = False
+    #     logger.warning(f"Cache error in getItemSearchCategory: {str(cache_error)}")
     
     serialized_data = []
     try:
-        categoryObject = Category.objects.get(slug=slug)    
-        categoryItemList = list(CategoryItem.objects.filter(categoryId=categoryObject).values_list("itemId",flat=True))
+        categoryObject = Category.objects.get(slug=slug)
+        logger.info(f"Found category '{slug}' with ID: {categoryObject.id}")
+        
+        # Check CategoryItem relationships
+        categoryItemList = list(CategoryItem.objects.filter(
+            categoryId=categoryObject,
+            status=CategoryItem.ACTIVE
+        ).values_list("itemId",flat=True))
+        
+        logger.info(f"Found {len(categoryItemList)} CategoryItem relationships for category '{slug}'")
         
         if not categoryItemList:
             # No items in this category, return empty array
-            logger.info(f"No items found in category '{slug}'")
+            logger.warning(f"No CategoryItem relationships found for category '{slug}' (ID: {categoryObject.id})")
             return JsonResponse(serialized_data, safe=False)
         
         # Optimized query with select_related and prefetch_related to avoid N+1 queries
-        # Limit to 100 items for performance (can be paginated if needed)
         # Order by featured first, then new arrivals, then stock quantity
+        # Filter by appliesOnline=1 to match PaginatedCategory behavior
         items = Item.objects.filter(
             id__in=categoryItemList,
-            status=Item.ACTIVE
-        ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")[:100]
+            status=Item.ACTIVE,
+            appliesOnline=1
+        ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")
+        
+        item_count = items.count()
+        logger.info(f"Query found {item_count} active items for category '{slug}'")
+        
+        if item_count == 0:
+            logger.warning(f"No active items found in category '{slug}' - checking if items exist but are filtered out")
+            # Check if items exist but are inactive or not online
+            inactive_count = Item.objects.filter(id__in=categoryItemList).exclude(status=Item.ACTIVE).count()
+            not_online_count = Item.objects.filter(id__in=categoryItemList, status=Item.ACTIVE).exclude(appliesOnline=1).count()
+            logger.info(f"Found {inactive_count} inactive items and {not_online_count} items with appliesOnline != 1 in category '{slug}'")
+        
+        # Limit to 100 items for performance (can be paginated if needed)
+        items = items[:100]
         serialized_data = ItemSerializer(items, many=True).data
         
-        logger.info(f"Found {len(serialized_data)} products for category '{slug}'")
+        logger.info(f"Serialized {len(serialized_data)} products for category '{slug}'")
+        
+        if len(serialized_data) == 0 and item_count > 0:
+            logger.error(f"Serialization issue: Found {item_count} items but serialized 0 products for category '{slug}'")
         
         # Only cache if we have results and cache is available
         if serialized_data and use_cache:
@@ -2195,7 +2221,7 @@ def getItemSearchCategory(request):
         logger.error(f"Category with slug '{slug}' not found in getItemSearchCategory")
         serialized_data = []
     except Exception as e:
-        logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
+            logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
         import traceback
         logger.error(traceback.format_exc())
         serialized_data = []
