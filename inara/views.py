@@ -2160,6 +2160,12 @@ def getItemSearchCategory(request):
     cache_key = f'getItemSearchCategory_{slug}'
     use_cache = False  # Temporarily disable cache to debug
     
+    # Clear any existing cache for this key to ensure fresh data
+    try:
+        cache.delete(cache_key)
+    except Exception:
+        pass
+    
     # Try to get from cache first (only if cache is available and enabled)
     # Temporarily disabled for debugging
     # try:
