@@ -637,12 +637,13 @@ class getSearchCategory(generics.ListCreateAPIView):
             categoryObject = Category.objects.get(slug=slug)
             # Optimized: Use values_list directly instead of loop
             itemList = list(CategoryItem.objects.filter(categoryId=categoryObject.pk).values_list("itemId", flat=True).distinct())
-            # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+            # Optimized: Add prefetch_related to avoid N+1 queries
+            # Note: manufacturer is a CharField, not a ForeignKey, so we can't use select_related
             itemObject = Item.objects.filter(
                 id__in=itemList,
                 status=Item.ACTIVE,
                 appliesOnline=1
-            ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
+            ).prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
         except Exception as e:
             logger.error("Exception in getSearchCategory: %s " %(str(e)))
         return itemObject
@@ -675,12 +676,13 @@ class PaginatedCategory(generics.ListCreateAPIView):
             categoryObject = Category.objects.get(slug=slug)
             # Optimized: Use values_list directly instead of loop
             itemList = list(CategoryItem.objects.filter(categoryId=categoryObject.pk).values_list("itemId", flat=True).distinct())
-            # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+            # Optimized: Add prefetch_related to avoid N+1 queries
+            # Note: manufacturer is a CharField, not a ForeignKey, so we can't use select_related
             itemObject = Item.objects.filter(
                 id__in=itemList,
                 status=Item.ACTIVE,
                 appliesOnline=1
-            ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
+            ).prefetch_related('itemgallery_set').order_by("-newArrivalTill","-isFeatured","-stock")
         except Exception as e:
             logger.error("Exception in PaginatedCategory: %s " %(str(e)))
         return itemObject
@@ -703,11 +705,12 @@ def get_all_paginated_items(request):
             status=CategoryItem.ACTIVE
         ).values_list("itemId", flat=True).distinct())
 
-        # Optimized: Add select_related and prefetch_related to avoid N+1 queries
+        # Optimized: Add prefetch_related to avoid N+1 queries
+        # Note: manufacturer is a CharField, not a ForeignKey, so we can't use select_related
         itemObject = Item.objects.filter(
             id__in=itemList, 
             status=Item.ACTIVE
-        ).select_related('manufacturer').prefetch_related('itemgallery_set')
+        ).prefetch_related('itemgallery_set')
         
         # Apply sorting
         if sort_option == 'price_asc':
@@ -2195,14 +2198,15 @@ def getItemSearchCategory(request):
             logger.warning(f"No CategoryItem relationships found for category '{slug}' (ID: {categoryObject.id})")
             return JsonResponse(serialized_data, safe=False)
         
-        # Optimized query with select_related and prefetch_related to avoid N+1 queries
+        # Optimized query with prefetch_related to avoid N+1 queries
+        # Note: manufacturer is a CharField, not a ForeignKey, so we can't use select_related
         # Order by featured first, then new arrivals, then stock quantity
         # Filter by appliesOnline=1 to match PaginatedCategory behavior
         items = Item.objects.filter(
             id__in=categoryItemList,
             status=Item.ACTIVE,
             appliesOnline=1
-        ).select_related('manufacturer').prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")
+        ).prefetch_related('itemgallery_set').order_by("-isFeatured", "-newArrivalTill", "-stock")
         
         item_count = items.count()
         logger.info(f"Query found {item_count} active items for category '{slug}'")
