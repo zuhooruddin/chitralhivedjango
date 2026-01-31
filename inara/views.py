@@ -407,21 +407,60 @@ def getNavCategories(request):
     
     parentList = []
     try:
-        parentLevelCategories = Category.objects.filter(parentId=None, isBrand=False, status=Category.ACTIVE).values('id','name','icon','slug')
-        for parent in parentLevelCategories:
-            childs =[]
-            parents = {"title":parent['name'],"slug":parent['slug'], "icon":parent['icon'],"id":parent['id'], "menuComponent":"MegaMenu1","href":"/category/"+parent['slug']}
-            childCategory = Category.objects.filter(parentId=parent['id'], status=Category.ACTIVE).values('id','name','slug','icon')
-            if childCategory:
-                for child in childCategory:
-                    subChilds =[]
-                    subCategory = Category.objects.filter(parentId=child['id'], status=Category.ACTIVE).values('id','name','slug','icon')
-                    if subCategory:
-                        for sub in subCategory:
-                            subChilds.append({'title':sub['name'],"href":"/category/"+sub['slug']})
-                    childs.append({"title":child['name'],"slug":parent['slug'],"href":"/category/"+child['slug'],"subCategories":subChilds})
-                    
-            parents['menuData'] = {"categories":childs}
+        # Optimized: Fetch all categories in one query to avoid N+1 queries
+        all_categories = Category.objects.filter(
+            status=Category.ACTIVE,
+            isBrand=False
+        ).values('id', 'name', 'icon', 'slug', 'parentId')
+        
+        # Organize categories by parentId for efficient lookup
+        categories_by_parent = {}
+        parent_categories = []
+        
+        for cat in all_categories:
+            parent_id = cat['parentId']
+            if parent_id is None:
+                parent_categories.append(cat)
+            else:
+                if parent_id not in categories_by_parent:
+                    categories_by_parent[parent_id] = []
+                categories_by_parent[parent_id].append(cat)
+        
+        # Build the navigation structure
+        for parent in parent_categories:
+            childs = []
+            parent_id = parent['id']
+            
+            # Get children of this parent
+            children = categories_by_parent.get(parent_id, [])
+            for child in children:
+                subChilds = []
+                child_id = child['id']
+                
+                # Get sub-children of this child
+                sub_children = categories_by_parent.get(child_id, [])
+                for sub in sub_children:
+                    subChilds.append({
+                        'title': sub['name'],
+                        "href": "/category/" + sub['slug']
+                    })
+                
+                childs.append({
+                    "title": child['name'],
+                    "slug": parent['slug'],
+                    "href": "/category/" + child['slug'],
+                    "subCategories": subChilds
+                })
+            
+            parents = {
+                "title": parent['name'],
+                "slug": parent['slug'],
+                "icon": parent['icon'],
+                "id": parent['id'],
+                "menuComponent": "MegaMenu1",
+                "href": "/category/" + parent['slug'],
+                "menuData": {"categories": childs}
+            }
             parentList.append(parents)
         
         # Cache the result for 10 minutes
@@ -2161,24 +2200,14 @@ def getItemSearchCategory(request):
         return JsonResponse([], safe=False)
     
     cache_key = f'getItemSearchCategory_{slug}'
-    use_cache = False  # Temporarily disable cache to debug
     
-    # Clear any existing cache for this key to ensure fresh data
+    # Try to get from cache first
     try:
-        cache.delete(cache_key)
-    except Exception:
-        pass
-    
-    # Try to get from cache first (only if cache is available and enabled)
-    # Temporarily disabled for debugging
-    # try:
-    #     cached_data = cache.get(cache_key)
-    #     if cached_data is not None and len(cached_data) > 0:
-    #         return JsonResponse(cached_data, safe=False)
-    # except Exception as cache_error:
-    #     # If cache fails, disable caching for this request
-    #     use_cache = False
-    #     logger.warning(f"Cache error in getItemSearchCategory: {str(cache_error)}")
+        cached_data = cache.get(cache_key)
+        if cached_data is not None and len(cached_data) > 0:
+            return JsonResponse(cached_data, safe=False)
+    except Exception as cache_error:
+        logger.warning(f"Cache error in getItemSearchCategory: {str(cache_error)}")
     
     serialized_data = []
     try:
@@ -2218,8 +2247,8 @@ def getItemSearchCategory(request):
             not_online_count = Item.objects.filter(id__in=categoryItemList, status=Item.ACTIVE).exclude(appliesOnline=1).count()
             logger.info(f"Found {inactive_count} inactive items and {not_online_count} items with appliesOnline != 1 in category '{slug}'")
         
-        # Limit to 100 items for performance (can be paginated if needed)
-        items = items[:100]
+        # Limit to 30 items for homepage performance (reduced from 100)
+        items = items[:30]
         serialized_data = ItemSerializer(items, many=True).data
         
         logger.info(f"Serialized {len(serialized_data)} products for category '{slug}'")
@@ -2233,8 +2262,8 @@ def getItemSearchCategory(request):
             inactive_items = Item.objects.filter(id__in=categoryItemList).exclude(status=Item.ACTIVE).count()
             logger.warning(f"Category '{slug}' diagnostic: Total items={total_items_in_category}, Active but not online={active_not_online}, Inactive={inactive_items}")
         
-        # Only cache if we have results and cache is available
-        if serialized_data and use_cache:
+        # Cache the result if we have data
+        if serialized_data:
             try:
                 cache.set(cache_key, serialized_data, settings.CACHE_TIMEOUT.get('products', 300))
             except Exception as cache_error:
@@ -2252,11 +2281,21 @@ def getItemSearchCategory(request):
 
 
 def getAllSectionSequence(request):
+    cache_key = 'getAllSectionSequence'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     itemObject = {}
     try:
         itemObject = list(SectionSequence.objects.values())
+        # Cache for 10 minutes
+        cache.set(cache_key, itemObject, settings.CACHE_TIMEOUT.get('nav_categories', 600))
     except Exception as e:
             logger.error("Exception in getAllSectionSequence: %s " %(str(e)))
+            itemObject = []
     return JsonResponse(itemObject, safe=False)
 
 @api_view(['GET', 'POST'])
@@ -2470,25 +2509,45 @@ class PostListDetailfilter(generics.ListAPIView):
 @permission_classes((AllowAny,))
 @csrf_exempt
 def getBrandBundels(request):
+    cache_key = 'getBrandBundels'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     bundelSerialized = {}
     try:
         bundleid=list(Bundle.objects.filter(bundleType="BRAND").values_list("categoryId",flat=True))
         cid=Category.objects.filter(id__in=bundleid).order_by('priority')
         bundelSerialized = CategorySerializer(cid,many=True).data
+        # Cache for 10 minutes
+        cache.set(cache_key, bundelSerialized, settings.CACHE_TIMEOUT.get('nav_categories', 600))
     except Exception as e:
         logger.error("Exception in getBrandBundels: %s " %(str(e)))
+        bundelSerialized = []
 
     return JsonResponse(bundelSerialized, safe=False)
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
 @csrf_exempt
 def getProductBundels(request):
+    cache_key = 'getProductBundels'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     bundelSerialized = {}
     try:
         bundleid=Bundle.objects.filter(bundleType="PRODUCT",status=Bundle.ACTIVE).order_by('priority')
         bundelSerialized = BundleSerializer(bundleid,many=True).data
+        # Cache for 10 minutes
+        cache.set(cache_key, bundelSerialized, settings.CACHE_TIMEOUT.get('nav_categories', 600))
     except Exception as e:
         logger.error("Exception in getProductBundels: %s " %(str(e)))
+        bundelSerialized = []
     return JsonResponse(bundelSerialized, safe=False)
 
 @api_view(['GET', 'POST'])
@@ -3091,11 +3150,21 @@ def IndividualBoxOrder_Update(request):
 @permission_classes((AllowAny,))
 @csrf_exempt
 def BoxOrder(request):
+    cache_key = 'BoxOrder_all'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     itemObject = {}
     try:
-        itemObject = list(Individual_BoxOrder.objects.values())
+        itemObject = list(Individual_BoxOrder.objects.values().order_by('sequenceNo'))
+        # Cache for 10 minutes
+        cache.set(cache_key, itemObject, settings.CACHE_TIMEOUT.get('nav_categories', 600))
     except Exception as e:
         logger.error("Exception in BoxOrder: %s " %(str(e)))
+        itemObject = []
     return JsonResponse(itemObject, safe=False)
 
 # ======================================   Sync Images of Items from Bucket  ===============================================================================================
@@ -3419,6 +3488,13 @@ def PublisherFlag():
     return subCat
 
 def getSlidersFromCloud(request):
+    cache_key = 'getSlidersFromCloud'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     linode_obj_config = {
         "aws_access_key_id": env('AWS_ACCESS_KEY_ID'),
         "aws_secret_access_key": env('AWS_SECRET_ACCESS_KEY'),
@@ -3435,9 +3511,12 @@ def getSlidersFromCloud(request):
             for object in page['Contents']:
                 if object['Key'] not in unwantedData:
                     slidersList.append(env('AWS_BASE_URL')+object['Key'])
+        # Cache for 1 hour (sliders don't change frequently)
+        cache.set(cache_key, slidersList, 3600)
     except Exception as e:
         print(e)
         logger.error("getSlidersFromCloud : %s " %(str(e)))
+        slidersList = []
     return JsonResponse(slidersList, safe=False)
 
 
@@ -4043,20 +4122,38 @@ def addSiteSetting(request):
 # @is_admin
 @csrf_exempt
 def getGeneralSetting(request):
+    cache_key = 'getGeneralSetting'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     try:
         generalObject = list(SiteSettings.objects.values())
+        # Cache for 30 minutes (settings change infrequently)
+        cache.set(cache_key, generalObject, 1800)
     except Exception as e:
-        logger.error("Exception in getsliderimage: %s " %(str(e)))
+        logger.error("Exception in getGeneralSetting: %s " %(str(e)))
+        generalObject = []
     return JsonResponse(generalObject, safe=False)
     
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
 
 def getLocalSlider(request):
+    cache_key = 'getLocalSlider'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     try:
         slider_set = SiteImage.objects.order_by('-id')[:5]
-
         sliderObject = list(slider_set.values())
+        # Cache for 1 hour (sliders don't change frequently)
+        cache.set(cache_key, sliderObject, 3600)
     except Exception as e:
         logger.error("Exception in getsliderimage: %s " %(str(e)))
         sliderObject = []
@@ -4254,15 +4351,32 @@ def addReviews(request):
 
 @permission_classes((AllowAny,))
 def getAllReviews(request):
+    cache_key = 'getAllReviews'
+    
+    # Try to get from cache first
+    cached_data = cache.get(cache_key)
+    if cached_data is not None:
+        return JsonResponse(cached_data, safe=False)
+    
     try:
+        # Limit to recent 50 reviews for performance
+        allrequest_list = list(ProductReview.objects.values().order_by('-id')[:50])
         
-        allrequest=ProductReview.objects.values()
-
-        items = Item.objects.filter(id__in=allrequest.values_list('itemid_id', flat=True)).values('id', 'name','image')
+        # Get unique item IDs from reviews
+        item_ids = list(set([review.get('itemid_id') for review in allrequest_list if review.get('itemid_id')]))
+        
+        # Fetch items in one query
+        items = list(Item.objects.filter(id__in=item_ids).values('id', 'name', 'image')) if item_ids else []
        
-        return JsonResponse({"Reviews":list(allrequest),"items":list(items)})
+        result = {"Reviews": allrequest_list, "items": items}
+        
+        # Cache for 10 minutes
+        cache.set(cache_key, result, settings.CACHE_TIMEOUT.get('nav_categories', 600))
+        
+        return JsonResponse(result, safe=False)
 
     except Exception as e:
+        logger.error("Exception in getAllReviews: %s " %(str(e)))
         return JsonResponse({'error': str(e)}, status=500)
     
     
