@@ -2221,7 +2221,7 @@ def getItemSearchCategory(request):
         logger.error(f"Category with slug '{slug}' not found in getItemSearchCategory")
         serialized_data = []
     except Exception as e:
-            logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
+        logger.error("Exception in getItemSearchCategory: %s " %(str(e)))
         import traceback
         logger.error(traceback.format_exc())
         serialized_data = []
