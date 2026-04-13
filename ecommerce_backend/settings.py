@@ -152,6 +152,7 @@ CORS_ALLOWED_ORIGINS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'inara.middleware.StaticMediaCacheHeadersMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
@@ -262,7 +263,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/api/static/'
-MEDIA_URL = 'api/media/'
+MEDIA_URL = '/api/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type

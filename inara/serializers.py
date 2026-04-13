@@ -390,6 +390,57 @@ class DynamicTextSerializer(serializers.ModelSerializer):
         model = DynamicText
         fields = '__all__'
 
+class BlogPostSerializer(serializers.ModelSerializer):
+    featured_image_url = serializers.SerializerMethodField()
+    tags_list = serializers.SerializerMethodField()
+    status_display = serializers.CharField(source="get_status_display", read_only=True)
+
+    class Meta:
+        model = BlogPost
+        fields = [
+            "id",
+            "title",
+            "slug",
+            "excerpt",
+            "content",
+            "featured_image",
+            "featured_image_url",
+            "author_name",
+            "category",
+            "tags",
+            "tags_list",
+            "meta_title",
+            "meta_description",
+            "is_featured",
+            "status",
+            "status_display",
+            "published_at",
+            "created_at",
+            "updated_at",
+            "created_by",
+            "updated_by",
+        ]
+        read_only_fields = [
+            "created_at",
+            "updated_at",
+            "created_by",
+            "updated_by",
+        ]
+
+    def get_featured_image_url(self, obj):
+        if not obj.featured_image:
+            return None
+
+        request = self.context.get("request")
+        image_url = obj.featured_image.url
+        return request.build_absolute_uri(image_url) if request else image_url
+
+    def get_tags_list(self, obj):
+        if not obj.tags:
+            return []
+
+        return [tag.strip() for tag in obj.tags.split(",") if tag.strip()]
+
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country

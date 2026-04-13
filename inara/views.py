@@ -119,6 +119,11 @@ class IsSuperAdmin(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.role == 1
 
+
+class IsAdminOrSuperAdmin(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.role in [User.SUPER_ADMIN, User.ADMIN]
+
 def is_admin(view):
     @wraps(view)
     def wrapper(request, *args, **kwargs):
@@ -184,6 +189,12 @@ class DropdownResultsSetPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
+
+class BlogResultsSetPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
 ###### Pagination Setup End ########
 def class_for_name(module_name, class_name):
     # load the module, will raise ImportError if module cannot be loaded
@@ -192,6 +203,114 @@ def class_for_name(module_name, class_name):
     objClassName = getattr(objModule, class_name)
     return objClassName
 # class_for_name(module_name, class_name)
+
+
+class getAllPaginatedBlogs(generics.ListAPIView):
+    serializer_class = BlogPostSerializer
+    pagination_class = BlogResultsSetPagination
+    permission_classes = [IsAdminOrSuperAdmin]
+    parser_classes = [MultiPartParser, FormParser]
+
+    def get_queryset(self):
+        queryset = BlogPost.objects.all().order_by("-created_at")
+        search_term = self.request.query_params.get("search", "").strip()
+        status_filter = self.request.query_params.get("status", "").strip()
+
+        if search_term:
+            queryset = queryset.filter(
+                Q(title__icontains=search_term)
+                | Q(slug__icontains=search_term)
+                | Q(category__icontains=search_term)
+                | Q(tags__icontains=search_term)
+            )
+
+        if status_filter:
+            queryset = queryset.filter(status=status_filter)
+
+        return queryset
+
+
+class addBlog(generics.CreateAPIView):
+    serializer_class = BlogPostSerializer
+    permission_classes = [IsAdminOrSuperAdmin]
+    parser_classes = [MultiPartParser, FormParser]
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user, updated_by=self.request.user)
+
+
+class updateBlog(generics.UpdateAPIView):
+    serializer_class = BlogPostSerializer
+    queryset = BlogPost.objects.all()
+    permission_classes = [IsAdminOrSuperAdmin]
+    parser_classes = [MultiPartParser, FormParser]
+
+    def perform_update(self, serializer):
+        serializer.save(updated_by=self.request.user)
+
+
+@api_view(["GET"])
+@permission_classes((IsAdminOrSuperAdmin,))
+def getBlog(request):
+    blog_id = request.GET.get("id", "")
+
+    if not blog_id:
+        return JsonResponse(
+            {"ErrorCode": error_codes.ERROR, "ErrorMsg": "Blog id is required."},
+            status=400,
+        )
+
+    try:
+        blog = BlogPost.objects.get(id=blog_id)
+    except BlogPost.DoesNotExist:
+        return JsonResponse(
+            {"ErrorCode": error_codes.ERROR, "ErrorMsg": "Blog not found."},
+            status=404,
+        )
+
+    serializer = BlogPostSerializer(blog, context={"request": request})
+    return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def getPublishedBlogs(request):
+    blogs = BlogPost.objects.filter(
+        status=BlogPost.PUBLISHED,
+        published_at__isnull=False,
+        published_at__lte=currentDateTime.now(pytz.UTC),
+    ).order_by("-is_featured", "-published_at", "-created_at")
+
+    serializer = BlogPostSerializer(blogs, many=True, context={"request": request})
+    return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def getPublishedBlog(request):
+    slug = request.GET.get("slug", "").strip()
+
+    if not slug:
+        return JsonResponse(
+            {"ErrorCode": error_codes.ERROR, "ErrorMsg": "Blog slug is required."},
+            status=400,
+        )
+
+    try:
+        blog = BlogPost.objects.get(
+            slug=slug,
+            status=BlogPost.PUBLISHED,
+            published_at__isnull=False,
+            published_at__lte=currentDateTime.now(pytz.UTC),
+        )
+    except BlogPost.DoesNotExist:
+        return JsonResponse(
+            {"ErrorCode": error_codes.ERROR, "ErrorMsg": "Blog not found."},
+            status=404,
+        )
+
+    serializer = BlogPostSerializer(blog, context={"request": request})
+    return JsonResponse(serializer.data, safe=False)
 
 ############ Sync From FrontEnd #########
 

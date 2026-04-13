@@ -10,6 +10,7 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 from datetime import datetime
 from django.utils import timezone
+from django.utils.text import slugify
 from django.contrib.auth.models import AbstractBaseUser, UserManager, AbstractUser, PermissionsMixin
 from django.db import IntegrityError
 from django.contrib.auth.hashers import make_password
@@ -804,6 +805,76 @@ class DynamicText(models.Model):
     
     class Meta:
         db_table = "dynamic_text"
+
+
+class BlogPost(models.Model):
+    DRAFT = 1
+    PUBLISHED = 2
+    ARCHIVED = 3
+    status_choice = (
+        (DRAFT, "DRAFT"),
+        (PUBLISHED, "PUBLISHED"),
+        (ARCHIVED, "ARCHIVED"),
+    )
+
+    id = models.BigAutoField(primary_key=True)
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
+    excerpt = models.TextField(max_length=600)
+    content = models.TextField()
+    featured_image = models.ImageField(
+        upload_to="blog_images/",
+        null=True,
+        blank=True,
+    )
+    author_name = models.CharField(max_length=120, default="Chitral Hive")
+    category = models.CharField(max_length=100, null=True, blank=True)
+    tags = models.CharField(max_length=500, null=True, blank=True)
+    meta_title = models.CharField(max_length=160, null=True, blank=True)
+    meta_description = models.CharField(max_length=320, null=True, blank=True)
+    is_featured = models.BooleanField(default=False)
+    status = models.IntegerField(choices=status_choice, default=DRAFT)
+    published_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="created_blog_posts",
+    )
+    updated_by = models.ForeignKey(
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="updated_blog_posts",
+    )
+
+    class Meta:
+        db_table = "blog_post"
+        ordering = ["-published_at", "-created_at"]
+        indexes = [
+            models.Index(fields=["slug"], name="blog_slug_idx"),
+            models.Index(fields=["status"], name="blog_status_idx"),
+            models.Index(fields=["published_at"], name="blog_pub_idx"),
+        ]
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if self.title and not self.slug:
+            self.slug = slugify(self.title)
+
+        if self.status == self.PUBLISHED and not self.published_at:
+            self.published_at = timezone.now()
+
+        if self.status != self.PUBLISHED and self.status == self.DRAFT:
+            self.published_at = None
+
+        super().save(*args, **kwargs)
 
 
 
