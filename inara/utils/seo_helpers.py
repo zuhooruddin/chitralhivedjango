@@ -14,6 +14,56 @@ PAKISTAN_SEO_KEYWORDS = [
     'PKR', 'Pakistani', 'Pakistan delivery', 'free shipping Pakistan'
 ]
 
+# High-intent clusters (keep short; we’ll mix + dedupe for each product)
+KEYWORD_CLUSTERS = {
+    "general": [
+        "buy online Pakistan",
+        "price in Pakistan",
+        "original",
+        "pure",
+        "authentic",
+        "cash on delivery",
+        "home delivery",
+        "nationwide delivery",
+    ],
+    "shilajit": [
+        "Shilajit Pakistan",
+        "Salajeet Pakistan",
+        "Silajit Pakistan",
+        "سلاجیت",
+        "Himalayan Shilajit",
+        "pure shilajit resin",
+        "original salajeet",
+        "shilajit price in Pakistan",
+    ],
+    "honey": [
+        "pure honey Pakistan",
+        "raw honey",
+        "organic honey",
+        "wild honey",
+        "mountain honey",
+        "honey price in Pakistan",
+    ],
+    "dry_fruits": [
+        "dry fruits Pakistan",
+        "dry fruits price in Pakistan",
+        "premium dry fruits",
+        "mixed dry fruits",
+    ],
+    "herbs": [
+        "herbal products Pakistan",
+        "natural herbs",
+        "organic herbs",
+        "herbs price in Pakistan",
+    ],
+    "crafts": [
+        "handicrafts Pakistan",
+        "Chitrali handicrafts",
+        "handmade products Pakistan",
+        "traditional Chitrali items",
+    ],
+}
+
 
 def generate_seo_url(model_type, slug, parent_slug=None):
     """
@@ -118,33 +168,69 @@ def generate_pakistan_seo_keywords(product_name, category_name=None):
         Comma-separated SEO keywords string
     """
     
-    keywords = [
-        f"{product_name} Pakistan",
-        f"{product_name} online Pakistan",
-        f"buy {product_name} Pakistan",
-        f"{product_name} price in Pakistan",
-        "Chitrali products Pakistan",
-        "Chitrali products online",
-        "buy Chitrali products Pakistan",
-    ]
-    
-    # Add city-specific keywords
+    name = (product_name or "").strip()
+    cat = (category_name or "").strip()
+    lower = f"{name} {cat}".lower()
+
+    if any(k in lower for k in ["shilajit", "salajeet", "salajit", "silajit", "sila jit", "سلاجیت"]):
+        bucket = "shilajit"
+    elif any(k in lower for k in ["honey", "shehad", "شہد"]):
+        bucket = "honey"
+    elif any(k in lower for k in ["dry fruit", "dryfruit", "nuts", "badam", "pista", "akhrot", "kishmish"]):
+        bucket = "dry_fruits"
+    elif any(k in lower for k in ["herb", "herbal", "ajwain", "kalonji", "saunf"]):
+        bucket = "herbs"
+    elif any(k in lower for k in ["craft", "shawl", "topi", "handmade", "handicraft"]):
+        bucket = "crafts"
+    else:
+        bucket = "general"
+
+    keywords = []
+
+    # Product + commercial intents
+    if name:
+        keywords.extend([
+            f"{name} Pakistan",
+            f"buy {name} online Pakistan",
+            f"{name} price in Pakistan",
+        ])
+
+    # Category intents
+    if cat:
+        keywords.extend([
+            f"{cat} Pakistan",
+            f"buy {cat} online Pakistan",
+        ])
+
+    # High intent cluster + general
+    keywords.extend(KEYWORD_CLUSTERS.get(bucket, []))
+    if bucket != "general":
+        keywords.extend(KEYWORD_CLUSTERS["general"])
+
+    # City modifiers (keep top 5 to avoid spam)
     for city in ['Karachi', 'Lahore', 'Islamabad', 'Rawalpindi', 'Peshawar']:
-        keywords.append(f"buy {product_name} in {city}")
-    
-    if category_name:
-        keywords.append(f"{category_name} Pakistan")
-        keywords.append(f"{category_name} online Pakistan")
-    
-    # Add general Pakistan keywords
-    keywords.extend([
-        "online shopping Pakistan",
-        "Pakistan delivery",
-        "free shipping Pakistan",
-        "Chitral Hive Pakistan"
-    ])
-    
-    return ", ".join(keywords)
+        if name:
+            keywords.append(f"buy {name} in {city}")
+
+    # Brand anchors
+    keywords.extend(["Chitral Hive", "Chitral Hive Pakistan", "Chitrali products Pakistan"])
+
+    # Dedupe (case-insensitive) and cap length
+    seen = set()
+    out = []
+    for k in keywords:
+        k = (k or "").strip()
+        if not k:
+            continue
+        key = k.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(k)
+        if len(out) >= 28:
+            break
+
+    return ", ".join(out)
 
 
 def generate_seo_slug(name, existing_slug=None, model_instance=None):
