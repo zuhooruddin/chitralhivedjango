@@ -174,7 +174,8 @@ class Command(BaseCommand):
             desired_url = f"/product/{item.slug}"  # Next.js route
 
             # Store keywords in itemTag (existing field used as tags/keywords)
-            kw = generate_pakistan_seo_keywords(item.name, category_name)
+            # DB constraint: Item.itemTag is varchar(200) in this project.
+            kw = _truncate(generate_pakistan_seo_keywords(item.name, category_name), 200)
 
             changed = False
             if (not only_missing) or not item.metaTitle:
