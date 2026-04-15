@@ -272,14 +272,44 @@ def getBlog(request):
     return JsonResponse(serializer.data, safe=False)
 
 
-@api_view(["GET"])
-@permission_classes((AllowAny,))
-def getPublishedBlogs(request):
-    blogs_qs = BlogPost.objects.filter(
+def _published_blogs_unfiltered_queryset():
+    return BlogPost.objects.filter(
         status=BlogPost.PUBLISHED,
         published_at__isnull=False,
         published_at__lte=currentDateTime.now(pytz.UTC),
     ).order_by("-is_featured", "-published_at", "-created_at")
+
+
+def _published_blog_queryset_for_list(request):
+    qs = _published_blogs_unfiltered_queryset()
+    category = request.GET.get("category", "").strip()
+    if category and category.lower() != "all":
+        qs = qs.filter(category__iexact=category)
+    return qs
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def getPublishedBlogMeta(request):
+    qs = BlogPost.objects.filter(
+        status=BlogPost.PUBLISHED,
+        published_at__isnull=False,
+        published_at__lte=currentDateTime.now(pytz.UTC),
+    )
+    cats = (
+        qs.exclude(category__isnull=True)
+        .exclude(category__exact="")
+        .values_list("category", flat=True)
+        .distinct()
+    )
+    categories = sorted(set(cats), key=lambda c: (c or "").lower())
+    return JsonResponse({"categories": list(categories)}, safe=False)
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def getPublishedBlogs(request):
+    blogs_qs = _published_blog_queryset_for_list(request)
 
     page_raw = request.GET.get("page")
     if page_raw is not None and str(page_raw).strip() != "":

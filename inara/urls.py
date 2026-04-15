@@ -164,6 +164,7 @@ urlpatterns = [
     path('addBlog', views.addBlog.as_view(), name='addBlog'),
     path('updateBlog/<int:pk>', views.updateBlog.as_view(), name='updateBlog'),
     path('getPublishedBlogs', views.getPublishedBlogs, name='getPublishedBlogs'),
+    path('getPublishedBlogMeta', views.getPublishedBlogMeta, name='getPublishedBlogMeta'),
     path('getPublishedBlog', views.getPublishedBlog, name='getPublishedBlog'),
 
 
