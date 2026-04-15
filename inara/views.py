@@ -275,13 +275,40 @@ def getBlog(request):
 @api_view(["GET"])
 @permission_classes((AllowAny,))
 def getPublishedBlogs(request):
-    blogs = BlogPost.objects.filter(
+    blogs_qs = BlogPost.objects.filter(
         status=BlogPost.PUBLISHED,
         published_at__isnull=False,
         published_at__lte=currentDateTime.now(pytz.UTC),
     ).order_by("-is_featured", "-published_at", "-created_at")
 
-    serializer = BlogPostSerializer(blogs, many=True, context={"request": request})
+    page_raw = request.GET.get("page")
+    if page_raw is not None and str(page_raw).strip() != "":
+        try:
+            page_num = int(page_raw)
+        except (TypeError, ValueError):
+            page_num = 1
+        page_num = max(1, page_num)
+        try:
+            page_size = int(request.GET.get("page_size", "12"))
+        except (TypeError, ValueError):
+            page_size = 12
+        page_size = min(max(1, page_size), 50)
+
+        total = blogs_qs.count()
+        start = (page_num - 1) * page_size
+        page_qs = blogs_qs[start : start + page_size]
+        serializer = BlogPostSerializer(page_qs, many=True, context={"request": request})
+        return JsonResponse(
+            {
+                "count": total,
+                "results": serializer.data,
+                "page": page_num,
+                "page_size": page_size,
+            },
+            safe=False,
+        )
+
+    serializer = BlogPostSerializer(blogs_qs, many=True, context={"request": request})
     return JsonResponse(serializer.data, safe=False)
 
 
