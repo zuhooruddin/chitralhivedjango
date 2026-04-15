@@ -280,6 +280,8 @@ def _published_blogs_unfiltered_queryset():
     ).order_by("-is_featured", "-published_at", "-created_at")
 
 
+
+
 def _published_blog_queryset_for_list(request):
     qs = _published_blogs_unfiltered_queryset()
     category = request.GET.get("category", "").strip()
