@@ -158,6 +158,15 @@ urlpatterns = [
     path('updateBrand/<int:pk>',  updateBrand.as_view(), name = 'updateBrand'),
     path('deleteBrand',  views.deleteBrand, name = 'deleteBrand'),
 
+    #### Blogs #############
+    path('getAllPaginatedBlogs', views.getAllPaginatedBlogs.as_view(), name='getAllPaginatedBlogs'),
+    path('getBlog', views.getBlog, name='getBlog'),
+    path('addBlog', views.addBlog.as_view(), name='addBlog'),
+    path('updateBlog/<int:pk>', views.updateBlog.as_view(), name='updateBlog'),
+    path('getPublishedBlogs', views.getPublishedBlogs, name='getPublishedBlogs'),
+    path('getPublishedBlogMeta', views.getPublishedBlogMeta, name='getPublishedBlogMeta'),
+    path('getPublishedBlog', views.getPublishedBlog, name='getPublishedBlog'),
+
 
 
 
